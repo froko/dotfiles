@@ -7,10 +7,14 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
+vim.opt.autoindent = true
 
 -- Enable auto indenting and set it to sapces
 vim.opt.smartindent = true
 vim.opt.shiftwidth = 2
+
+-- Line wrapping
+vim.opt.wrap = false
 
 -- Enable incremental searching
 vim.opt.incsearch = true
@@ -31,3 +35,6 @@ vim.opt.clipboard = 'unnamed,unnamedplus'
 
 -- Enable cursor line highlight
 vim.opt.cursorline = true
+
+-- Turn off swap files
+vim.opt.swapfile = false
