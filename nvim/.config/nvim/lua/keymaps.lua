@@ -16,10 +16,6 @@ nnoremap('bd', ':bd<CR>') -- Close buffer
 nnoremap('bD', ':bd!<CR>') -- Close buffer w/o saving
 
 -- Splits
-nnoremap('<C-h>', ':wincmd h<CR>') -- Select left split
-nnoremap('<C-j>', ':wincmd j<CR>') -- Select split below
-nnoremap('<C-k>', ':wincmd k<CR>') -- Select split above
-nnoremap('<C-l>', ':wincmd l<CR>') -- Select right split
 nnoremap('ss', '<C-w>v') -- Split vertically
 nnoremap('sS', '<C-w>n') -- Split horizontally
 nnoremap('sd', '<C-w>c') -- Close split
@@ -30,3 +26,4 @@ nnoremap('S', ':%s//gI<Left><Left><Left>')
 -- Move block
 vnoremap('<Down>', ":m '>+1<CR>gv=gv")
 vnoremap('<Up>', ":m '<-2<CR>gv=gv")
+
