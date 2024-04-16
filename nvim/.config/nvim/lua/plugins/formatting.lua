@@ -12,7 +12,6 @@ return {
         typescript = { 'prettier' },
         javascriptreact = { 'prettier' },
         typescriptreact = { 'prettier' },
-        svelte = { 'prettier' },
         css = { 'prettier' },
         html = { 'prettier' },
         json = { 'prettier' },
@@ -34,6 +33,6 @@ return {
         async = false,
         timeout_ms = 1000,
       }
-    end, { desc = 'Format file or range (in visual mode)' })
+    end, { desc = 'Format file' })
   end,
 }
