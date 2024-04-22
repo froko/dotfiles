@@ -49,8 +49,10 @@ nnoremap L $
 nnoremap H ^
 
 " Buffers
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprev<CR>
+nnoremap bh :bfirst<CR>
+nnoremap bj :bprev<CR>
+nnoremap bk :bnext<CR>
+nnoremap bl :blast<CR>
 nnoremap bd :bd<CR>
 nnoremap bD :bd!<CR>
 nnoremap <Space><Space> :ls<CR>:b<Space>
