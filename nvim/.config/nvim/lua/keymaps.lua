@@ -10,8 +10,10 @@ nnoremap('L', '$') -- Go to end of line
 nnoremap('H', '^') -- Go to first character of line
 
 -- Buffers
-nnoremap('<Tab>', ':bnext<CR>') -- Go to next buffer
-nnoremap('<S-Tab>', ':bprevious<CR>') -- Go to previous buffer
+nnoremap('bh', ':bfirst<CR>')
+nnoremap('bj', ':bprev<CR>')
+nnoremap('bk', ':bnext<CR>')
+nnoremap('bl', ':blast<CR>')
 nnoremap('bd', ':bd<CR>') -- Close buffer
 nnoremap('bD', ':bd!<CR>') -- Close buffer w/o saving
 
@@ -26,4 +28,3 @@ nnoremap('S', ':%s//gI<Left><Left><Left>')
 -- Move block
 vnoremap('<Down>', ":m '>+1<CR>gv=gv")
 vnoremap('<Up>', ":m '<-2<CR>gv=gv")
-
