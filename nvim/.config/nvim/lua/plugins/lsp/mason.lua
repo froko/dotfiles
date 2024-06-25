@@ -21,6 +21,7 @@ return {
 
     mason_lspconfig.setup {
       ensure_installed = {
+        'csharp_ls',
         'tsserver',
         'html',
         'cssls',
@@ -30,7 +31,7 @@ return {
     }
 
     mason_tool_installer.setup {
-      ensure_installed = { 'prettier', 'stylua', 'csharpier', 'eslint_d' },
+      ensure_installed = { 'prettier', 'stylua', 'csharpier', 'eslint' },
     }
   end,
 }

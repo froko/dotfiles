@@ -8,6 +8,7 @@ return {
 
     conform.setup {
       formatters_by_ft = {
+        cs = { 'csharpier' },
         javascript = { 'prettier' },
         typescript = { 'prettier' },
         javascriptreact = { 'prettier' },
@@ -18,7 +19,6 @@ return {
         yaml = { 'prettier' },
         markdown = { 'prettier' },
         lua = { 'stylua' },
-        cs = { 'csharpier' },
       },
       format_on_save = {
         lsp_fallback = true,
@@ -27,7 +27,7 @@ return {
       },
     }
 
-    nnoremap('<leader>mp', function()
+    nnoremap('<leader>mf', function()
       conform.format {
         lsp_fallback = true,
         async = false,

@@ -49,10 +49,8 @@ nnoremap L $
 nnoremap H ^
 
 " Buffers
-nnoremap bh :bfirst<CR>
 nnoremap bj :bprev<CR>
 nnoremap bk :bnext<CR>
-nnoremap bl :blast<CR>
 nnoremap bd :bd<CR>
 nnoremap bD :bd!<CR>
 nnoremap <Space><Space> :ls<CR>:b<Space>
@@ -67,7 +65,7 @@ nnoremap sS <C-w>n
 nnoremap sd <C-w>c
 
 " Alias replace all to S
-nnoremap S :%s//gI<Left><Left><Left>
+nnoremap <Leader>mh :%s//gI<Left><Left><Left>
 
 " Move block
 xnoremap <Down> :move'>+<CR>gv=gv

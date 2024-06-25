@@ -38,3 +38,13 @@ vim.opt.cursorline = true
 
 -- Turn off swap files
 vim.opt.swapfile = false
+
+-- Reload files when changed outside of neovim
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd(
+  { 'FocusGained', 'BufEnter', 'VimResume', 'CursorHold' },
+  {
+    pattern = '*',
+    command = 'checktime',
+  }
+)
