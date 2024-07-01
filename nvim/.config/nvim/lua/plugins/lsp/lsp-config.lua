@@ -69,7 +69,8 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
     end
 
-    local omnisharpAssembly = '/Users/patrickineichen/.omnisharp/OmniSharp.dll'
+    local omnisharpAssembly = os.getenv 'OMNISHARP'
+      or '~/.omnisharp/OmniSharp.dll'
     local pid = vim.fn.getpid()
     mason_lspconfig.setup_handlers {
       function(server_name)
