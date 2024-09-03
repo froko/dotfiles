@@ -23,6 +23,8 @@ return {
         'css',
         'javascript',
         'typescript',
+        'markdown',
+        'markdown_inline',
       },
       incremental_selection = {
         enable = true,
