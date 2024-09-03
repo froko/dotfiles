@@ -48,3 +48,6 @@ vim.api.nvim_create_autocmd(
     command = 'checktime',
   }
 )
+
+-- Required by Obsidian
+vim.opt.conceallevel = 1
