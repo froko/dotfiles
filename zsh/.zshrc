@@ -12,12 +12,8 @@ set -o vi
 
 export VISUAL=nvim
 export EDITOR=nvim
-export TERM="tmux-256color"
-
 export BAT_THEME="Catppuccin Mocha"
-
 export DOTFILES="$HOME/.dotfiles"
-export PNPM_HOME="/Users/patrickineichen/.local/share/pnpm/store/v3"
 
 
 
@@ -28,7 +24,6 @@ setopt extended_glob null_glob
 path=(
   $path
   $HOME/.bin
-  $PNPM_HOME
 )
 
 typeset -U path
@@ -57,6 +52,8 @@ fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 autoload -U promptinit; promptinit
 prompt pure
+
+
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ fzf Configuration ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -107,8 +104,9 @@ alias ....="cd ../../.."
 
 alias lpath='echo $PATH | tr ":" "\n"'
 
+
 # pnpm
-export PNPM_HOME="/Users/patrickineichen/.local/share/pnpm/store/v3"
+export PNPM_HOME="/Users/patrickineichen/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
