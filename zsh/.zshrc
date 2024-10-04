@@ -2,6 +2,7 @@
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source <(fzf --zsh)
+eval "$(zoxide init zsh)"
 
 
 
@@ -13,7 +14,6 @@ export VISUAL=nvim
 export EDITOR=nvim
 export TERM="tmux-256color"
 
-export BROWSER="arc"
 export BAT_THEME="Catppuccin Mocha"
 
 export DOTFILES="$HOME/.dotfiles"
@@ -90,6 +90,7 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 alias reload='RELOAD=1 source ~/.zshrc'
 
 alias c="clear"
+alias cd="z"
 alias h="cd ~"
 alias t='sesh connect $(sesh list | fzf)'
 alias v="/opt/homebrew/bin/nvim"
