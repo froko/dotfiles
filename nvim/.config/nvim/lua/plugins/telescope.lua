@@ -7,11 +7,7 @@ return {
     local telescope = require("telescope")
     local actions = require("telescope.actions")
 
-    nnoremap("<leader>f.", function()
-      builtin.find_files({ cwd = "~/dotfiles", hidden = true })
-    end, { desc = "dotfiles" })
-
-    nnoremap("<leader>fb", function()
+    nnoremap("<leader>,", function()
       builtin.buffers({ sort_mru = true, sort_lastused = true, initial_mode = "normal" })
     end, { desc = "Buffers" })
 
