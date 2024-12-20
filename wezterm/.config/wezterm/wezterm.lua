@@ -6,6 +6,7 @@ local config = {
 	enable_tab_bar = false,
 	native_macos_fullscreen_mode = true,
 	window_decorations = "RESIZE",
+	window_background_opacity = 0.9,
 	keys = {
 		{
 			key = "n",
