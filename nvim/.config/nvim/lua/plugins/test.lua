@@ -1,7 +1,5 @@
 return {
-  { "Issafalcon/neotest-dotnet" },
-  {
-    "nvim-neotest/neotest",
-    opts = { adapters = { "neotest-dotnet" } },
-  },
+  "nvim-neotest/neotest",
+  requires = { "Issafalcon/neotest-dotnet" },
+  opts = { adapters = { "neotest-dotnet" } },
 }
