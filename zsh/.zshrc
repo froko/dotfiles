@@ -1,7 +1,7 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Plugins ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source <(fzf --zsh)
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 
@@ -44,17 +44,6 @@ setopt SHARE_HISTORY
 
 
 
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Prompt ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-PURE_GIT_PULL=0
-
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-
-autoload -U promptinit; promptinit
-prompt pure
-
-
-
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ fzf Configuration ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 _fzf_compgen_path() {
@@ -90,7 +79,7 @@ alias c="clear"
 alias cd="z"
 alias h="cd ~"
 alias t='sesh connect $(sesh list | fzf)'
-alias v="/opt/homebrew/bin/nvim"
+alias v="nvim"
 alias e="yazi"
 alias lg="lazygit"
 alias oo="cd ~/Work/2ndBrain && nvim"
@@ -105,10 +94,6 @@ alias ....="cd ../../.."
 alias lpath='echo $PATH | tr ":" "\n"'
 
 
-# pnpm
-export PNPM_HOME="/Users/patrickineichen/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
