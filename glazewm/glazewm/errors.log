@@ -1,0 +1,10 @@
+[2m2025-01-20T06:47:13.774512Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m window_effects.focused_window.border: Color must start with a `#`. at line 89 column 7
+[2m2025-01-20T06:57:34.502010Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m gaps: data did not match any variant of untagged enum LengthValueDe at line 93 column 3
+[2m2025-01-20T06:58:03.336707Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m gaps: data did not match any variant of untagged enum LengthValueDe at line 93 column 3
+[2m2025-01-20T06:58:26.676850Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m gaps.outer_gap: invalid type: string "10px", expected struct RectDelta at line 94 column 14
+[2m2025-01-20T06:58:58.376342Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m gaps.outer_gap: invalid type: string "10px", expected struct RectDelta at line 94 column 14
+[2m2025-01-22T05:57:42.394848Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m channel closed
+[2m2025-01-22T05:57:49.352431Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m channel closed
+[2m2025-01-22T05:57:50.115542Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m channel closed
+[2m2025-01-22T12:18:38.884120Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Invalid window handle. (0x80070578)
+[2m2025-01-29T14:22:31.954752Z[0m [31mERROR[0m [2mglazewm[0m[2m:[0m Access is denied. (0x80070005)
