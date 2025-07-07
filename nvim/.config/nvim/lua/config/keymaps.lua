@@ -1,19 +1,24 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
-
-local inoremap = require("utils").inoremap
-local nnoremap = require("utils").nnoremap
-local vnoremap = require("utils").vnoremap
+local inoremap = require('utils').inoremap
+local nnoremap = require('utils').nnoremap
+local vnoremap = require('utils').vnoremap
 
 -- Core
-inoremap("jk", "<Esc>") -- Map 'jk' to <Esc>
-nnoremap("-", "<CMD>Oil<CR>", { desc = " Open parent directory" })
+inoremap('jk', '<Esc>') -- Map 'jk' to <Esc>
 
 -- Navigation
-nnoremap("L", "$") -- Go to end of line
-nnoremap("H", "^") -- Go to first character of line
+nnoremap('L', '$') -- Go to end of line
+nnoremap('H', '^') -- Go to first character of line
+
+-- Windows
+nnoremap('<leader>ws', ':vsplit<CR>', { desc = '[W]indow [S]plit (vertically)' })
+nnoremap('<leader>wh', ':split<CR>', { desc = '[W]indow Split ([H]orizontally)' })
+nnoremap('<leader>ww', ':close<CR>', { desc = '[W]indow Close' })
+
+-- Buffers
+nnoremap('bb', ':bdelete<CR>')
+nnoremap('bj', ':bprev<CR>')
+nnoremap('bl', ':bnext<CR>')
 
 -- Move block
-vnoremap("<Down>", ":m '>+1<CR>gv=gv")
-vnoremap("<Up>", ":m '<-2<CR>gv=gv")
+vnoremap('<Down>', ":m '>+1<CR>gv=gv")
+vnoremap('<Up>', ":m '<-2<CR>gv=gv")
