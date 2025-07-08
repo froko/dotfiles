@@ -4,10 +4,11 @@ return {
   opts = {
     delay = 0,
     icons = {
-      mappings = vim.g.have_nerd_font,
+      mappings = true,
     },
     spec = {
       { '<leader>n', group = '[N]otifications' },
+      { '<leader>o', group = '[O]bsidian' },
       { '<leader>s', group = '[S]earch' },
       { '<leader>w', group = '[W]indow' },
     },
