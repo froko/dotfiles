@@ -22,8 +22,9 @@ return {
     end,
     formatters_by_ft = {
       ['lua'] = { 'stylua' },
-      ['javascript'] = { { 'eslint', 'prettier' } },
-      ['typescript'] = { { 'eslint', 'prettier' } },
+      ['javascript'] = { 'eslint', 'prettier' },
+      ['typescript'] = { 'eslint', 'prettier' },
+      ['astro'] = { 'eslint_d', 'prettier' },
       ['html'] = { 'prettier' },
       ['css'] = { 'prettier' },
       ['markdown'] = { 'markdownlint-cli2', 'prettierd' },

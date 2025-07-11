@@ -4,6 +4,7 @@ local vnoremap = require('utils').vnoremap
 
 -- Core
 inoremap('jk', '<Esc>') -- Map 'jk' to <Esc>
+nnoremap('<leader>e', ':e!<CR>', { desc = 'r[E]load file' })
 
 -- Navigation
 nnoremap('L', '$') -- Go to end of line
