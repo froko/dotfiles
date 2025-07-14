@@ -29,20 +29,20 @@ return {
 
     -- See `:help telescope.builtin`
     local builtin = require('telescope.builtin')
-    nnoremap('<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
-    nnoremap('<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-    nnoremap('<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-    nnoremap('<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-    nnoremap('<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-    nnoremap('<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-    nnoremap('<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-    nnoremap('<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+    nnoremap('<leader>ff', builtin.find_files, { desc = '[F]ind [F]iles' })
+    nnoremap('<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp' })
+    nnoremap('<leader>fk', builtin.keymaps, { desc = '[F]ind [K]eymaps' })
+    nnoremap('<leader>fw', builtin.grep_string, { desc = '[F]ind current [W]ord' })
+    nnoremap('<leader>fg', builtin.live_grep, { desc = '[F]ind by [G]rep' })
+    nnoremap('<leader>fd', builtin.diagnostics, { desc = '[F]ind [D]iagnostics' })
+    nnoremap('<leader>fr', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
+    nnoremap('<leader>fs', builtin.lsp_document_symbols, { desc = '[F]ind [S]ymbols' })
+    nnoremap('<leader>fS', builtin.lsp_dynamic_workspace_symbols, { desc = '[F]ind Workspace Symbols' })
+    nnoremap('<leader>fn', ':Telescope notify<CR>', { desc = '[F]ind [N]otifications' })
     nnoremap('<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
-    vim.keymap.set('n', '<leader>sc', function()
+    vim.keymap.set('n', '<leader>f.', function()
       builtin.find_files({ cwd = vim.fn.stdpath('config') })
-    end, { desc = '[S]earch Neovim [C]onfig files' })
-
-    vim.keymap.set('n', '<leader>sn', ':Telescope notify<CR>', { desc = '[S]earch [N]otifications' })
+    end, { desc = '[F]ind Neovim config files' })
   end,
 }

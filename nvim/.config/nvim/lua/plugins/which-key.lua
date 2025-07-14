@@ -1,16 +1,25 @@
 return {
   'folke/which-key.nvim',
-  event = 'VimEnter',
+  event = 'VeryLazy',
   opts = {
-    delay = 0,
-    icons = {
-      mappings = true,
-    },
+    preset = 'helix',
     spec = {
+      { '<leader>f', group = '[F]ind' },
       { '<leader>n', group = '[N]otifications' },
       { '<leader>o', group = '[O]bsidian' },
-      { '<leader>s', group = '[S]earch' },
-      { '<leader>w', group = '[W]indow' },
+      { '<leader>w', group = '[W]indows' },
+    },
+  },
+  config = function(_, opts)
+    require('which-key').setup(opts)
+  end,
+  keys = {
+    {
+      '<leader>?',
+      function()
+        require('which-key').show({ global = false })
+      end,
+      desc = 'Buffer Local Keymaps (which-key)',
     },
   },
 }

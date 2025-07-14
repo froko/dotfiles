@@ -84,7 +84,7 @@ return {
       }
 
       local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, { 'stylua', 'eslint', 'markdownlint-cli2' })
+      vim.list_extend(ensure_installed, { 'stylua', 'eslint', 'eslint_d', 'prettier', 'marksman', 'markdownlint-cli2' })
 
       require('mason-tool-installer').setup({ ensure_installed = ensure_installed })
       require('mason-lspconfig').setup({

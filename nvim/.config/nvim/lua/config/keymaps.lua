@@ -9,6 +9,10 @@ nnoremap('<leader>e', ':e!<CR>', { desc = 'r[E]load file' })
 -- Navigation
 nnoremap('L', '$') -- Go to end of line
 nnoremap('H', '^') -- Go to first character of line
+nnoremap('<C-d>', '<C-d>zz') -- Scroll down and center
+nnoremap('<C-u>', '<C-u>zz') -- Scroll up and center
+nnoremap('<C-f>', '<C-f>zz') -- Page down and center
+nnoremap('<C-b>', '<C-b>zz') -- Page up and center
 
 -- Windows
 nnoremap('<leader>ws', ':vsplit<CR>', { desc = '[W]indow [S]plit (vertically)' })
