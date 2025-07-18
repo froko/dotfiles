@@ -4,6 +4,7 @@ return {
   opts = {
     preset = 'helix',
     spec = {
+      { '<leader>b', group = '[B]uffers' },
       { '<leader>f', group = '[F]ind' },
       { '<leader>n', group = '[N]otifications' },
       { '<leader>o', group = '[O]bsidian' },

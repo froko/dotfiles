@@ -3,16 +3,16 @@ local nnoremap = require('utils').nnoremap
 local vnoremap = require('utils').vnoremap
 
 -- Core
-inoremap('jk', '<Esc>') -- Map 'jk' to <Esc>
+inoremap('jk', '<Esc>')
 nnoremap('<leader>e', ':e!<CR>', { desc = 'r[E]load file' })
 
 -- Navigation
-nnoremap('L', '$') -- Go to end of line
-nnoremap('H', '^') -- Go to first character of line
-nnoremap('<C-d>', '<C-d>zz') -- Scroll down and center
-nnoremap('<C-u>', '<C-u>zz') -- Scroll up and center
-nnoremap('<C-f>', '<C-f>zz') -- Page down and center
-nnoremap('<C-b>', '<C-b>zz') -- Page up and center
+nnoremap('L', '$')
+nnoremap('H', '^')
+nnoremap('<C-d>', '<C-d>zz')
+nnoremap('<C-u>', '<C-u>zz')
+nnoremap('<C-f>', '<C-f>zz')
+nnoremap('<C-b>', '<C-b>zz')
 
 -- Windows
 nnoremap('<leader>ws', ':vsplit<CR>', { desc = '[W]indow [S]plit (vertically)' })
@@ -20,10 +20,15 @@ nnoremap('<leader>wh', ':split<CR>', { desc = '[W]indow Split ([H]orizontally)' 
 nnoremap('<leader>ww', ':close<CR>', { desc = '[W]indow Close' })
 
 -- Buffers
-nnoremap('bb', ':bdelete<CR>')
+nnoremap('<leader>bb', ':bd<CR>', { desc = '[B]uffer delete' })
+nnoremap('<leader>ba', ':%bd<CR>', { desc = '[B]uffer delete [A]ll' })
+nnoremap('<leader>bA', ':%bd|e#|bd#<CR>', { desc = '[B]uffer delete [A]ll but this' })
 nnoremap('bj', ':bprev<CR>')
-nnoremap('bl', ':bnext<CR>')
+nnoremap('bk', ':bnext<CR>')
 
 -- Move block
 vnoremap('<Down>', ":m '>+1<CR>gv=gv")
 vnoremap('<Up>', ":m '<-2<CR>gv=gv")
+
+-- Replace in file
+nnoremap('<Leader>s', ':%s//gI<Left><Left><Left>', { desc = '[S]earch and [R]eplace in file' })
