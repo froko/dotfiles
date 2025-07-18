@@ -16,6 +16,11 @@ set nowrap
 set showmatch
 set termguicolors
 
+" Cursor style
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
+
 " Clipboard settings
 set clipboard+=unnamed
 set go+=a
@@ -56,7 +61,9 @@ nnoremap <C-b> <C-b>zz
 " Buffers
 nnoremap bj :bprev<CR>
 nnoremap bk :bnext<CR>
-nnoremap bb :bd<CR>
+nnoremap <Space>bb :bd<CR>
+nnoremap <Space>ba :%bd\|e#\|bd#<CR>
+nnoremap <Space>bA :%bd<CR>
 nnoremap <Space><Space> :ls<CR>:b<Space>
 
 " Windows
@@ -65,12 +72,12 @@ nnoremap <Leader>wh <C-w>n
 nnoremap <Leader>ww <C-w>c
 
 " Splits
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
-" Alias replace all to S
+" Replace in buffer
 nnoremap <Leader>s :%s//gI<Left><Left><Left>
 
 " Move block
@@ -92,13 +99,14 @@ call plug#begin()
   Plug 'vim-airline/vim-airline'
   Plug 'tribela/vim-transparent'
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'tpope/vim-surround'
   Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 " Color scheme
 colorscheme catppuccin_mocha
 let g:airline_theme = 'catppuccin_mocha'
-
+"
 " Plugin Keymaps
 nnoremap s <Plug>(easymotion-s2)
 nnoremap t <Plug>(easymotion-t2)
