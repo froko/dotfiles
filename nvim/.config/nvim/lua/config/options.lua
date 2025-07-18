@@ -14,6 +14,9 @@ vim.o.mouse = 'a'
 -- Sync clipboard between OS and Neovim.
 vim.o.clipboard = 'unnamedplus'
 
+-- Save undo history
+vim.opt.undofile = true
+
 -- Tab settings
 vim.o.expandtab = true
 vim.o.tabstop = 2
@@ -44,10 +47,8 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 vim.o.confirm = true
 
+-- Folding settings
 vim.o.foldmethod = 'indent'
---vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = false
-
-vim.opt_local.conceallevel = 2

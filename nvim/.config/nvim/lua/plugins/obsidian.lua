@@ -14,7 +14,7 @@ return {
       { name = '2ndBrain', path = os.getenv('OBSIDIANDIR') or '~/Work/2ndBrain' },
     },
     ui = { enable = false },
-    completion = { nvim_cmp = false, blink = true },
+    completion = { nvim_cmp = false, blink = false },
     notes_subdir = '0-Inbox',
     new_notes_location = 'notes_subdir',
     templates = { folder = '__Templates' },
