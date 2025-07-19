@@ -1,3 +1,10 @@
 !*
 .git/
+.editorconfig
+.markdownlint.json
+.prettierrc
 tmux/**/plugins
+
+Brewfile
+obsidian/
+windows/
