@@ -1,0 +1,15 @@
+!*
+.git/
+.editorconfig
+.markdownlint.json
+.prettierrc
+
+tmux/**/plugins
+zsh/**/plugins
+vim/README.md
+zsh/README.md
+
+Brewfile
+homebrew/
+obsidian/
+windows/
