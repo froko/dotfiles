@@ -207,7 +207,7 @@ Leave the wsl instance and set the default user to the new user you just created
 by running the following command in PowerShell:
 
 ```powershell
-wsl -manage archlinux --set-default-user yourusername
+wsl --manage archlinux --set-default-user yourusername
 ```
 
 ### Basic Applications
