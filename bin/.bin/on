@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if [ -z "$1" ]; then
+  echo "Error: A file name must be set, e.g. on \"the wonderful thing about tiggers\"."
+  exit 1
+fi
+
+file_name=$(echo "$1" | tr ' ' '-')
+cd "$OBSIDIAN_HOME" || exit
+touch "0-Inbox/${file_name}.md"
+nvim "0-Inbox/${file_name}.md"
