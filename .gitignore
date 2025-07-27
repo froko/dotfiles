@@ -1,0 +1,6 @@
+nvim/**/lazy-lock.json
+nvim/**/plugins/custom/*
+!nvim/**/plugins/custom/custom.lua
+
+tmux/**/plugins
+
