@@ -1,0 +1,7 @@
+source ~/.vimrc
+
+set nerdtree
+nmap \ :NERDTreeToggle<CR>
+
+nmap s <Action>(flash.search)
+xmap s <Action>(flash.search)
