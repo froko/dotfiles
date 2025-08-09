@@ -1,0 +1,55 @@
+{
+  "name": "dotfiles",
+  "private": true,
+  "version": "0.0.1",
+  "description": "My dotfiles",
+  "license": "MIT",
+  "author": "Patrick Ineichen <github@frokonet.ch>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/froko/dotfiles.git"
+  },
+  "scripts": {
+    "release": "release-it"
+  },
+  "dependencies": {
+    "@release-it/conventional-changelog": "^10.0.1",
+    "release-it": "^19.0.4",
+    "release-it-pnpm": "^4.6.6"
+  },
+  "release-it": {
+    "git": {
+      "tagName": "v${version}",
+      "commitMessage": "chore: release ${version}",
+      "requireCleanWorkingDir": true,
+      "requireUpstream": true
+    },
+    "github": {
+      "release": true,
+      "releaseName": "${version}",
+      "assets": [
+        "CHANGELOG.md"
+      ]
+    },
+    "plugins": {
+      "release-it-pnpm": {},
+      "@release-it/conventional-changelog": {
+        "infile": "CHANGELOG.md",
+        "preset": {
+          "name": "conventionalcommits",
+          "type": [
+            {
+              "type": "feat",
+              "section": "Features"
+            },
+            {
+              "type": "fix",
+              "section": "Bug Fixes"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "packageManager": "pnpm@10.14.0"
+}

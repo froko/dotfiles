@@ -1,0 +1,10 @@
+node_modules/
+
+nvim/**/lazy-lock.json
+
+nvim/**/plugins/custom/*
+!nvim/**/plugins/custom/custom.lua
+!nvim/**/plugins/custom/__templates__
+
+tmux/**/plugins
+
