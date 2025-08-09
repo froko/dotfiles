@@ -13,8 +13,6 @@ return {
     opts = function(_, opts)
       local parsers = { 'c_sharp' }
       opts.ensure_installed = vim.list_extend(opts.ensure_installed or {}, parsers)
-      opts.markdown = { enable = true }
-      opts.markdown_inline = { enable = true }
     end,
   },
   {
