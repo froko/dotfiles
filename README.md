@@ -22,7 +22,7 @@ ln -s vim/.vimrc ~/.vimrc
 ln -s bat/.config/bat ~/.config/bat
 ln -s nvim/.config/nvim ~/.config/nvim
 ln -s tmux/.config/tmux ~/.config/tmux
-ln -s yazi /.config/yazi ~/.config/yazi
+ln -s yazi/.config/yazi ~/.config/yazi
 ln -s wezterm/.config/wezterm ~/.config/wezterm
 ```
 
