@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/froko/dotfiles/compare/v1.0.0...v1.1.0) (2025-08-09)
+
+### Features
+
+* **nvim:** add csharp support ([276ea72](https://github.com/froko/dotfiles/commit/276ea72cc1ea2cb5d8df3a22ed2c4a92d69117cb))
+* **nvim:** add rust support ([db05834](https://github.com/froko/dotfiles/commit/db05834127cbe4bbc32483462a77b96a53685ae8))
+
 ## 1.0.0 (2025-08-09)
 
 ### Features
