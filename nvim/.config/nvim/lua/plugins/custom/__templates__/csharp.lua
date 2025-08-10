@@ -18,8 +18,21 @@ return {
   {
     'stevearc/conform.nvim',
     opts = function(_, opts)
-      local formatters = { c_sharp = { 'csharpier' } }
+      local formatters = { cs = { 'csharpier' } }
       opts.formatters_by_ft = vim.tbl_deep_extend('force', opts.formatters_by_ft or {}, formatters)
+      opts.formatters = {
+        csharpier = function()
+          local use_dotnet = vim.fn.executable('csharpier') == 0
+          local command = use_dotnet and 'dotnet' or 'csharpier'
+          local args = use_dotnet and { 'csharpier', 'format', '$FILENAME' } or { 'format', '$FILENAME' }
+          return {
+            command = command,
+            args = args,
+            stdin = false,
+            require_cwd = false,
+          }
+        end,
+      }
     end,
   },
 }
