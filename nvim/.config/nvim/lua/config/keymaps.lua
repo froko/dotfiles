@@ -2,6 +2,9 @@ local inoremap = require('utils').inoremap
 local nnoremap = require('utils').nnoremap
 local vnoremap = require('utils').vnoremap
 
+-- Set <space> as the leader key
+vim.g.mapleader = ' '
+
 -- Core
 inoremap('jk', '<Esc>')
 nnoremap('<leader>r', ':e!<CR>', { desc = '[R]eload file' })
