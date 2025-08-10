@@ -1,6 +1,3 @@
--- Set <space> as the leader key
-vim.g.mapleader = ' '
-
 -- Make visuals more appealing
 vim.o.winborder = 'rounded'
 
@@ -53,7 +50,9 @@ vim.o.confirm = true
 -- Folding settings
 vim.api.nvim_create_autocmd({ 'FileType' }, {
   callback = function()
-    if require('nvim-treesitter.parsers').has_parser() then
+    local coding_plugins_loaded, parser = pcall(require, 'nvim-treesitter.parsers')
+
+    if (coding_plugins_loaded == true) and parser.has_parser() then
       vim.opt.foldmethod = 'expr'
       vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
     else
