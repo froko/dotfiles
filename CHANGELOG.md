@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/froko/dotfiles/compare/v1.1.0...v1.2.0) (2025-08-10)
+
+### Features
+
+* **nvim:** add linting capabilities for json, yaml and toml ([e01f250](https://github.com/froko/dotfiles/commit/e01f2501b7e6dfe596a47c96036aab43c0aa8d00))
+* **nvim:** add treesitter support for toml, yaml and xml ([0a4afd9](https://github.com/froko/dotfiles/commit/0a4afd933dec46ca25ec81e4d747962f2939963d))
+* **nvim:** make loading sequence aware of loaded plugins ([5a9cfd5](https://github.com/froko/dotfiles/commit/5a9cfd5b378104952e14edb00a02fbff0371dc45))
+
+### Bug Fixes
+
+* **nvim:** find correct csharpier path ([f28a2ee](https://github.com/froko/dotfiles/commit/f28a2ee0e424eb67e59775bb468f1a2e065e2a95))
+
 ## [1.1.0](https://github.com/froko/dotfiles/compare/v1.0.0...v1.1.0) (2025-08-09)
 
 ### Features

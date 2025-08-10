@@ -1,7 +1,7 @@
 {
   "name": "dotfiles",
   "private": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "My dotfiles",
   "license": "MIT",
   "author": "Patrick Ineichen <github@frokonet.ch>",
