@@ -2,11 +2,7 @@ return {
   'mfussenegger/nvim-lint',
   event = { 'BufReadPre', 'BufNewFile' },
   opts = {
-    linters_by_ft = {
-      json = { 'jsonlint' },
-      yaml = { 'yamllint' },
-      toml = { 'tombi' },
-    },
+    linters_by_ft = { json = { 'jsonlint' } },
   },
   config = function(_, opts)
     local lint = require('lint')
