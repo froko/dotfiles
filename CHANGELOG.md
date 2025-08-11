@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.0](https://github.com/froko/dotfiles/compare/v1.2.0...v1.3.0) (2025-08-11)
+
+### Features
+
+* **nvim:** remove linters for yaml and toml ([27ada76](https://github.com/froko/dotfiles/commit/27ada76cbcdb950c5268df705eb8d44d08705c77))
+
 ## [1.2.0](https://github.com/froko/dotfiles/compare/v1.1.0...v1.2.0) (2025-08-10)
 
 ### Features
