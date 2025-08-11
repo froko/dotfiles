@@ -84,7 +84,7 @@ Install the basic applications using apt:
 
 ```bash
 sudo apt update
-sudo apt install -y bat eza fd-find fzf gcc ripgrep stow tmux zoxide zsh
+sudo apt install -y bat eza fd-find fzf gcc libicu-dev ripgrep stow tmux unzip zoxide zsh
 ```
 
 Change the default shell to zsh for your user:
