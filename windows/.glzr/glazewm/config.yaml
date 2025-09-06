@@ -44,14 +44,14 @@ gaps:
   scale_with_dpi: true
 
   # Gap between adjacent windows.
-  inner_gap: "3px"
+  inner_gap: "5px"
 
   # Gap between windows and the screen edge.
   outer_gap:
-    top: "42px"
-    right: "3px"
-    bottom: "3px"
-    left: "3px"
+    top: "44px"
+    right: "5px"
+    bottom: "5px"
+    left: "5px"
 
 window_effects:
   # Visual effects to apply to the focused window.
@@ -110,33 +110,74 @@ window_behavior:
       shown_on_top: false
 
 workspaces:
-  - name: "1"
-  - name: "2"
-  - name: "3"
-  - name: "4"
-  - name: "5"
-  - name: "6"
-  - name: "7"
-  - name: "8"
-  - name: "9"
+  - name: '1'
+    display_name: 'Browser'
+    keep_alive: true
+  - name: '2'
+    display_name: 'Slack'
+    keep_alive: true
+  - name: '3'
+    display_name: 'Terminal'
+    keep_alive: true
+  - name: '4'
+    display_name: 'Development'
+    keep_alive: true
+  - name: '5'
+    display_name: 'Obsidian'
+    keep_alive: true
+  - name: '6'
+    display_name: 'Temp'
+    keep_alive: false
+  - name: '7'
+    display_name: 'Misc (7)'
+    keep_alive: false
+  - name: '8'
+    display_name: 'Misc (8)'
+    keep_alive: false
+  - name: '9'
+    display_name: 'Misc (9)'
+    keep_alive: false
 
 window_rules:
   - commands: ["ignore"]
     match:
       # Ignores any Zebar windows.
-      - window_process: { equals: "zebar" }
+      - window_process: { equals: 'zebar' }
 
       # Ignores picture-in-picture windows for browsers.
       - window_title: { regex: "[Pp]icture.in.[Pp]icture" }
         window_class: { regex: "Chrome_WidgetWin_1|MozillaDialogClass" }
 
-      # Ignore rules for various 3rd-party apps.
-      - window_process: { equals: "PowerToys" }
-        window_class: { regex: 'HwndWrapper\[PowerToys\.PowerAccent.*?\]' }
-      - window_process: { equals: "PowerToys" }
-        window_title: { regex: ".*? - Peek" }
-      - window_process: { equals: "Lively" }
-        window_class: { regex: "HwndWrapper" }
+      - window_title: { regex: "Create: File" }
+        window_process: { equals: "rider64" }
+
+      - window_title: { regex: "Add File to Git" }
+        window_process: { equals: "rider64" }
+      
+      - window_title: { regex: "Rename" }
+        window_process: { equals: "rider64" }
+
+  - commands: ['move --workspace 1']
+    match:
+        - window_process: { regex: 'chrome|msedge' }
+
+  - commands: ['move --workspace 2']
+    match:
+        - window_process: { equals: 'slack' }
+
+  - commands: ['move --workspace 3']
+    match:
+        - window_process: { equals: 'WindowsTerminal' }
+
+  - commands: ['move --workspace 4']
+    match:
+        - window_process: { equals: 'rider64' }
+        - window_process: { equals: 'Code' }
+        - window_process: { equals: 'gitkraken' }
+
+  - commands: ['move --workspace 5']
+    match:
+        - window_process: { equals: 'Obsidian' }
 
 binding_modes:
   # When enabled, the focused window can be resized via arrow keys or HJKL.
@@ -223,7 +264,7 @@ keybindings:
 
   # Close focused window.
   - commands: ["close"]
-    bindings: ["alt+shift+q"]
+    bindings: ["alt+q"]
 
   # Kill GlazeWM process safely.
   - commands: ["wm-exit"]
