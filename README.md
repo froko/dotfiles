@@ -24,6 +24,7 @@ ln -s nvim/.config/nvim ~/.config/nvim
 ln -s tmux/.config/tmux ~/.config/tmux
 ln -s yazi/.config/yazi ~/.config/yazi
 ln -s wezterm/.config/wezterm ~/.config/wezterm
+ln -s zed/.config/zed ~/.config/zed
 ```
 
 Or use [GNU Stow](https://www.gnu.org/software/stow/manual/stow.html) to manage
@@ -33,6 +34,7 @@ the symlinks:
 cd ~/dotfiles
 stow bat nvim tmux vim yazi zsh
 stow wezterm
+stow zed
 ```
 
 ## Documentation
@@ -46,6 +48,7 @@ directories:
 - [vim](vim/README.md)
 - [wezterm](wezterm/.config/wezterm/README.md)
 - [yazi](yazi/.config/yazi/README.md)
+- [zed](zed/README.md)
 - [zsh](zsh/README.md)
 - [Homebrew](/homebrew/README.md)
 
