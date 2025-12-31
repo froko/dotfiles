@@ -1,0 +1,41 @@
+[
+  {
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-l": "workspace::ActivatePaneRight",
+    },
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "space a": "workspace::ToggleRightDock",
+      "space e": "workspace::ToggleLeftDock",
+      "space f f": "file_finder::Toggle",
+      "space space": "tab_switcher::ToggleAll",
+      "space b b": "pane::CloseActiveItem",
+      "space b a": "pane::CloseAllItems",
+      "space b A": "pane::CloseOtherItems",
+      "space w s": "pane::SplitAndMoveRight",
+      "space w h": "pane::SplitAndMoveDown",
+      "space w w": "pane::CloseActiveItem",
+      "b j": "pane::ActivatePreviousItem",
+      "b k": "pane::ActivateNextItem",
+    },
+  },
+  {
+    "context": "Workspace && !Editor",
+    "bindings": {
+      "space a": "workspace::ToggleRightDock",
+      "space e": "workspace::ToggleLeftDock",
+      "space f f": "file_finder::Toggle",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+    },
+  },
+]
