@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/froko/dotfiles/compare/v1.3.0...v1.4.0) (2025-12-31)
+
+### Features
+
+* **windows:** update glzr config ([5e9f7d4](https://github.com/froko/dotfiles/commit/5e9f7d4f6064c04114c56911204be72746c1883c))
+* **zed:** add zed config ([af8d3ad](https://github.com/froko/dotfiles/commit/af8d3ad0bc38ef5d5e6a6ab0babf69bc6327de65))
+
 ## [1.3.0](https://github.com/froko/dotfiles/compare/v1.2.0...v1.3.0) (2025-08-11)
 
 ### Features
