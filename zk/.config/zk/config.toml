@@ -38,7 +38,6 @@ id-case = "lower"
 [extra]
 author = "Patrick"
 
-
 # GROUP OVERRIDES
 [group.daily]
 paths = ["journal"]
@@ -59,6 +58,18 @@ paths = ["projects"]
 
 [group.project.note]
 template = "project.md"
+
+[group.atomicnote]
+template = "atomic-note.md"
+
+[group.blogpost]
+template = "blog-post.md"
+
+[group.hub.note]
+template = "hub.md"
+
+[group.literaturenote]
+template = "literature-note"
 
 # MARKDOWN SETTINGS
 [format.markdown]
@@ -93,19 +104,43 @@ recents = "--sort created- --created-after 'last two weeks'"
 [alias]
 
 # Edit the last modified note.
-edlast = "zk edit --limit 1 --sort modified- $@"
+last = "zk edit --limit 1 --sort modified- $@"
 
 # Edit the notes selected interactively among the notes created the last two weeks.
 recent = "zk edit --sort created- --created-after 'last two weeks' --interactive"
 
-# Show a random note.
-lucky = "zk list --quiet --format full --sort random --limit 1"
+# Edit areas
+areas = "zk edit -t area -i"
+
+# Edit projects
+projects = "zk edit -t project -i"
+
+# Edit hubs
+hubs = "zk edit -t hub -i"
+
+# new note
+n = 'zk new --no-input "$ZK_NOTEBOOK_DIR" --title $argv'
 
 # new journal entry
 daily = 'zk new --no-input "$ZK_NOTEBOOK_DIR/journal"'
 
-# new note
-ne = 'zk new --no-input "$ZK_NOTEBOOK_DIR/ideas" --title $argv'
+# new area entry
+na = 'zk new --no-input "$ZK_NOTEBOOK_DIR/areas" --title $argv'
+
+# new project entry
+np = 'zk new --no-input "$ZK_NOTEBOOK_DIR/projects" --title $argv'
+
+# new hub
+nh = 'zk new --no-input "$ZK_NOTEBOOK_DIR" --group hub --title $argv'
+
+# new atomic note
+nan = 'zk new --no-input "$ZK_NOTEBOOK_DIR" --group atomicnote --title $argv'
+
+# new blog post
+nbp = 'zk new --no-input "$ZK_NOTEBOOK_DIR" --group blogpost --title $argv'
+
+# new literature note
+nln = 'zk new --no-input "$ZK_NOTEBOOK_DIR" --group literaturenote --title $argv'
 
 # LSP (EDITOR INTEGRATION)
 [lsp]
