@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/froko/dotfiles/compare/v1.4.0...v1.5.0) (2026-01-09)
+
+### Features
+
+* **nvim:** update configuration ([#15](https://github.com/froko/dotfiles/issues/15)) ([358b19e](https://github.com/froko/dotfiles/commit/358b19ea43cfbbaa48294dd17563b3b2f2ab8309))
+* **zk:** add zk config ([#14](https://github.com/froko/dotfiles/issues/14)) ([f142d9b](https://github.com/froko/dotfiles/commit/f142d9bbe4cb3fa9eec581cf27d948fa4fdeea19))
+
 ## [1.4.0](https://github.com/froko/dotfiles/compare/v1.3.0...v1.4.0) (2025-12-31)
 
 ### Features
