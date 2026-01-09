@@ -1,0 +1,130 @@
+# NOTEBOOK SETTINGS
+[notebook]
+dir = "~/notes"
+
+# NOTE SETTINGS
+[note]
+
+# Language used when writing notes.
+# This is used to generate slugs or with date formats.
+language = "en"
+
+# The default title used for new note, if no `--title` flag is provided.
+default-title = "Untitled"
+
+# Template used to generate a note's filename, without extension.
+filename = "{{id}}-{{slug title}}"
+
+# The file extension used for the notes.
+extension = "md"
+
+# Template used to generate a note's content.
+# If not an absolute path, it is relative to .zk/templates/
+template = "default.md"
+
+# Configure random ID generation.
+
+# The charset used for random IDs.
+id-charset = "alphanum"
+
+# Length of the generated IDs.
+id-length = 4
+
+# Letter case for the random IDs.
+id-case = "lower"
+
+
+# EXTRA VARIABLES
+[extra]
+author = "Patrick"
+
+# GROUP OVERRIDES
+[group.daily]
+paths = ["journal"]
+
+[group.daily.note]
+filename = "{{format-date now '%Y-%m-%d'}}"
+extension = "md"
+template = "daily.md"
+
+[group.area]
+paths = ["areas"]
+
+[group.area.note]
+filename = "{{slug title}}"
+extension = "md"
+template = "area.md"
+
+[group.project]
+paths = ["projects"]
+
+[group.project.note]
+filename = "{{slug title}}"
+extension = "md"
+template = "project.md"
+
+
+# EXTERNAL TOOLS
+[tool]
+
+# Default editor used to open notes.
+editor = "nvim"
+
+# Default shell used by aliases and commands.
+shell = "/bin/zsh"
+
+# Pager used to scroll through long output.
+pager = "less -FIRX"
+
+# Command used to preview a note during interactive fzf mode.
+fzf-preview = "bat -p --color always {-1}"
+
+# NAMED FILTERS
+[filter]
+recents = "--sort created- --created-after 'last two weeks'"
+
+# COMMAND ALIASES
+[alias]
+
+# Edit the last modified note.
+last = "zk edit --limit 1 --sort modified- $@"
+
+# Edit the notes selected interactively among the notes created the last two weeks.
+recent = "zk edit --sort created- --created-after 'last two weeks' --interactive"
+
+# Edit areas
+areas = "zk edit -t area -i"
+
+# Edit projects
+projects = "zk edit -t project -i"
+
+# Edit hubs
+hubs = "zk edit -t hub -i"
+
+# Open slides from selected note
+slides = "zk list -t slide -i --quiet --format path --delimiter0 $argv | xargs -0 slides"
+
+# new note
+add = 'zk new --no-input "$ZK_NOTEBOOK_DIR" --title "$*"'
+
+# new journal entry
+daily = 'zk new --no-input "$ZK_NOTEBOOK_DIR/journal"'
+
+# new area
+area = 'zk new --no-input "$ZK_NOTEBOOK_DIR/areas" --title "$*"'
+
+# new project
+project = 'zk new --no-input "$ZK_NOTEBOOK_DIR/projects" --title "$*"'
+
+# update zk notes
+update = "cd $ZK_NOTEBOOK_DIR; git add -A; git commit -am 'update'; git push; cd -"
+
+# remove an archived file
+rm = "zk list -t archive -i --quiet --format path --delimiter0 $argv | xargs -0 rm -vf --"
+
+# LSP (EDITOR INTEGRATION)
+[lsp]
+
+[lsp.diagnostics]
+# Warn for dead links between notes.
+dead-link = "error"

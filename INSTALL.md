@@ -11,9 +11,11 @@ applications:
 - [lazygit](https://github.com/jesseduffield/lazygit)
 - [neovim](https://neovim.io/)
 - [sesh](https://github.com/joshmedeski/sesh)
+- [slides](https://github.com/maaslalani/slides)
 - [stow](https://www.gnu.org/software/stow/)
 - [tmux](https://github.com/tmux/tmux/wiki)
 - [yazi](https://github.com/sxyazi/yazi)
+- [zk](https://github.com/zk-org/zk)
 - [zoxide](https://github.com/ajeetdsouza/zoxide)
 
 In addition, there are a few other resources required by the applications above:
@@ -35,7 +37,7 @@ In addition, there are a few other resources required by the applications above:
 Install the basic applications using Homebrew:
 
 ```bash
-brew install git bat eza fd fzf lazygit neovim ripgrep stow tmux yazi zoxide joshmedeski/sesh/sesh
+brew install git bat eza fd fzf lazygit neovim ripgrep slides stow tmux yazi zk zoxide joshmedeski/sesh/sesh
 ```
 
 ### zsh Plugins
@@ -115,12 +117,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 ```
 
-Install lazygit, neovim and yazi using snap:
+Install lazygit, neovim, slides, yazi, and zk using snap:
 
 ```bash
 sudo snap install lazygit --classic
 sudo snap install nvim --classic
+sudo snap install slides --classic
 sudo snap install yazi --classic
+sudo snap install zk --classic
 ```
 
 Make sure to add the snap bin directory folder to your PATH:
@@ -260,7 +264,7 @@ wsl --manage archlinux --set-default-user yourusername
 Install the basic applications using pacman:
 
 ```bash
-sudo pacman -Syu bat eza fd fzf gcc lazygit neovim ripgrep stow tmux yazi zoxide zsh
+sudo pacman -Syu bat eza fd fzf gcc lazygit neovim ripgrep slides stow tmux yazi zoxide zk zsh
 ```
 
 Install ['nvm'](https://github.com/nvm-sh/nvm)

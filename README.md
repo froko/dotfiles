@@ -25,6 +25,7 @@ ln -s tmux/.config/tmux ~/.config/tmux
 ln -s yazi/.config/yazi ~/.config/yazi
 ln -s wezterm/.config/wezterm ~/.config/wezterm
 ln -s zed/.config/zed ~/.config/zed
+ln -s zk/.config/zk ~/.config/zk
 ```
 
 Or use [GNU Stow](https://www.gnu.org/software/stow/manual/stow.html) to manage
@@ -32,7 +33,7 @@ the symlinks:
 
 ```bash
 cd ~/dotfiles
-stow bat nvim tmux vim yazi zsh
+stow bat nvim tmux vim yazi zk zsh
 stow wezterm
 stow zed
 ```
@@ -49,6 +50,7 @@ directories:
 - [wezterm](wezterm/.config/wezterm/README.md)
 - [yazi](yazi/.config/yazi/README.md)
 - [zed](zed/README.md)
+- [zk](zk/.config/zk/README.md)
 - [zsh](zsh/README.md)
 - [Homebrew](/homebrew/README.md)
 
