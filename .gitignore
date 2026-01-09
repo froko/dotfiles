@@ -1,6 +1,7 @@
 node_modules/
 
 nvim/**/lazy-lock.json
+nvim/**/spell/
 
 nvim/**/plugins/custom/*
 !nvim/**/plugins/custom/custom.lua

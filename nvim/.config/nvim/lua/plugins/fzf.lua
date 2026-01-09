@@ -18,5 +18,14 @@ return {
     local fzf_lua = require('fzf-lua')
     local config = fzf_lua.config
     config.defaults.keymap.fzf['ctrl-q'] = 'select-all+accept'
+
+    fzf_lua.setup({
+      files = {
+        fd_opts = [[--type f --hidden --exclude .git --exclude node_modules --exclude .obsidian]],
+      },
+      grep = {
+        rg_opts = [[--column --line-number --no-heading --color=always --smart-case --hidden --glob "!.git/*" --glob "!node_modules/*" --glob "!.obsidian/*"]],
+      },
+    })
   end,
 }

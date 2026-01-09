@@ -8,6 +8,8 @@ vim.g.mapleader = ' '
 -- Core
 inoremap('jk', '<Esc>')
 nnoremap('<leader>r', ':e!<CR>', { desc = '[R]eload file' })
+inoremap('<F10>', ':setlocal spell!<CR>', { desc = 'Toggle [S]pellcheck' })
+nnoremap('<F10>', ':setlocal spell!<CR>', { desc = 'Toggle [S]pellcheck' })
 
 -- Navigation
 nnoremap('L', '$')
@@ -16,11 +18,6 @@ nnoremap('<C-d>', '<C-d>zz')
 nnoremap('<C-u>', '<C-u>zz')
 nnoremap('<C-f>', '<C-f>zz')
 nnoremap('<C-b>', '<C-b>zz')
-
--- Windows
-nnoremap('<leader>ws', ':vsplit<CR>', { desc = '[W]indow [S]plit (vertically)' })
-nnoremap('<leader>wh', ':split<CR>', { desc = '[W]indow Split ([H]orizontally)' })
-nnoremap('<leader>ww', ':close<CR>', { desc = '[W]indow Close' })
 
 -- Buffers
 nnoremap('<leader>bb', ':bd<CR>', { desc = '[B]uffer delete' })
