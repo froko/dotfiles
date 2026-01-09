@@ -1,6 +1,6 @@
 ---
-title: {{title}}
-date: {{format-date now "long"}}
-tags: [fleeting-note]
-hubs: []
+title: {{ title }}
+date: {{ format-date now "long" }}
+hub:
+tags: []
 ---

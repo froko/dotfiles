@@ -28,7 +28,7 @@ template = "default.md"
 id-charset = "alphanum"
 
 # Length of the generated IDs.
-id-length = 8
+id-length = 4
 
 # Letter case for the random IDs.
 id-case = "lower"
@@ -51,34 +51,17 @@ template = "daily.md"
 paths = ["areas"]
 
 [group.area.note]
+filename = "{{slug title}}"
+extension = "md"
 template = "area.md"
 
 [group.project]
 paths = ["projects"]
 
 [group.project.note]
+filename = "{{slug title}}"
+extension = "md"
 template = "project.md"
-
-[group.atomicnote]
-template = "atomic-note.md"
-
-[group.blogpost]
-template = "blog-post.md"
-
-[group.hub.note]
-template = "hub.md"
-
-[group.literaturenote]
-template = "literature-note"
-
-# MARKDOWN SETTINGS
-[format.markdown]
-# Enable support for #hashtags
-hashtags = true
-# Enable support for :colon:separated:tags:
-colon-tags = false
-# Enable support for wiki-style [[links]]
-wiki-links = false
 
 
 # EXTERNAL TOOLS
@@ -119,36 +102,29 @@ projects = "zk edit -t project -i"
 hubs = "zk edit -t hub -i"
 
 # new note
-n = 'zk new --no-input "$ZK_NOTEBOOK_DIR" --title $argv'
+add = 'zk new --no-input "$ZK_NOTEBOOK_DIR" --title "$*"'
 
 # new journal entry
 daily = 'zk new --no-input "$ZK_NOTEBOOK_DIR/journal"'
 
-# new area entry
-na = 'zk new --no-input "$ZK_NOTEBOOK_DIR/areas" --title $argv'
+# new area
+area = 'zk new --no-input "$ZK_NOTEBOOK_DIR/areas" --title "$*"'
 
-# new project entry
-np = 'zk new --no-input "$ZK_NOTEBOOK_DIR/projects" --title $argv'
+# new project
+project = 'zk new --no-input "$ZK_NOTEBOOK_DIR/projects" --title "$*"'
 
-# new hub
-nh = 'zk new --no-input "$ZK_NOTEBOOK_DIR" --group hub --title $argv'
+# update zk notes
+update = "cd $ZK_NOTEBOOK_DIR; git add -A; git commit -am 'update'; git push; cd -"
 
-# new atomic note
-nan = 'zk new --no-input "$ZK_NOTEBOOK_DIR" --group atomicnote --title $argv'
+# remove a file
+rm = "zk list --interactive --quiet --format path --delimiter0 $argv | xargs -0 rm -vf --"
 
-# new blog post
-nbp = 'zk new --no-input "$ZK_NOTEBOOK_DIR" --group blogpost --title $argv'
-
-# new literature note
-nln = 'zk new --no-input "$ZK_NOTEBOOK_DIR" --group literaturenote --title $argv'
+# open slides from selected note
+slides = "zk list --interactive --quiet --format path --delimiter0 $argv | xargs -0 slides"
 
 # LSP (EDITOR INTEGRATION)
 [lsp]
 
 [lsp.diagnostics]
-# Report titles of wiki-links as hints.
-wiki-title = "hint"
 # Warn for dead links between notes.
 dead-link = "error"
-# Warn when notes link here without backlinks.
-missing-backlink = { level = "warning", position = "bottom" }
