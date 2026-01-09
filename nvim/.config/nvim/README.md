@@ -87,11 +87,6 @@ key is set to `Space`:
   - `<Leader>bA`: Close all buffers.
   - `<Space><Space>`: Select a buffer using fzf-lua.
 
-- Windows
-  - `<Leader>ws`: Split the current window vertically.
-  - `<Leader>wh`: Split the current window horizontally.
-  - `<Leader>ww`: Close the current window.
-
 - blink.cmp
   - `<C-Space>`: Trigger autocompletion.
   - `<C-n>`: Select the next item in the autocompletion popup.
@@ -124,8 +119,8 @@ key is set to `Space`:
   - `-`: Open the Oil file explorer or move up one directory.
   - `g.`: Toggle the visibility of hidden files in Oil.
   - `<C-c>`: Close the Oil file explorer.
-  - `<C-h>`: Open the selected file in a horizontal split.
-  - `<C-s>`: Open the selected file in a vertical split.
+  - `<C-s>`: Open the selected file in a horizontal split.
+  - `<C-v>`: Open the selected file in a vertical split.
 
 - Built-in LSP
   - `K`: Show documentation for the symbol under the cursor.

@@ -47,23 +47,28 @@ vim.o.scrolloff = 10
 -- instead raise a dialog asking if you wish to save the current file(s)
 vim.o.confirm = true
 
--- Folding settings
-vim.api.nvim_create_autocmd({ 'FileType' }, {
-  callback = function()
-    local coding_plugins_loaded, parser = pcall(require, 'nvim-treesitter.parsers')
+-- Spell Checking
+vim.o.spelllang = 'en_us,de_ch'
+vim.o.spellsuggest = 'best,9'
 
-    if (coding_plugins_loaded == true) and parser.has_parser() then
-      vim.opt.foldmethod = 'expr'
-      vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+-- Folding settings
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function()
+    local ok, parsers = pcall(require, 'nvim-treesitter.parsers')
+    local ft = vim.bo.filetype
+
+    if ok and parsers.has_parser(ft) then
+      vim.wo.foldmethod = 'expr'
+      vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
     else
-      vim.opt.foldmethod = 'syntax'
+      vim.wo.foldmethod = 'syntax'
     end
   end,
 })
 
 vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
-vim.o.foldenable = false
+vim.o.foldlevelstart = -1
+vim.o.foldenable = true
 
 -- Disable built-in providers to speed up startup time
 vim.g.loaded_node_provider = 0
