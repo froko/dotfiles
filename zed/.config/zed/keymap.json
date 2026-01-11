@@ -17,15 +17,12 @@
       "space b b": "pane::CloseActiveItem",
       "space b a": "pane::CloseAllItems",
       "space b A": "pane::CloseOtherItems",
-      "space w s": "pane::SplitAndMoveRight",
-      "space w h": "pane::SplitAndMoveDown",
-      "space w w": "pane::CloseActiveItem",
       "b j": "pane::ActivatePreviousItem",
       "b k": "pane::ActivateNextItem",
     },
   },
   {
-    "context": "Workspace && !Editor",
+    "context": "Workspace && !Editor && !Terminal",
     "bindings": {
       "space a": "workspace::ToggleRightDock",
       "space e": "workspace::ToggleLeftDock",

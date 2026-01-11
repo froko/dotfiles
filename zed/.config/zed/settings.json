@@ -4,7 +4,6 @@
   "theme": "Catppuccin Macchiato",
   "icon_theme": "Catppuccin Macchiato",
   "toolbar": { "breadcrumbs": false, "quick_actions": false },
-  "scrollbar": { "show": "never" },
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "buffer_font_size": 16,
   "buffer_font_weight": 200,
