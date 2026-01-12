@@ -43,7 +43,7 @@ key is set to `Space`:
 
 - Standard bindings:
   - `jk`: Exit insert mode in Vim (alternative to `Esc`).
-  - `\`: Toggle the `netrw` file explorer in Vim.
+  - `<Leader>e`: Toggle the `netrw` file explorer in Vim.
 - Buffers
   - `bj`: Go to the previous buffer.
   - `bk`: Go to the next buffer.
@@ -51,9 +51,5 @@ key is set to `Space`:
   - `<Leader>ba`: Close all buffers except the current one.
   - `<Leader>bA`: Close all buffers.
   - `<Space><Space>`: Toggle the buffer list.
-- Windows
-  - `<Leader>ws`: Split the current window vertically.
-  - `<Leader>wh`: Split the current window horizontally.
-  - `<Leader>ww`: Close the current window.
 - easy-motion
   - `s`: Search for 2-character sequences in the current buffer.

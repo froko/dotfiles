@@ -66,11 +66,6 @@ nnoremap <Space>ba :%bd\|e#\|bd#<CR>
 nnoremap <Space>bA :%bd<CR>
 nnoremap <Space><Space> :ls<CR>:b<Space>
 
-" Windows
-nnoremap <Leader>ws <C-w>v
-nnoremap <Leader>wh <C-w>n
-nnoremap <Leader>ww <C-w>c
-
 " Splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -87,7 +82,7 @@ xnoremap <Up> :move-2<CR>gv=gv
 " Netrw
 let g:netrw_banner = 0
 let g:netrw_winsize = 25
-nnoremap \ :Lex<CR>
+nnoremap <Leader>e :Lex<CR>
 
 " Autocommands
 autocmd bufwritepre * %s/\s\+$//e " remove trailing white space on save
