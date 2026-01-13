@@ -5,14 +5,9 @@ following aliases:
 
 - `reload`: Reload the `.zshrc` file.
 - `c`: Clear the terminal screen.
-- `h`: Navigate to the home directory.
 - `t`: Start a new tmux session using `sesh connect`.
 - `e`: Alias for `yazi`, my preferred file manager.
 - `v`: Alias for `nvim`, my preferred text editor.
-- `z`: Alias for `zoxide`, a smarter `cd` command that remembers your directory
-  history and allows you to jump to directories quickly.
-- `zi`: Find and jump to a directory using `zoxide` with interactive selection
-  using `fzf`.
 - `lg`: Alias for `lazygit`, my preferred git client for the terminal.
 - `dot`: Navigate to the dotfiles directory and open it in `nvim`.
 - `lpath`: Show the current PATH variable.
@@ -21,6 +16,10 @@ following aliases:
 - `ll`: Alias for `eza`, a modern replacement for the `ls` command showing also
   hidden files.
 
+- `cd`: Alias for `zoxide`, a smarter `cd` command that remembers your directory
+  history and allows you to jump to directories quickly.
+- `cdi`: Find and jump to a directory using `zoxide` with interactive selection
+  using `fzf`.
 - `..`: Navigate to the parent directory.
 - `...`: Navigate to the grandparent directory.
 - `....`: Navigate to the great-grandparent directory.

@@ -81,7 +81,6 @@ export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 alias reload='RELOAD=1 source ~/.zshrc'
 
 alias c="clear"
-alias h="cd ~"
 alias t='sesh connect $(sesh list | fzf)'
 alias v="nvim"
 alias e="yazi"
@@ -91,6 +90,8 @@ alias dot="cd $DOTFILES && nvim"
 alias l="eza --icons --git --long"
 alias ll="eza --icons --git --all --long"
 
+alias cd="z"
+alias cdi="zi"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
