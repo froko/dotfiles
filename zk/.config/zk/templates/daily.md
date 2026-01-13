@@ -6,10 +6,4 @@
 - [ ]
 - [ ]
 
-## Gratitudes
-
-1.
-2.
-3.
-
 ## Thoughts

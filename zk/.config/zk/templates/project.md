@@ -1,9 +1,6 @@
 ---
 title: {{title}}
-date: {{format-date now "long"}}
-hub:
-url:
+tags: [project]
 status: #new
-tags: [project, hub]
+url:
 ---
-

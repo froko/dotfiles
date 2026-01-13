@@ -1,5 +1,5 @@
 ---
 title: {{title}}
-tags: [area, hub]
+tags: [area]
 url:
 ---
