@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.6.0](https://github.com/froko/dotfiles/compare/v1.5.0...v1.6.0) (2026-01-13)
+
+### Features
+
+* **vim:** update configuration ([3ed0fcb](https://github.com/froko/dotfiles/commit/3ed0fcb10739d590ec32147c141cac5bfc188538))
+* **zed:** update configuration ([ca37cdc](https://github.com/froko/dotfiles/commit/ca37cdc000c888d1a9c574807177f9872434b25f))
+* **zk:** remove notion of hubs ([84ec271](https://github.com/froko/dotfiles/commit/84ec27134b3913175b67d018de0299af39b470ea))
+* **zk:** update templates ([06ae6ed](https://github.com/froko/dotfiles/commit/06ae6eda7469038e4b6467658c8b083e107241d1))
+* **zsh:** update config ([335e14d](https://github.com/froko/dotfiles/commit/335e14d2c58807b3c43625b7f467e8bc999cd515))
+
 ## [1.5.0](https://github.com/froko/dotfiles/compare/v1.4.0...v1.5.0) (2026-01-09)
 
 ### Features
