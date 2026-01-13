@@ -98,9 +98,6 @@ areas = "zk edit -t area -i"
 # Edit projects
 projects = "zk edit -t project -i"
 
-# Edit hubs
-hubs = "zk edit -t hub -i"
-
 # Open slides from selected note
 slides = "zk list -t slide -i --quiet --format path --delimiter0 $argv | xargs -0 slides"
 

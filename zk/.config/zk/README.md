@@ -10,15 +10,13 @@ Zettelkasten method.
   thoughts.
 - Areas: Ongoing responsibilities and areas of focus in my life and work.
 - Projects: Short-term efforts with a specific goal or outcome.
-- Hubs: Central notes that backlink to related notes on a specific topic.
 - Slides: Notes created for presentations using the
   [`slides`](https://maaslalani.com/slides/) command line tool.
 - "Normal" notes: Depending on the tags used, these notes can belong to
   different categories: fleeting notes, literature notes, permanent notes,
   how-to notes, blog posts to be written, etc.
 
-All notes have a tag list in their frontmatter. "Normal" notes come
-preconfigured with a hub property in the frontmatter to be asociated with.
+All notes have a tag list in their frontmatter.
 
 ## Command Line Reference
 
@@ -35,7 +33,6 @@ preconfigured with a hub property in the frontmatter to be asociated with.
 - `zk recent`: Lists the notes created the last two weeks.
 - `zk areas`: Lists all area notes.
 - `zk projects`: Lists all project notes.
-- `zk hubs`: Lists all hub notes.
 - `zk slides`: Lists all slide notes to be opened using the
   [`slides`](https://maaslalani.com/slides/) command line tool.
 
@@ -51,7 +48,6 @@ For listing notes, there are some important tags to know about:
 
 - `#area`: Marks an area note.
 - `#project`: Marks a project note.
-- `#hub`: Marks a hub note.
 - `#slide`: Marks a slide note.
 - `#archive`: Marks notes that are archived and not actively used.
 
