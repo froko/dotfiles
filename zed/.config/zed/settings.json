@@ -1,15 +1,48 @@
 {
+  "agent": {
+    "always_allow_tool_actions": true,
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4.5",
+    },
+    "model_parameters": [],
+  },
   "vim_mode": true,
   "relative_line_numbers": "enabled",
   "theme": "Catppuccin Macchiato",
   "icon_theme": "Catppuccin Macchiato",
-  "toolbar": { "breadcrumbs": false, "quick_actions": false },
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "buffer_font_size": 16,
-  "buffer_font_weight": 200,
+  "buffer_font_weight": 100,
   "show_edit_predictions": false,
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font Mono",
     "font_size": 16,
+  },
+  "toolbar": { "breadcrumbs": false, "quick_actions": false },
+  "tab_bar": {
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false,
+  },
+  "project_panel": {
+    "default_width": 400,
+    "hide_root": true,
+    "auto_fold_dirs": false,
+    "starts_open": false,
+    "indent_guides": {
+      "show": "never",
+    },
+  },
+  "outline_panel": {
+    "default_width": 400,
+    "indent_guides": {
+      "show": "never",
+    },
+  },
+  "git_panel": {
+    "default_width": 400,
+  },
+  "collaboration_panel": {
+    "button": false,
   },
 }
