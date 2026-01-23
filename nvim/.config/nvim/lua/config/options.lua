@@ -52,19 +52,8 @@ vim.o.spelllang = 'en_us,de_ch'
 vim.o.spellsuggest = 'best,9'
 
 -- Folding settings
-vim.api.nvim_create_autocmd('FileType', {
-  callback = function()
-    local ok, parsers = pcall(require, 'nvim-treesitter.parsers')
-    local ft = vim.bo.filetype
-
-    if ok and parsers.has_parser(ft) then
-      vim.wo.foldmethod = 'expr'
-      vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
-    else
-      vim.wo.foldmethod = 'syntax'
-    end
-  end,
-})
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = -1
