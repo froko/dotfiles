@@ -12,3 +12,5 @@ tmux/**/plugins
 zed/**/conversations
 zed/**/prompts
 zed/**/themes
+
+.DS_Store
