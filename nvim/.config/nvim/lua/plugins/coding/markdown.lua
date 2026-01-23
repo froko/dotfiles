@@ -20,8 +20,7 @@ return {
     opts = function(_, opts)
       local parsers = { 'markdown', 'markdown_inline' }
       opts.ensure_installed = vim.list_extend(opts.ensure_installed or {}, parsers)
-      opts.markdown = { enable = true }
-      opts.markdown_inline = { enable = true }
+      return opts
     end,
   },
   {
@@ -46,5 +45,20 @@ return {
     config = function(_, opts)
       require('render-markdown').setup(opts)
     end,
+  },
+  {
+    'iamcco/markdown-preview.nvim',
+    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+    build = 'cd app && yarn install',
+    init = function()
+      vim.cmd([[
+            function OpenMarkdownPreview (url)
+              execute "silent ! open -a '/Applications/Google Chrome.app' -n --args --new-window " . a:url
+            endfunction
+          ]])
+      vim.g.mkdp_browserfunc = 'OpenMarkdownPreview'
+      vim.g.mkdp_filetypes = { 'markdown' }
+    end,
+    ft = { 'markdown' },
   },
 }
