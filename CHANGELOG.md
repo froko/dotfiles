@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.7.0](https://github.com/froko/dotfiles/compare/v1.6.0...v1.7.0) (2026-01-29)
+
+### Features
+
+* **aerospace:** add Aerospace configuration ([f536d59](https://github.com/froko/dotfiles/commit/f536d594d36a3606c81cd430a978e3274e06b9ec))
+* **aerospace:** add G workspace for Git ([a311769](https://github.com/froko/dotfiles/commit/a31176979ff067e9e3d3881b5c919095d50f2316))
+* **nvim:** add Angular LSP ([83163d8](https://github.com/froko/dotfiles/commit/83163d8154fca76657f8ef8bf0f2ab47c481b7b6))
+* **nvim:** add markdown-preview.nvim plugin ([370e948](https://github.com/froko/dotfiles/commit/370e94883f0a197427fe008ea956cd2e9f39d24d))
+* **wezterm:** set default font size to 14 ([97e7b45](https://github.com/froko/dotfiles/commit/97e7b45bc10227762c79a82b39bb5f3b99389619))
+* **zed:** UI improvements ([529acac](https://github.com/froko/dotfiles/commit/529acace9edae8d901577cba8ffd4d37d96457f7))
+* **zed:** update configuration ([fb81094](https://github.com/froko/dotfiles/commit/fb81094ee9c191d7de8ef726161daed99ce50a4f))
+* **zed:** update configuration (declutter UI) ([84319e0](https://github.com/froko/dotfiles/commit/84319e02779486c2aa514bd0ffeb35cc345f8e16))
+* **zsh:** use pure and zsh-autosuggestions from Homebrew ([69a1c4a](https://github.com/froko/dotfiles/commit/69a1c4a4dce6d8d26350f5acc4553a4069d0d5b3))
+
+### Bug Fixes
+
+* **nvim:** nvim-treesitter configuration & folding ([119d54d](https://github.com/froko/dotfiles/commit/119d54d4c30e8cd53c8615e2168f2be96c27913c))
+* **tmux:** do not destroy on detach ([38cde66](https://github.com/froko/dotfiles/commit/38cde66bf14b91f60ae412dcd00d8c23a2f5a569))
+
 ## [1.6.0](https://github.com/froko/dotfiles/compare/v1.5.0...v1.6.0) (2026-01-13)
 
 ### Features
