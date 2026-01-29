@@ -85,6 +85,7 @@ alt-shift-l = 'move right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 alt-a = 'workspace A' # General
+alt-g = 'workspace G' # Git
 alt-s = 'workspace S' # Slack
 alt-t = 'workspace T' # Terminal
 alt-w = 'workspace W' # Work
@@ -96,6 +97,7 @@ alt-w = 'workspace W' # Work
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-a = 'move-node-to-workspace A' # General
+alt-shift-g = 'move-node-to-workspace G' # Git
 alt-shift-s = 'move-node-to-workspace S' # Slack
 alt-shift-t = 'move-node-to-workspace T' # Terminal
 alt-shift-w = 'move-node-to-workspace W' # Work
