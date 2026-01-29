@@ -12,6 +12,7 @@
     "bindings": {
       "space a": "workspace::ToggleRightDock",
       "space e": "workspace::ToggleLeftDock",
+      "space t": "workspace::ToggleBottomDock",
       "space f f": "file_finder::Toggle",
       "space space": "tab_switcher::ToggleAll",
       "space b b": "pane::CloseActiveItem",
@@ -19,6 +20,8 @@
       "space b A": "pane::CloseOtherItems",
       "b j": "pane::ActivatePreviousItem",
       "b k": "pane::ActivateNextItem",
+      "H": "vim::FirstNonWhitespace",
+      "L": "vim::EndOfLine",
     },
   },
   {
@@ -26,6 +29,7 @@
     "bindings": {
       "space a": "workspace::ToggleRightDock",
       "space e": "workspace::ToggleLeftDock",
+      "space t": "workspace::ToggleBottomDock",
       "space f f": "file_finder::Toggle",
     },
   },
