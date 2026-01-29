@@ -21,7 +21,7 @@ export PATH
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Plugins ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 
@@ -42,7 +42,7 @@ setopt SHARE_HISTORY
 
 PURE_GIT_PULL=0
 
-fpath+=($HOME/.zsh/pure)
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 autoload -U promptinit; promptinit
 prompt pure
