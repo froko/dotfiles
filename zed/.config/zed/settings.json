@@ -1,4 +1,7 @@
 {
+  "features": {
+    "edit_prediction_provider": "copilot",
+  },
   "agent": {
     "always_allow_tool_actions": true,
     "default_model": {
@@ -14,6 +17,9 @@
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "buffer_font_size": 16,
   "buffer_font_weight": 100,
+  "scrollbar": {
+    "show": "never",
+  },
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font Mono",
     "font_size": 16,
