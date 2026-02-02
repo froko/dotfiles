@@ -5,8 +5,13 @@ return {
   config = function()
     require('catppuccin').setup({
       transparent_background = true,
-      float = { transparent = true, solid = true, },
+      float = { transparent = true, solid = true },
+      custom_highlights = function(colors)
+        return {
+          LineNr = { fg = colors.subtext0 },
+        }
+      end,
     })
-    vim.cmd.colorscheme('catppuccin')
+    vim.cmd.colorscheme('catppuccin-macchiato')
   end,
 }
