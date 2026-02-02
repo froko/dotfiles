@@ -51,13 +51,10 @@ return {
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
     build = 'cd app && yarn install',
     init = function()
-      vim.cmd([[
-            function OpenMarkdownPreview (url)
-              execute "silent ! open -a '/Applications/Google Chrome.app' -n --args --new-window " . a:url
-            endfunction
-          ]])
-      vim.g.mkdp_browserfunc = 'OpenMarkdownPreview'
       vim.g.mkdp_filetypes = { 'markdown' }
+      vim.g.mkdp_preview_options = {
+        uml = { server = 'http://localhost:8080' },
+      }
     end,
     ft = { 'markdown' },
   },
