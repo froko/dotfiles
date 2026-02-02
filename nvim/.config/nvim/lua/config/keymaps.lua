@@ -12,8 +12,6 @@ inoremap('<F10>', ':setlocal spell!<CR>', { desc = 'Toggle [S]pellcheck' })
 nnoremap('<F10>', ':setlocal spell!<CR>', { desc = 'Toggle [S]pellcheck' })
 
 -- Navigation
-nnoremap('L', '$')
-nnoremap('H', '^')
 nnoremap('<C-d>', '<C-d>zz')
 nnoremap('<C-u>', '<C-u>zz')
 nnoremap('<C-f>', '<C-f>zz')

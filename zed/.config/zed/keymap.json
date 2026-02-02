@@ -20,8 +20,6 @@
       "space b A": "pane::CloseOtherItems",
       "b j": "pane::ActivatePreviousItem",
       "b k": "pane::ActivateNextItem",
-      "H": "vim::FirstNonWhitespace",
-      "L": "vim::EndOfLine",
     },
   },
   {
