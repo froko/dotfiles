@@ -6,8 +6,6 @@ Zettelkasten method.
 
 ## Structure
 
-- Daily notes: Notes created for each day to capture tasks, events, and fleeting
-  thoughts.
 - Areas: Ongoing responsibilities and areas of focus in my life and work.
 - Projects: Short-term efforts with a specific goal or outcome.
 - Slides: Notes created for presentations using the
@@ -22,7 +20,6 @@ All notes have a tag list in their frontmatter.
 
 ### Create new notes
 
-- `zk daily`: Creates or updates a daily note for today.
 - `zk add My first Note`: Adds a new note with the title "My first Note".
 - `zk area My area`: Adds a new area note with the title "My area".
 - `zk project My project`: Adds a new project note with the title "My project".
