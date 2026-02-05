@@ -7,6 +7,9 @@ nvim/**/plugins/custom/*
 !nvim/**/plugins/custom/custom.lua
 !nvim/**/plugins/custom/__templates__
 
+nvim/**/ftplugin/*
+!nvim/**/ftplugin/__templates__
+
 tmux/**/plugins
 
 zed/**/conversations
