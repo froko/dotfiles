@@ -86,6 +86,7 @@ alias v="nvim"
 alias e="yazi"
 alias lg="lazygit"
 alias dot="cd $DOTFILES && nvim"
+alias notes="zk edit -i"
 
 alias l="eza --icons --git --long"
 alias ll="eza --icons --git --all --long"
