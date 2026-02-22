@@ -20,6 +20,8 @@ return {
     opts = function(_, opts)
       local parsers = { 'markdown', 'markdown_inline' }
       opts.ensure_installed = vim.list_extend(opts.ensure_installed or {}, parsers)
+      opts.markdown = { enable = true }
+      opts.markdown_inline = { enable = true }
       return opts
     end,
   },
