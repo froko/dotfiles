@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.8.0](https://github.com/froko/dotfiles/compare/v1.7.0...v1.8.0) (2026-02-22)
+
+### Features
+
+* **nvim:** add custom plugin templates ([8c1113f](https://github.com/froko/dotfiles/commit/8c1113f3895fb2549445d99f4ad8bc31218f58f7))
+* **nvim:** add markdown preview options ([9825f53](https://github.com/froko/dotfiles/commit/9825f53bbb26fba89fe2bb9e58ef186fbb6198e4))
+* **nvim:** add zk plugin template ([755cca1](https://github.com/froko/dotfiles/commit/755cca1d74098661b5f093543bbbc901a474b303))
+* **nvim:** improve relative line number visibility ([6527424](https://github.com/froko/dotfiles/commit/6527424a1747cbdf315cf0ff7794198a34663315))
+* **nvim:** split web custom plugins (web, astro, svelte) ([ce086fd](https://github.com/froko/dotfiles/commit/ce086fd5026fb28d9e8633bc4cd952b18a17ad8d))
+* **nvim:** update custom templates ([3f9177d](https://github.com/froko/dotfiles/commit/3f9177d2529324cdded2f55a3bf1dbad962ec81c))
+* Remove H & L vim key mappings ([b830cfe](https://github.com/froko/dotfiles/commit/b830cfeaec4caa48ac4e7f3147b6a355e324a4e7))
+* **yazi:** update configuration ([7684f8e](https://github.com/froko/dotfiles/commit/7684f8eef531c29fc9e38276305cafd59cf1b469))
+* **zed:** Enable edit prediction & hide scroll bars ([0e56395](https://github.com/froko/dotfiles/commit/0e56395f5febce5ac6fbe4a41b086aae27988b15))
+* **zk:** remove daily note functionality ([f8a0d36](https://github.com/froko/dotfiles/commit/f8a0d36188d754380932b324ede4521c40069829))
+* **zsh:** add alias for zk notes ([435c6d2](https://github.com/froko/dotfiles/commit/435c6d2b0656e27ad855f6fc68f08686cd59bdf3))
+
+### Bug Fixes
+
+* **nvim:** lsp integration ([0f7a5e6](https://github.com/froko/dotfiles/commit/0f7a5e60dbfd3584ae78fd6cf1b8e4dfe2b4e201))
+
 ## [1.7.0](https://github.com/froko/dotfiles/compare/v1.6.0...v1.7.0) (2026-01-29)
 
 ### Features
