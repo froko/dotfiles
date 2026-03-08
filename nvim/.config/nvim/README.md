@@ -78,6 +78,7 @@ key is set to `Space`:
 - Standard bindings:
   - `jk`: Exit insert mode in Vim (alternative to `Esc`).
   - `<Leader>r`: Reload the current buffer.
+  - `<Leader>ts`: Toggle spell checking.
 
 - Buffers
   - `bj`: Go to the previous buffer.
@@ -94,26 +95,16 @@ key is set to `Space`:
   - `<C-y>`: Confirm the selected item in the autocompletion popup.
 
 - fzf-lua
-  - `<Leader>fa`: Find All Files.
-  - `<Leader>fc`: Find Commands.
-  - `<Leader>fd`: Find Diagnostics in Document.
-  - `<Leader>fD`: Find Diagnostics in Workspace.
-  - `<Leader>ff`: Find Git Files.
+  - `<Leader>fd`: Find Diagnostics in document.
+  - `<Leader>ff`: Find Files.
   - `<Leader>fg`: Find with Grep.
   - `<Leader>fh`: Find Help.
-  - `<Leader>fk`: Find Keymaps.
-  - `<Leader>fs`: Find Symbols in Document.
-  - `<Leader>fS`: Find Symbols in Workspace.
+  - `<Leader>fs`: Find Symbols using in document Treesitter.
   - `<Space><Space>`: Find Buffers.
-  - `<C-q>`: Send the selection to Quickfix List.
+  - `<C-q>`: Send selection to Quickfix List.
 
 - flash.nvim
   - `s`: Jump to a character sequence in the current buffer.
-
-- nvim-treesitter
-  - `<CR>`: Initialize Selection.
-  - `<CR>`: Increase Selection.
-  - `<BS>`: Decrease Selection.
 
 - oil.nvim
   - `-`: Open the Oil file explorer or move up one directory.
@@ -123,14 +114,10 @@ key is set to `Space`:
   - `<C-v>`: Open the selected file in a vertical split.
 
 - Built-in LSP
-  - `K`: Show documentation for the symbol under the cursor.
   - `gd`: Go to the definition of the symbol under the cursor.
   - `gra`: Show code actions available at the cursor position.
   - `gri`: Go to the implementation of the symbol under the cursor.
   - `grn`: Rename the symbol under the cursor.
   - `grr`: Show references to the symbol under the cursor.
   - `grt`: Show type definition of the symbol under the cursor.
-
-  - `<C-n>`: Select the next item in the autocompletion popup.
-  - `<C-p>`: Select the previous item in the autocompletion popup.
-  - `<C-y>`: Confirm the selected item in the autocompletion popup.
+  - `K`: Show documentation for the symbol under the cursor.

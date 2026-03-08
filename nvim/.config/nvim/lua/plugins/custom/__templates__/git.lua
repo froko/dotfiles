@@ -1,3 +1,6 @@
+local nnoremap = require('utils').nnoremap
+local vnoremap = require('utils').vnoremap
+
 return {
   {
     'NeogitOrg/neogit',
@@ -19,43 +22,35 @@ return {
       on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
 
-        local function map(mode, l, r, desc)
-          vim.keymap.set(mode, l, r, { buffer = bufnr, desc = desc })
-        end
-
         -- Navigation
-        map('n', ']h', gs.next_hunk, 'Next Hunk')
-        map('n', '[h', gs.prev_hunk, 'Prev Hunk')
+        nnoremap(']h', gs.next_hunk, { buffer = bufnr, desc = 'Next Hunk' })
+        nnoremap('[h', gs.prev_hunk, { buffer = bufnr, desc = 'Prev Hunk' })
 
         -- Actions
-        map('n', '<leader>hs', gs.stage_hunk, 'Stage hunk')
-        map('n', '<leader>hr', gs.reset_hunk, 'Reset hunk')
-        map('v', '<leader>hs', function()
+        nnoremap('<leader>hs', gs.stage_hunk, { buffer = bufnr, desc = 'Stage hunk' })
+        nnoremap('<leader>hr', gs.reset_hunk, { buffer = bufnr, desc = 'Reset hunk' })
+        vnoremap('<leader>hs', function()
           gs.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
-        end, 'Stage hunk')
-        map('v', '<leader>hr', function()
+        end, { buffer = bufnr, desc = 'Stage hunk' })
+        vnoremap('<leader>hr', function()
           gs.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
-        end, 'Reset hunk')
+        end, { buffer = bufnr, desc = 'Reset hunk' })
 
-        map('n', '<leader>hS', gs.stage_buffer, 'Stage buffer')
-        map('n', '<leader>hR', gs.reset_buffer, 'Reset buffer')
+        nnoremap('<leader>hS', gs.stage_buffer, { buffer = bufnr, desc = 'Stage buffer' })
+        nnoremap('<leader>hR', gs.reset_buffer, { buffer = bufnr, desc = 'Reset buffer' })
 
-        map('n', '<leader>hu', gs.undo_stage_hunk, 'Undo stage hunk')
+        nnoremap('<leader>hu', gs.undo_stage_hunk, { buffer = bufnr, desc = 'Undo stage hunk' })
 
-        map('n', '<leader>hp', gs.preview_hunk, 'Preview hunk')
-
-        map('n', '<leader>hb', function()
+        nnoremap('<leader>hp', gs.preview_hunk, { buffer = bufnr, desc = 'Preview hunk' })
+        nnoremap('<leader>hb', function()
           gs.blame_line({ full = true })
-        end, 'Blame line')
-        map('n', '<leader>hB', gs.toggle_current_line_blame, 'Toggle line blame')
+        end, { buffer = bufnr, desc = 'Blame line' })
+        nnoremap('<leader>hB', gs.toggle_current_line_blame, { buffer = bufnr, desc = 'Toggle line blame' })
 
-        map('n', '<leader>hd', gs.diffthis, 'Diff this')
-        map('n', '<leader>hD', function()
+        nnoremap('<leader>hd', gs.diffthis, { buffer = bufnr, desc = 'Diff this' })
+        nnoremap('<leader>hD', function()
           gs.diffthis('~')
-        end, 'Diff this ~')
-
-        -- Text object
-        map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', 'Gitsigns select hunk')
+        end, { buffer = bufnr, desc = 'Diff this ~' })
       end,
     },
   },

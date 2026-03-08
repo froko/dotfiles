@@ -25,12 +25,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
       end
     end
 
+    local fzf = require('fzf-lua')
+
     nnoremap('gd', vim.lsp.buf.definition, { buffer = bufnr, desc = 'LSP: Go to definition' })
     nnoremap('gra', gra, { buffer = bufnr, desc = 'LSP: Code action' })
     vnoremap('gra', gra, { buffer = bufnr, desc = 'LSP: Code action' })
     nnoremap('gri', vim.lsp.buf.implementation, { buffer = bufnr, desc = 'LSP: Implementation' })
     nnoremap('grn', vim.lsp.buf.rename, { buffer = bufnr, desc = 'LSP: Rename' })
-    nnoremap('grr', vim.lsp.buf.references, { buffer = bufnr, desc = 'LSP: References' })
+    nnoremap('grr', fzf.lsp_references, { buffer = bufnr, desc = 'LSP: References' })
     nnoremap('grt', vim.lsp.buf.type_definition, { buffer = bufnr, desc = 'LSP: Go to type definition' })
     nnoremap('K', vim.lsp.buf.hover, { buffer = bufnr, desc = 'LSP: Hover' })
   end,
