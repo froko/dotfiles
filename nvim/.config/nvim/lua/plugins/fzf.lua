@@ -2,11 +2,11 @@ return {
   'ibhagwan/fzf-lua',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   keys = {
-    { '<Leader>fd', '<CMD>FzfLua diagnostics_document<CR>', desc = '[F]ind [D]iagnostics' },
-    { '<Leader>ff', '<CMD>FzfLua files<CR>', desc = '[F]ind [F]iles' },
-    { '<Leader>fg', '<CMD>FzfLua live_grep<CR>', desc = '[F]ind with [G]rep' },
-    { '<Leader>fh', '<CMD>FzfLua help_tags<CR>', desc = '[F]ind [H]elp' },
-    { '<Leader>fs', '<CMD>FzfLua treesitter<CR>', desc = '[F]ind [S]ymbols' },
+    { '<Leader>fd', '<CMD>FzfLua diagnostics_document<CR>', desc = 'Find Diagnostics' },
+    { '<Leader>ff', '<CMD>FzfLua files<CR>', desc = 'Find Files' },
+    { '<Leader>fg', '<CMD>FzfLua live_grep<CR>', desc = 'Find with Grep' },
+    { '<Leader>fh', '<CMD>FzfLua help_tags<CR>', desc = 'Find Help' },
+    { '<Leader>fs', '<CMD>FzfLua treesitter<CR>', desc = 'Find Symbols' },
     { '<Space><Space>', '<CMD>FzfLua buffers<CR>', desc = 'Find Buffers' },
   },
   config = function()

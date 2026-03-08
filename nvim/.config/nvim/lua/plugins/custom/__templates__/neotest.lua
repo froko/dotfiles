@@ -11,65 +11,69 @@ return {
     'thenbe/neotest-playwright',
   },
   config = function()
+    -- Helper to find jest config in Nx monorepo
+    local function find_jest_config(file)
+      local config = vim.fn.findfile('jest.config.ts',
+        vim.fn.fnamemodify(file, ':p:h') .. ';')
+      return config ~= '' and config or nil
+    end
+
     require('neotest').setup({
       adapters = {
-        require('neotest-playwright').adapter({
-          options = {
-            persist_project_selection = true,
-            enable_dynamic_test_discovery = true,
-          },
-          is_test_file = function(file_path)
-            -- Only match test files (spec/test) that are in e2e directories
-            return file_path:find('e2e') ~= nil
-                and (file_path:match('%.spec%.[jt]sx?$')
-                  or file_path:match('%.test%.[jt]sx?$')
-                  or file_path:match('%.spec%.[mc][jt]s$')
-                  or file_path:match('%.test%.[mc][jt]s$'))
-          end,
-        }),
         require('neotest-jest')({
           env = { CI = true },
           jestConfigFile = function(file)
-            if string.find(file, '/apps/') or string.find(file, '/libs/') then
-              return vim.fn.findfile('jest.config.ts', file .. ';')
-            end
-            return vim.fn.getcwd() .. '/jest.config.ts'
+            local config = find_jest_config(file)
+            return config and vim.fn.fnamemodify(config, ':p') or
+                vim.fn.getcwd() .. '/jest.config.ts'
           end,
           cwd = function(file)
-            if string.find(file, '/apps/') or string.find(file, '/libs/') then
-              return vim.fn.fnamemodify(
-                vim.fn.findfile('jest.config.ts', file .. ';'), ':p:h')
-            end
-            return vim.fn.getcwd()
+            local config = find_jest_config(file)
+            return config and vim.fn.fnamemodify(config, ':p:h') or
+                vim.fn.getcwd()
           end,
-          filter_dir = function(name)
-            -- Exclude e2e directories from jest
-            return name.find('e2e') == nil
+          isTestFile = function(file_path)
+            if not file_path then
+              return false
+            end
+            local is_jest_pattern = file_path:match('%.spec%.')
+            local is_e2e = file_path:match('/e2e/')
+            return is_jest_pattern and not is_e2e
+          end,
+        }),
+        require('neotest-playwright').adapter({
+          is_test_file = function(file_path)
+            if not file_path then
+              return false
+            end
+            local is_playwright_pattern = file_path:match('%.spec%.')
+            local is_e2e = file_path:match('/e2e/')
+            return is_playwright_pattern and is_e2e
           end,
         }),
       },
     })
 
     local neotest = require('neotest')
-    nnoremap('<leader>tt', function()
-      neotest.run.run()
-    end, {
-      desc = 'Run Nearest',
-    })
-    nnoremap('<leader>tf', function()
+    nnoremap('<leader>af', function()
       neotest.run.run(vim.fn.expand('%'))
     end, {
-      desc = 'Run File',
+      desc = 'Test File',
     })
-    nnoremap('<leader>ts', function()
+    nnoremap('<leader>aa', function()
+      neotest.run.run()
+    end, {
+      desc = 'Test Nearest',
+    })
+    nnoremap('<leader>as', function()
       neotest.summary.toggle()
     end, {
-      desc = 'Toggle Summary',
+      desc = 'Toggle Test Summary',
     })
-    nnoremap('<leader>to', function()
+    nnoremap('<leader>ao', function()
       neotest.output.open({ enter = true })
     end, {
-      desc = 'Show Output',
+      desc = 'Show Test Output',
     })
   end,
 }

@@ -9,19 +9,17 @@ return {
         picker = 'fzf_lua',
         lsp = {
           config = {
-            name = 'zk',
             cmd = { 'zk', 'lsp' },
-            filetypes = { 'markdown' },
+            name = 'zk',
             on_attach = function(client)
-              -- NOTE: disable to avoid sending another request alongside
-              -- marksman
+              -- NOTE: disable to avoid sending another request alongside marksman
               client.server_capabilities.definitionProvider = false
             end,
           },
-          auto_attach = {
-            enabled = true,
-            filetypes = { 'markdown' },
-          },
+        },
+        auto_attach = {
+          enabled = true,
+          filetypes = { 'markdown' },
         },
       })
 

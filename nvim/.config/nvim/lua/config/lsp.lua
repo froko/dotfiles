@@ -50,3 +50,16 @@ vim.diagnostic.config({
     },
   },
 })
+
+local toggle_diagnostics = function()
+  local bufnr = 0
+  if vim.diagnostic.is_enabled({ bufnr = bufnr }) then
+    vim.diagnostic.enable(false, { bufnr = bufnr })
+    print('Buffer Diagnostics Off')
+  else
+    vim.diagnostic.enable(true, { bufnr = bufnr })
+    print('Buffer Diagnostics On')
+  end
+end
+
+nnoremap('<leader>td', toggle_diagnostics, { desc = 'Toggle diagnostics' })

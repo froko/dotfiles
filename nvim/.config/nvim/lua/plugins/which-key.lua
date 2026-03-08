@@ -4,10 +4,12 @@ return {
   opts = {
     preset = 'helix',
     spec = {
-      { '<leader>b', group = '[B]uffers' },
-      { '<leader>f', group = '[F]ind' },
-      { '<leader>o', group = '[O]bsidian' },
-      { '<leader>w', group = '[W]indows' },
+      { '<leader>a', group = 'Test' },
+      { '<leader>b', group = 'Buffers' },
+      { '<leader>f', group = 'Find' },
+      { '<leader>g', group = 'Git' },
+      { '<leader>t', group = 'Toggle' },
+      { '<leader>z', group = 'Zk' },
     },
   },
 }
