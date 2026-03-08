@@ -31,9 +31,7 @@ default prefix key:
 - `l`: Resize the current pane right.
 - `c`: Create a new window.
 - `m`: Toggle the current pane's zoom state.
-- `E`: Display a popup with the yazi file explorer.
 - `G`: Display a popup with lazygit.
-- `P`: Display a popup with a new shell.
 - `T`: Open another tmux session using fzf.
 - `I`: Install plugins.
 - `U`: Update plugins.
