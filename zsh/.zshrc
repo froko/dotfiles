@@ -99,3 +99,11 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 alias lpath='echo $PATH | tr ":" "\n"'
+
+just() {
+  if [ -f ./justfile ] || [ -f ./.justfile ]; then
+    command just "$@"
+  else
+    command just --global-justfile "$@"
+  fi
+}
