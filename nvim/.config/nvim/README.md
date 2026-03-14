@@ -95,13 +95,17 @@ key is set to `Space`:
   - `<C-y>`: Confirm the selected item in the autocompletion popup.
 
 - fzf-lua
-  - `<Leader>fd`: Find Diagnostics in document.
-  - `<Leader>ff`: Find Files.
-  - `<Leader>fg`: Find with Grep.
-  - `<Leader>fh`: Find Help.
-  - `<Leader>fs`: Find Symbols using in document Treesitter.
-  - `<Space><Space>`: Find Buffers.
-  - `<C-q>`: Send selection to Quickfix List.
+  - `<Leader>fd`: Find diagnostics in document.
+  - `<Leader>fD`: Find diagnostics in workspace.
+  - `<Leader>ff`: Find files.
+  - `<Leader>fg`: Find text in document.
+  - `<Leader>fG`: Find text in workspace.
+  - `<Leader>fh`: Find help.
+  - `<Leader>fs`: Find symbols in document.
+  - `<Leader>fS`: Find symbols in workspace.
+  - `<Leader>ft`: Find with treesitter.
+  - `<Space><Space>`: Find buffers.
+  - `<C-q>`: Send selection to Quickfix list.
 
 - flash.nvim
   - `s`: Jump to a character sequence in the current buffer.
@@ -121,3 +125,4 @@ key is set to `Space`:
   - `grr`: Show references to the symbol under the cursor.
   - `grt`: Show type definition of the symbol under the cursor.
   - `K`: Show documentation for the symbol under the cursor.
+  - `<Leader>td`: Toggle diagnostics.
