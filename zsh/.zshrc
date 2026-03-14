@@ -6,6 +6,7 @@ export VISUAL=nvim
 export EDITOR=nvim
 export BAT_THEME="Catppuccin Mocha"
 export DOTFILES="$HOME/dotfiles"
+export NOTES="$HOME/notes"
 export PATH="$HOME/.bin:$PATH"
 
 setopt extended_glob null_glob
@@ -86,7 +87,7 @@ alias v="nvim"
 alias e="yazi"
 alias lg="lazygit"
 alias dot="cd $DOTFILES && nvim"
-alias notes="zk edit -i"
+alias notes="cd $NOTES && zk edit -i"
 
 alias l="eza --icons --git --long"
 alias ll="eza --icons --git --all --long"
