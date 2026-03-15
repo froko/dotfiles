@@ -1,0 +1,114 @@
+# Upgrade homebrew dependencies, nvim Lazy plugins, nvim Mason plugins and tmux plugins
+upgrade:
+  brew update
+  brew upgrade
+  brew cleanup
+  nvim --headless "+MasonUpdate" +qall
+  nvim --headless "+Lazy! sync" +qall
+  ~/.tmux/plugins/tpm/bin/update_plugins all
+
+# Restore tmux sessions from last save (tmux-resurrect)
+restore:
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    # Kill existing tmux server if running
+    tmux kill-server 2>/dev/null || true
+
+    # Start fresh tmux server and restore
+    tmux new-session -d -s restore-temp
+    tmux run-shell "~/.config/tmux/plugins/tmux-resurrect/scripts/restore.sh"
+
+    echo "✓ Tmux sessions restored!"
+    echo "Attach with: tmux attach-session"
+
+# Create a new note in the journal file bound to the current date section
+note NOTE:
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    JOURNAL="$NOTES/JOURNAL.md"
+    TODAY=$(date +%Y-%m-%d)
+
+    # Check if today's section exists
+    if ! grep -q "^## $TODAY$" "$JOURNAL"; then
+        # Create new section + note
+        {
+            echo ""
+            echo "## $TODAY"
+            echo "- {{NOTE}}"
+        } >> "$JOURNAL"
+    else
+        # Append note to existing section (simple approach)
+        awk -v today="$TODAY" -v note="{{NOTE}}" '
+        /^## '"$TODAY"'$/ {
+            found=1
+            print
+            while(getline) {
+                if (/^## [0-9]{4}-[0-9]{2}-[0-9]{2}$/) break
+                print
+            }
+            print "- " note
+            next
+        }
+        { print }
+        END {
+            if (!found) {
+                print "\n## " today "\n- " note
+            }
+        }' "$JOURNAL" > "$JOURNAL.tmp" && mv "$JOURNAL.tmp" "$JOURNAL"
+    fi
+
+    echo "✓ Note added to $TODAY section"
+
+
+# Full system cleanup (safe + aggressive)
+mac-cleanup:
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    echo "🧹 Starting Mac cleanup..."
+
+    # 1. Empty Trash (including older items)
+    sudo rm -rfv /private/var/log/*
+    rm -rf ~/.Trash/* ~/.Trash/.[^.]* 2>/dev/null || true
+
+    # 2. Clear user caches
+    rm -rf ~/Library/Caches/*
+
+    # 3. Clear system caches (requires sudo)
+    sudo rm -rf /Library/Caches/*
+    sudo rm -rf /System/Library/Caches/*
+
+    # 4. Clear logs
+    sudo rm -rf /private/var/log/*
+    rm -rf ~/Library/Logs/*
+
+    # 5. Clear temp files
+    sudo rm -rf /private/tmp/*
+    rm -rf /tmp/*
+
+    # 6. Flush DNS
+    sudo dscacheutil -flushcache
+    sudo killall -HUP mDNSResponder 2>/dev/null || true
+
+    # 7. Clear Spotlight index (recreates automatically)
+    sudo mdutil -E /
+
+    echo "✅ Full cleanup complete!"
+    df -h ~
+
+# Quick/safe cleanup (no sudo)
+quick-clean:
+    #!/usr/bin/env bash
+    rm -rf ~/Library/Caches/* ~/Library/Logs/* ~/.Trash/* /tmp/*
+    echo "✅ Quick cleanup done!"
+
+# Storage report
+disk-report:
+    #!/usr/bin/env bash
+    echo "💾 Storage report:"
+    df -h ~ | head -2
+    echo ""
+    echo "📊 System storage:"
+    du -sh ~/Library/Caches ~/Library/Logs ~/.Trash 2>/dev/null | sort -hr || true
