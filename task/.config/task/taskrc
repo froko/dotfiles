@@ -1,0 +1,14 @@
+# [Created by task 3.4.2 3/16/2026 12:50:38]
+news.version=3.4.2
+weekstart=monday
+
+data.location=~/tasks
+hooks.location=~/tasks/hooks
+
+context.work.read=+work
+context.work.write=+work
+context.private.read=-work
+context.private.write=+private
+
+include ~/.config/task/catppuccin-macchiato.theme
+include ~/.config/task/taskrc.sync
