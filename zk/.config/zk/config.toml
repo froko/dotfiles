@@ -39,6 +39,14 @@ id-case = "lower"
 author = "Patrick"
 
 # GROUP OVERRIDES
+[group.daily]
+paths = ["journal"]
+
+[group.daily.note]
+filename = "{{format-date now '%Y-%m-%d'}}"
+extension = "md"
+template = "daily.md"
+
 [group.area]
 paths = ["areas"]
 
@@ -96,14 +104,17 @@ slides = "zk list -t slide -i --quiet --format path --delimiter0 $argv | xargs -
 # new note
 add = 'zk new --no-input "$ZK_NOTEBOOK_DIR" --title "$*"'
 
+# new journal entry
+daily = 'zk new --no-input "$ZK_NOTEBOOK_DIR/journal"'
+
 # new area
 area = 'zk new --no-input "$ZK_NOTEBOOK_DIR/areas" --title "$*"'
 
 # new project
 project = 'zk new --no-input "$ZK_NOTEBOOK_DIR/projects" --title "$*"'
 
-# update zk notes
-update = "cd $ZK_NOTEBOOK_DIR; git add -A; git commit -am 'update'; git push; cd -"
+# sync zk notes
+sync = "cd $ZK_NOTEBOOK_DIR && bash -lc '\ set -e; git stash push -u -m \"zk-auto-stash\" || true; git pull --rebase origin main || { echo \"rebase failed, aborting\" >&2; git rebase --abort; exit 1; }; git stash pop || true; git add .; git commit -m \"zk update from $(hostname)\" || true; git push origin main;'"
 
 # remove an archived file
 rm = "zk list -t archive -i --quiet --format path --delimiter0 $argv | xargs -0 rm -vf --"
