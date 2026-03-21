@@ -1,0 +1,46 @@
+# List available commands
+_index:
+  @{{just_executable()}} --justfile {{justfile()}} --list
+
+# Run a command, show output only on failure
+_run-and-report cmd description:
+    #!/usr/bin/env bash
+    tmp=$(mktemp)
+    if {{cmd}} >"$tmp" 2>&1; then
+      rm "$tmp"
+      echo $'\n✅ {{description}}'
+    else
+      bat "$tmp"
+      rm "$tmp"
+      exit 1
+    fi
+
+# Upgrade homebrew dependencies, nvim Lazy plugins, nvim Mason plugins and tmux plugins
+upgrade:
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "brew update && brew upgrade && brew cleanup" "Homebrew dependencies updated"
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "nvim --headless '+MasonUpdate' +qall && nvim --headless '+Lazy! sync' +qall" "Neovim plugins updated"
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "~/.tmux/plugins/tpm/bin/update_plugins all" "Tmux plugins updated"
+
+# Restore tmux sessions from last save (tmux-resurrect)
+restore:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    tmp=$(mktemp)
+    {
+      tmux kill-server 2>/dev/null || true
+      tmux new-session -d -s restore-temp
+      tmux run-shell "~/.config/tmux/plugins/tmux-resurrect/scripts/restore.sh"
+    } >"$tmp" 2>&1 || { bat "$tmp"; rm "$tmp"; exit 1; }
+    rm "$tmp"
+    echo "✅ Tmux sessions restored"
+
+# Synchronize notes and tasks
+sync:
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "zk sync" "Notes synchronized"
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "task sync" "Tasks synchronized"
+
+# Quick/safe cleanup (no sudo)
+clean:
+    #!/usr/bin/env bash
+    rm -rf ~/Library/Caches/* ~/Library/Logs/* ~/.Trash/* /tmp/*
+    echo "✅ Quick cleanup done!"
