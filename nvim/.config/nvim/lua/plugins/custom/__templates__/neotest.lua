@@ -6,15 +6,13 @@ return {
     'nvim-neotest/nvim-nio',
     'nvim-lua/plenary.nvim',
     'antoinemadec/FixCursorHold.nvim',
-    'nvim-treesitter/nvim-treesitter',
     'nvim-neotest/neotest-jest',
     'thenbe/neotest-playwright',
   },
   config = function()
     -- Helper to find jest config in Nx monorepo
     local function find_jest_config(file)
-      local config = vim.fn.findfile('jest.config.ts',
-        vim.fn.fnamemodify(file, ':p:h') .. ';')
+      local config = vim.fn.findfile('jest.config.ts', vim.fn.fnamemodify(file, ':p:h') .. ';')
       return config ~= '' and config or nil
     end
 
@@ -24,13 +22,11 @@ return {
           env = { CI = true },
           jestConfigFile = function(file)
             local config = find_jest_config(file)
-            return config and vim.fn.fnamemodify(config, ':p') or
-                vim.fn.getcwd() .. '/jest.config.ts'
+            return config and vim.fn.fnamemodify(config, ':p') or vim.fn.getcwd() .. '/jest.config.ts'
           end,
           cwd = function(file)
             local config = find_jest_config(file)
-            return config and vim.fn.fnamemodify(config, ':p:h') or
-                vim.fn.getcwd()
+            return config and vim.fn.fnamemodify(config, ':p:h') or vim.fn.getcwd()
           end,
           isTestFile = function(file_path)
             if not file_path then

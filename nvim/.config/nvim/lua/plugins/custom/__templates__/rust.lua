@@ -12,13 +12,6 @@ return {
   --   end,
   -- },
   {
-    'nvim-treesitter/nvim-treesitter',
-    opts = function(_, opts)
-      local parsers = { 'rust' }
-      opts.ensure_installed = vim.list_extend(opts.ensure_installed or {}, parsers)
-    end,
-  },
-  {
     'stevearc/conform.nvim',
     opts = function(_, opts)
       local formatters = { rust = { 'rustfmt' } }

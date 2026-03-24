@@ -1,12 +1,13 @@
+-- Enable treesitter for HTTP
+-- Note: You need to manually install the parser with :TSInstall http
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'http' },
+  callback = function(args)
+    vim.treesitter.start(args.buf)
+  end,
+})
+
 return {
-  {
-    'nvim-treesitter/nvim-treesitter',
-    opts = function(_, opts)
-      local parsers = { 'http' }
-      opts.ensure_installed = vim.list_extend(opts.ensure_installed or {}, parsers)
-      return opts
-    end,
-  },
   {
     'mistweaverco/kulala.nvim',
     ft = { 'http', 'rest' },

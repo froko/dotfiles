@@ -36,9 +36,6 @@ The configuration includes, the following plugins, which are managed using
 - [stevearc/conform.nvim](https://github.com/stevearc/conform.nvim): A plugin
   that provides code formatting and linting capabilities for NeoVim, allowing
   you to conform your code to a specific style.
-- [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs): A plugin
-  that automatically inserts matching pairs of brackets, quotes, and other
-  characters in NeoVim, making coding more efficient.
 - [tpope/vim-commentary](https://github.com/tpope/vim-commentary): A plugin that
   provides easy commenting and uncommenting of code in NeoVim, allowing you to
   quickly toggle comments on and off.
@@ -51,17 +48,10 @@ The configuration includes, the following plugins, which are managed using
 - [williamboman/mason.nvim](https://github.com/mason-org/mason.nvim): A plugin
   that provides a package manager for NeoVim, allowing you to easily install and
   manage external tools and language servers.
-- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter):
-  A plugin that provides syntax highlighting and code parsing for NeoVim using
-  Tree-sitter.
 
 I use the built-in LSP client of NeoVim with the built-in autocompletion. Read
 more about the LSP client in the
 [NeoVim documentation](https://neovim.io/doc/user/lsp.html).
-
-Check out this
-[GitHub repository](https://github.com/neovim/nvim-lspconfig/tree/master/lsp)
-with LSP configurations for various languages.
 
 ### Custom Plugins
 
@@ -103,7 +93,6 @@ key is set to `Space`:
   - `<Leader>fh`: Find help.
   - `<Leader>fs`: Find symbols in document.
   - `<Leader>fS`: Find symbols in workspace.
-  - `<Leader>ft`: Find with treesitter.
   - `<Space><Space>`: Find buffers.
   - `<C-q>`: Send selection to Quickfix list.
 

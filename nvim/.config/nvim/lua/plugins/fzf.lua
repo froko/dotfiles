@@ -10,7 +10,6 @@ return {
     { '<Leader>fh', '<CMD>FzfLua help_tags<CR>', desc = 'Find help' },
     { '<Leader>fs', '<CMD>FzfLua lsp_document_symbols<CR>', desc = 'Find symbols in document' },
     { '<Leader>fS', '<CMD>FzfLua lsp_workspace_symbols<CR>', desc = 'Find symbols in workspace' },
-    { '<Leader>ft', '<CMD>FzfLua treesitter<CR>', desc = 'Find with treesitter' },
     { '<Space><Space>', '<CMD>FzfLua buffers<CR>', desc = 'Find buffers' },
   },
   config = function()

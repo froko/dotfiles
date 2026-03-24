@@ -9,15 +9,6 @@ return {
     end,
   },
   {
-    'nvim-treesitter/nvim-treesitter',
-    opts = function(_, opts)
-      local parsers = { 'svelte' }
-      opts.ensure_installed = vim.list_extend(opts.ensure_installed or {}, parsers)
-      opts.markdown = { enable = true }
-      opts.markdown_inline = { enable = true }
-    end,
-  },
-  {
     'stevearc/conform.nvim',
     opts = function(_, opts)
       local formatters = { svelte = { 'prettier' } }
