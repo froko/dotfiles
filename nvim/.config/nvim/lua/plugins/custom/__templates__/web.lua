@@ -1,4 +1,3 @@
--- Filetypes for web development
 local web_filetypes = {
   'javascript',
   'javascriptreact',
@@ -13,7 +12,6 @@ local all_web_filetypes = vim.list_extend(vim.deepcopy(web_filetypes), {
   'svelte',
 })
 
--- ESLint auto-fix on save
 local function setup_eslint_autofix(bufnr)
   local function eslint_fix()
     vim.lsp.buf.code_action({
@@ -33,7 +31,6 @@ local function setup_eslint_autofix(bufnr)
   })
 end
 
--- Configure ESLint LSP
 vim.lsp.config('eslint', {
   cmd = { 'vscode-eslint-language-server', '--stdio' },
   filetypes = all_web_filetypes,
@@ -57,7 +54,6 @@ vim.lsp.config('eslint', {
 vim.lsp.enable('eslint')
 vim.lsp.enable('tailwindcss')
 
--- Helper to set same config for multiple filetypes
 local function set_for_filetypes(filetypes, value)
   local result = {}
   for _, ft in ipairs(filetypes) do
@@ -67,14 +63,11 @@ local function set_for_filetypes(filetypes, value)
 end
 
 return {
-  -- TypeScript language server
   {
     'pmizio/typescript-tools.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
     opts = {},
   },
-
-  -- Mason tool installer
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
     opts = function(_, opts)
@@ -83,8 +76,6 @@ return {
       })
     end,
   },
-
-  -- Prettier formatting
   {
     'stevearc/conform.nvim',
     opts = function(_, opts)
@@ -92,13 +83,16 @@ return {
         vim.tbl_deep_extend('force', opts.formatters_by_ft or {}, set_for_filetypes(all_web_filetypes, { 'prettier' }))
     end,
   },
-
-  -- ESLint linting
   {
     'mfussenegger/nvim-lint',
     opts = function(_, opts)
       opts.linters_by_ft =
         vim.tbl_deep_extend('force', opts.linters_by_ft or {}, set_for_filetypes(web_filetypes, { 'eslint' }))
     end,
+  },
+  {
+    'windwp/nvim-ts-autotag',
+    event = 'VeryLazy',
+    opts = {},
   },
 }
