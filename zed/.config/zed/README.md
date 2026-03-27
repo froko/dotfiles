@@ -1,6 +1,6 @@
 # Zed
 
-[Zed](https://zed.dev) is my preferred text editor.
+[Zed](https://zed.dev) is my preferred text editor - beside neovim or course!
 
 ## Configuration
 
@@ -24,6 +24,7 @@ The keybindings try to replicate my Neovim setup as closely as possible.
 - Docks
   - `space e`: Toggle left dock (usually the file navigator)
   - `space a`: Toggle right dock (AI)
+  - `space t`: Toggle bottom dock (terminal)
 
 - Buffers
   - `bj`: Go to the previous buffer.
@@ -37,3 +38,10 @@ The keybindings try to replicate my Neovim setup as closely as possible.
   - `space ws`: Split and move the current buffer to the right.
   - `space wh`: Split and move the current buffer down.
   - `space ww`: Close the current window.
+
+- Autocompletion
+
+  The keymaps for auto completion are the same as in neovim:
+  - `<C-n>`: Select the next item in the autocompletion popup.
+  - `<C-p>`: Select the previous item in the autocompletion popup.
+  - `<C-y>`: Accept and confirm the selected item.

@@ -17,15 +17,17 @@ Link the files using the `ln -s` command:
 
 ```bash
 cd ~/dotfiles
-ln -s zsh/.zshrc ~/.zshrc
-ln -s vim/.vimrc ~/.vimrc
 ln -s bat/.config/bat ~/.config/bat
+ln -s just/.config/just ~/.config/just
 ln -s nvim/.config/nvim ~/.config/nvim
+ln -s task/.config/task ~/.config/task
 ln -s tmux/.config/tmux ~/.config/tmux
+ln -s vim/.vimrc ~/.vimrc
 ln -s yazi/.config/yazi ~/.config/yazi
+ln -s zk/.config/zk ~/.config/zk
+ln -s zsh/.zshrc ~/.zshrc
 ln -s wezterm/.config/wezterm ~/.config/wezterm
 ln -s zed/.config/zed ~/.config/zed
-ln -s zk/.config/zk ~/.config/zk
 ```
 
 Or use [GNU Stow](https://www.gnu.org/software/stow/manual/stow.html) to manage
@@ -33,9 +35,8 @@ the symlinks:
 
 ```bash
 cd ~/dotfiles
-stow bat nvim tmux vim yazi zk zsh
-stow wezterm
-stow zed
+stow bat just nvim task tmux vim yazi zk zsh
+stow wezterm zed
 ```
 
 ## Documentation
@@ -44,14 +45,16 @@ For detailed documentation refer to the individual README files in their config
 directories:
 
 - [bat](bat/.config/bat/README.md)
+- [just](just/.config/just/README.md)
 - [nvim](nvim/.config/nvim/README.md)
+- [task](task/.config/task/README.md)
 - [tmux](tmux/.config/tmux/README.md)
 - [vim](vim/README.md)
-- [wezterm](wezterm/.config/wezterm/README.md)
 - [yazi](yazi/.config/yazi/README.md)
-- [zed](zed/README.md)
 - [zk](zk/.config/zk/README.md)
 - [zsh](zsh/README.md)
+- [wezterm](wezterm/.config/wezterm/README.md)
+- [zed](zed/README.md)
 - [Homebrew](/homebrew/README.md)
 
 ## References

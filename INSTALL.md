@@ -8,11 +8,13 @@ applications:
 - [bat](https://github.com/sharkdp/bat)
 - [eza](https://github.com/eza-community/eza)
 - [fzf](https://github.com/junegunn/fzf)
+- [just](https://github.com/casey/just)
 - [lazygit](https://github.com/jesseduffield/lazygit)
 - [neovim](https://neovim.io/)
 - [sesh](https://github.com/joshmedeski/sesh)
 - [slides](https://github.com/maaslalani/slides)
 - [stow](https://www.gnu.org/software/stow/)
+- [taskwarrior](https://taskwarrior.org/)
 - [tmux](https://github.com/tmux/tmux/wiki)
 - [yazi](https://github.com/sxyazi/yazi)
 - [zk](https://github.com/zk-org/zk)
@@ -37,16 +39,27 @@ In addition, there are a few other resources required by the applications above:
 Install the basic applications using Homebrew:
 
 ```bash
-brew install git bat eza fd fzf lazygit neovim ripgrep slides stow tmux yazi zk zoxide joshmedeski/sesh/sesh
-```
-
-### zsh Plugins
-
-Install the zsh plugins directly from their repositories:
-
-```bash
-git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
-git clone https://github.com/zsh-users/zsh-autosuggestions "$HOME/.zsh/zsh-autosuggestions"
+brew install \
+  git \
+  bat \
+  eza \
+  fd \
+  fzf \
+  git \
+  just \
+  lazygit \
+  neovim \
+  pure \
+  ripgrep \
+  slides \
+  stow \
+  task \
+  tmux \
+  yazi \
+  zk \
+  zoxide \
+  zsh-autosuggestions \
+  joshmedeski/sesh/sesh
 ```
 
 ### vim Plugin Manager
@@ -66,7 +79,7 @@ Install the tmux plugin manager via git:
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
-## Linux (Debian/Ubuntu)
+## Linux (Debian/Ubuntu) [OUTDATED]
 
 The following instructions assume a WSL2 instance with a fresh Debian or Ubuntu
 installation. If you already have a working Debian or Ubuntu installation, you
@@ -189,7 +202,7 @@ can apply them to the following applications:
 - `vim`: After starting vim, run `:PlugInstall` to install the vim plugins. You
   may need to confirm the first error message.
 
-## Linux (Arch)
+## Linux (Arch) [OUTDATED]
 
 This instruction assumes you have installed a brand new Arch Linux for WSL2.
 Before proceeding, let's provide a basic environment. If you already have a
