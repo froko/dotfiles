@@ -4,7 +4,7 @@ local nnoremap = require('utils').nnoremap
 
 return {
   'github/copilot.vim',
-  nnoremap('<leader>tp', function()
+  nnoremap('<leader>aa', function()
     vim.g.copilot_enabled = not vim.g.copilot_enabled
   end, { desc = 'Toggle Copilot' }),
 }

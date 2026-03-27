@@ -42,4 +42,4 @@ local toggle_diagnostics = function()
   end
 end
 
-nnoremap('<leader>td', toggle_diagnostics, { desc = 'Toggle diagnostics' })
+nnoremap('<leader>ad', toggle_diagnostics, { desc = 'Toggle diagnostics' })

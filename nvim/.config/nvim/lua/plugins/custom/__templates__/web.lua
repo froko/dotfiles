@@ -101,11 +101,4 @@ return {
         vim.tbl_deep_extend('force', opts.linters_by_ft or {}, set_for_filetypes(web_filetypes, { 'eslint' }))
     end,
   },
-
-  -- Auto-close HTML/JSX tags
-  {
-    'windwp/nvim-ts-autotag',
-    event = 'VeryLazy',
-    opts = {},
-  },
 }

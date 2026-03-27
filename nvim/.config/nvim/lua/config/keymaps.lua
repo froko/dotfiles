@@ -8,7 +8,7 @@ vim.g.mapleader = ' '
 -- Core
 inoremap('jk', '<Esc>')
 nnoremap('<leader>r', ':e!<CR>', { desc = 'Reload file' })
-nnoremap('<leader>ts', ':setlocal spell!<CR>', { desc = 'Toggle Spellcheck' })
+nnoremap('<leader>as', ':setlocal spell!<CR>', { desc = 'Toggle Spellcheck' })
 
 -- Navigation
 nnoremap('<C-d>', '<C-d>zz')
