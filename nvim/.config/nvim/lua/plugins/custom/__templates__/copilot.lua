@@ -4,7 +4,16 @@ local nnoremap = require('utils').nnoremap
 
 return {
   'github/copilot.vim',
-  nnoremap('<leader>aa', function()
-    vim.g.copilot_enabled = not vim.g.copilot_enabled
-  end, { desc = 'Toggle Copilot' }),
+  event = 'InsertEnter',
+  config = function()
+    nnoremap('<leader>aa', function()
+      if vim.g.copilot_enabled == 0 then
+        vim.cmd('Copilot enable')
+        print('Copilot Enabled')
+      else
+        vim.cmd('Copilot disable')
+        print('Copilot Disabled')
+      end
+    end, { desc = 'Toggle Copilot' })
+  end,
 }
