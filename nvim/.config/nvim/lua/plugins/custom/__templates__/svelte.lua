@@ -1,3 +1,9 @@
+vim.lsp.config('svelte', {
+  on_attach = function(client)
+    client.server_capabilities.referencesProvider = false
+    client.server_capabilities.definitionProvider = false
+  end,
+})
 vim.lsp.enable('svelte')
 
 return {
