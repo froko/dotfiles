@@ -68,7 +68,7 @@ key is set to `Space`:
 - Standard bindings:
   - `jk`: Exit insert mode in Vim (alternative to `Esc`).
   - `<Leader>r`: Reload the current buffer.
-  - `<Leader>ts`: Toggle spell checking.
+  - `<Leader>as`: Toggle spell checking.
 
 - Buffers
   - `bj`: Go to the previous buffer.
@@ -79,10 +79,11 @@ key is set to `Space`:
   - `<Space><Space>`: Select a buffer using fzf-lua.
 
 - blink.cmp
-  - `<C-Space>`: Trigger autocompletion.
+  - `<C-x><C-o>`: Manually trigger autocompletion and toggle documentation.
   - `<C-n>`: Select the next item in the autocompletion popup.
   - `<C-p>`: Select the previous item in the autocompletion popup.
-  - `<C-y>`: Confirm the selected item in the autocompletion popup.
+  - `<C-y>`: Accept and confirm the selected item.
+  - `<C-e>`: Hide the autocompletion popup.
 
 - fzf-lua
   - `<Leader>fd`: Find diagnostics in document.
@@ -114,4 +115,4 @@ key is set to `Space`:
   - `grr`: Show references to the symbol under the cursor.
   - `grt`: Show type definition of the symbol under the cursor.
   - `K`: Show documentation for the symbol under the cursor.
-  - `<Leader>td`: Toggle diagnostics.
+  - `<Leader>ad`: Toggle diagnostics.
