@@ -3,14 +3,12 @@ local web_filetypes = {
   'javascriptreact',
   'typescript',
   'typescriptreact',
-}
-
-local all_web_filetypes = vim.list_extend(vim.deepcopy(web_filetypes), {
   'html',
   'css',
+  'astro',
   'vue',
   'svelte',
-})
+}
 
 local function setup_eslint_autofix(bufnr)
   local function eslint_fix()
@@ -33,7 +31,7 @@ end
 
 vim.lsp.config('eslint', {
   cmd = { 'vscode-eslint-language-server', '--stdio' },
-  filetypes = all_web_filetypes,
+  filetypes = web_filetypes,
   settings = {
     validate = 'on',
     packageManager = 'npm',
@@ -66,7 +64,9 @@ return {
   {
     'pmizio/typescript-tools.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
-    opts = {},
+    opts = {
+      filetypes = web_filetypes,
+    },
   },
   {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
@@ -80,7 +80,7 @@ return {
     'stevearc/conform.nvim',
     opts = function(_, opts)
       opts.formatters_by_ft =
-        vim.tbl_deep_extend('force', opts.formatters_by_ft or {}, set_for_filetypes(all_web_filetypes, { 'prettier' }))
+        vim.tbl_deep_extend('force', opts.formatters_by_ft or {}, set_for_filetypes(web_filetypes, { 'prettier' }))
     end,
   },
   {
