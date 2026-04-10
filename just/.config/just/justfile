@@ -18,7 +18,7 @@ _run-and-report cmd description:
 # Upgrade homebrew dependencies, nvim Lazy plugins, nvim Mason plugins and tmux plugins
 upgrade:
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "brew update && brew upgrade && brew cleanup" "Homebrew dependencies updated"
-  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "nvim --headless '+MasonUpdate' +qall && nvim --headless '+Lazy! sync' +qall" "Neovim plugins updated"
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "nvim --headless -c 'lua vim.pack.update()' -c 'qa' && nvim --headless -c 'MasonUpdate' -c 'qa'" "Neovim plugins updated"
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "~/.tmux/plugins/tpm/bin/update_plugins all" "Tmux plugins updated"
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "npm update -g" "Global npm packages updated"
 
