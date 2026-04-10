@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/froko/dotfiles/compare/v2.0.0...v2.1.0) (2026-04-10)
+
+### Features
+
+* **just:** upgrade vim.pack and Mason ([ff6c10b](https://github.com/froko/dotfiles/commit/ff6c10b5df09ee5e98c289fa84f4ee89140762de))
+* **nvim:** migrate configuration to v0.12 ([da5099c](https://github.com/froko/dotfiles/commit/da5099c548e6d87902836eaf7b07954c9b1a64bd))
+
 ## [2.0.0](https://github.com/froko/dotfiles/compare/v1.8.0...v2.0.0) (2026-03-29)
 
 ### Features
