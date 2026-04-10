@@ -1,14 +1,7 @@
 node_modules/
 
-nvim/**/lazy-lock.json
 nvim/**/spell/
-
-nvim/**/plugins/custom/*
-!nvim/**/plugins/custom/custom.lua
-!nvim/**/plugins/custom/__templates__
-
-nvim/**/ftplugin/*
-!nvim/**/ftplugin/__templates__
+nvim/**/plugin/
 
 tmux/**/plugins
 

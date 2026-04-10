@@ -1,118 +1,161 @@
-# NeoVim
+# Neovim
 
-[NeoVim](https://neovim.io/) is my preferred text editor.
+[Neovim](https://neovim.io/) (0.12+) is my preferred text editor.
+
+## Architecture
+
+The configuration is structured as a minimal base that can be extended per
+machine using optional plugin templates:
+
+- `lua/` — Core configuration (options, keymaps, autocmds, essentials, coding)
+- `lsp/` — Native LSP server configurations loaded by `vim.lsp.config()`
+- `queries/` — Treesitter query files (highlights, folds, indents, injections)
+- `templates/` — Optional plugin configurations (git-tracked)
+- `plugin/` — Active plugin configurations as symlinks into `templates/` (git-ignored)
+
+## Plugin Management
+
+Plugins are managed using the built-in `vim.pack` package manager. Optional
+templates can be activated via symlinks:
+
+```sh
+./templates/manage.sh list              # show all templates and their status
+./templates/manage.sh enable web react  # enable templates
+./templates/manage.sh disable react     # disable templates
+```
+
+## Treesitter Queries
+
+Treesitter query files are maintained locally in the `queries/` directory.
+They can be synchronized with the upstream `nvim-treesitter` repository:
+
+```sh
+./queries/sync.sh              # sync all languages
+./queries/sync.sh --diff       # preview changes without writing
+./queries/sync.sh lua yaml     # sync specific languages
+```
 
 ## Plugins
 
-The configuration includes, the following plugins, which are managed using
-[lazy.nvim](https://github.com/folke/lazy.nvim):
+### Core
 
-### Core Plugins
-
-- [catppuccin/nvim](https://github.com/catppuccin/nvim): A color scheme for
-  NeoVim that provides a pleasant and consistent look.
-- [folke/flash.nvim](https://github.com/folke/flash.nvim): A plugin that
-  provides a flash-like experience for navigating and searching in NeoVim.
-- [ibhagwan/fzf-lua](https://github.com/ibhagwan/fzf-lua): A Lua-based
-  implementation of FZF (Fuzzy Finder) for NeoVim, providing fast and efficient
-  searching capabilities.
-- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim): A
-  fast and lightweight status line for NeoVim that provides useful information
-  about the current file and mode.
-- [stevearc/oil.nvim](https://github.com/stevearc/oil.nvim): A plugin that
-  provides a file explorer for NeoVim, allowing you to navigate and manage files
-  easily. A powerful fuzzy finder for NeoVim that allows you to search through
-  files, directories, command history and much more.
+- [catppuccin/nvim](https://github.com/catppuccin/nvim): Color scheme.
 - [christoomey/vim-tmux-navigator](https://github.com/christoomey/vim-tmux-navigator):
-  A plugin that allows you to navigate between Vim and Tmux panes seamlessly.
-- [folke/which-key.nvim](https://github.com/folke/which-key.nvim): A plugin that
-  provides a popup menu for displaying available keybindings in NeoVim.
+  Seamless navigation between Vim and Tmux panes.
+- [folke/which-key.nvim](https://github.com/folke/which-key.nvim): Popup menu
+  for displaying available keybindings.
+- [ibhagwan/fzf-lua](https://github.com/ibhagwan/fzf-lua): Fuzzy finder for
+  files, text, diagnostics, symbols, and more.
+- [nvim-lualine/lualine.nvim](https://github.com/nvim-lualine/lualine.nvim):
+  Lightweight status line.
+- [nvim-tree/nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons):
+  File type icons.
+- [stevearc/oil.nvim](https://github.com/stevearc/oil.nvim): File explorer that
+  lets you edit the filesystem like a buffer.
 
-### Coding Plugins
+### Coding
 
-- [Saghen/blink.cmp](https://github.com/saghen/blink.cmp): A plugin that
-  provides a fast and efficient autocompletion experience for NeoVim, allowing
-  you to quickly complete code snippets and symbols.
-- [stevearc/conform.nvim](https://github.com/stevearc/conform.nvim): A plugin
-  that provides code formatting and linting capabilities for NeoVim, allowing
-  you to conform your code to a specific style.
-- [tpope/vim-commentary](https://github.com/tpope/vim-commentary): A plugin that
-  provides easy commenting and uncommenting of code in NeoVim, allowing you to
-  quickly toggle comments on and off.
-- [mfussenegger/nvim-lint](https://github.com/mfussenegger/nvim-lint): A plugin
-  that provides linting capabilities for NeoVim, allowing you to check your code
-  for errors and warnings.
+- [mason-org/mason.nvim](https://github.com/mason-org/mason.nvim): Package
+  manager for LSP servers, formatters, and linters.
+- [stevearc/conform.nvim](https://github.com/stevearc/conform.nvim): Format on
+  save with LSP fallback.
+- [mfussenegger/nvim-lint](https://github.com/mfussenegger/nvim-lint):
+  Asynchronous linting.
+- [windwp/nvim-autopairs](https://github.com/windwp/nvim-autopairs): Automatic
+  bracket and quote pairing.
 - [MeanderingProgrammer/render-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim):
-  A plugin that provides a live preview of Markdown files in NeoVim, allowing
-  you to see the rendered output as you edit.
-- [williamboman/mason.nvim](https://github.com/mason-org/mason.nvim): A plugin
-  that provides a package manager for NeoVim, allowing you to easily install and
-  manage external tools and language servers.
+  Rendered Markdown inside the editor.
+- [iamcco/markdown-preview.nvim](https://github.com/iamcco/markdown-preview.nvim):
+  Live Markdown preview in the browser.
 
-I use the built-in LSP client of NeoVim with the built-in autocompletion. Read
-more about the LSP client in the
-[NeoVim documentation](https://neovim.io/doc/user/lsp.html).
+LSP, diagnostics, and treesitter highlighting are configured using Neovim's
+built-in APIs (`vim.lsp.config`, `vim.lsp.enable`, `vim.diagnostic.config`,
+`vim.treesitter.start`).
 
-### Custom Plugins
+### Templates (optional)
 
-There is a folder named `lua/plugins/custom` that is reserved for custom plugins
-you may add to your NeoVim configuration. This folder is excluded from the Git
-repository, so you can add your own plugins without affecting the shared
-configuration.
+| Template | Description |
+|----------|-------------|
+| `angular` | Angular language server |
+| `astro` | Astro language server, prettier, eslint |
+| `blink` | [blink.cmp](https://github.com/saghen/blink.cmp) autocompletion |
+| `copilot` | [GitHub Copilot](https://github.com/github/copilot.vim) |
+| `flash` | [flash.nvim](https://github.com/folke/flash.nvim) jump navigation |
+| `git` | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim), [neogit](https://github.com/neogitorg/neogit), [diffview.nvim](https://github.com/sindrets/diffview.nvim) |
+| `kulala` | [kulala.nvim](https://github.com/mistweaverco/kulala.nvim) HTTP client |
+| `react` | JSX/TSX treesitter, prettier, eslint |
+| `svelte` | Svelte language server, prettier, eslint |
+| `vimtest` | [vim-test](https://github.com/vim-test/vim-test) with jest/playwright |
+| `vue` | Vue language server with hybrid mode, prettier, eslint |
+| `web` | Base web development: vtsls, eslint, tailwindcss, prettier |
+| `zk` | [zk-nvim](https://github.com/zk-org/zk-nvim) note-taking |
 
 ## Keybindings
 
-The configuration also includes the following keybindings, while the `<Leader>`
-key is set to `Space`:
+The `<Leader>` key is set to `Space`.
 
-- Standard bindings:
-  - `jk`: Exit insert mode in Vim (alternative to `Esc`).
-  - `<Leader>r`: Reload the current buffer.
-  - `<Leader>as`: Toggle spell checking.
+### General
 
-- Buffers
-  - `bj`: Go to the previous buffer.
-  - `bk`: Go to the next buffer.
-  - `<Leader>bb`: Close the current buffer.
-  - `<Leader>ba`: Close all buffers except the current one.
-  - `<Leader>bA`: Close all buffers.
-  - `<Space><Space>`: Select a buffer using fzf-lua.
+| Key | Description |
+|-----|-------------|
+| `jk` | Exit insert mode |
+| `<Esc>` | Clear search highlight |
+| `<Leader>r` | Reload current buffer |
+| `<Leader>s` | Search and replace in file |
+| `<Leader>as` | Toggle spell checking |
+| `<Leader>ad` | Toggle diagnostics |
+| `<C-d>` / `<C-u>` | Scroll down/up (centered) |
 
-- blink.cmp
-  - `<C-x><C-o>`: Manually trigger autocompletion and toggle documentation.
-  - `<C-n>`: Select the next item in the autocompletion popup.
-  - `<C-p>`: Select the previous item in the autocompletion popup.
-  - `<C-y>`: Accept and confirm the selected item.
-  - `<C-e>`: Hide the autocompletion popup.
+### Buffers
 
-- fzf-lua
-  - `<Leader>fd`: Find diagnostics in document.
-  - `<Leader>fD`: Find diagnostics in workspace.
-  - `<Leader>ff`: Find files.
-  - `<Leader>fg`: Find text in document.
-  - `<Leader>fG`: Find text in workspace.
-  - `<Leader>fh`: Find help.
-  - `<Leader>fs`: Find symbols in document.
-  - `<Leader>fS`: Find symbols in workspace.
-  - `<Space><Space>`: Find buffers.
-  - `<C-q>`: Send selection to Quickfix list.
+| Key | Description |
+|-----|-------------|
+| `<Space><Space>` | Find buffers (fzf-lua) |
+| `<Leader>bb` | Close current buffer |
+| `<Leader>ba` | Close all buffers |
+| `<Leader>bA` | Close all buffers except current |
 
-- flash.nvim
-  - `s`: Jump to a character sequence in the current buffer.
+### Fuzzy Finder (fzf-lua)
 
-- oil.nvim
-  - `-`: Open the Oil file explorer or move up one directory.
-  - `g.`: Toggle the visibility of hidden files in Oil.
-  - `<C-c>`: Close the Oil file explorer.
-  - `<C-s>`: Open the selected file in a horizontal split.
-  - `<C-v>`: Open the selected file in a vertical split.
+| Key | Description |
+|-----|-------------|
+| `<Leader>ff` | Find files |
+| `<Leader>fg` | Find text in document |
+| `<Leader>fG` | Find text in workspace |
+| `<Leader>fd` | Find diagnostics in document |
+| `<Leader>fD` | Find diagnostics in workspace |
+| `<Leader>fs` | Find symbols in document |
+| `<Leader>fS` | Find symbols in workspace |
+| `<Leader>fh` | Find help |
+| `<C-q>` | Send selection to quickfix list |
 
-- Built-in LSP
-  - `gd`: Go to the definition of the symbol under the cursor.
-  - `gra`: Show code actions available at the cursor position.
-  - `gri`: Go to the implementation of the symbol under the cursor.
-  - `grn`: Rename the symbol under the cursor.
-  - `grr`: Show references to the symbol under the cursor.
-  - `grt`: Show type definition of the symbol under the cursor.
-  - `K`: Show documentation for the symbol under the cursor.
-  - `<Leader>ad`: Toggle diagnostics.
+### File Explorer (oil.nvim)
+
+| Key | Description |
+|-----|-------------|
+| `-` | Open file explorer / navigate up |
+| `g.` | Toggle hidden files |
+| `g?` | Show help |
+| `<CR>` | Open file |
+| `<C-s>` | Open in horizontal split |
+| `<C-v>` | Open in vertical split |
+| `<C-c>` | Close explorer |
+
+### LSP (built-in defaults + overrides)
+
+| Key | Description |
+|-----|-------------|
+| `gd` | Go to definition |
+| `grr` | Show references (fzf-lua) |
+| `gra` | Code actions (built-in) |
+| `gri` | Go to implementation (built-in) |
+| `grn` | Rename symbol (built-in) |
+| `grt` | Go to type definition (built-in) |
+| `K` | Hover documentation (built-in) |
+
+### Move Block (visual mode)
+
+| Key | Description |
+|-----|-------------|
+| `<Down>` | Move selection down |
+| `<Up>` | Move selection up |

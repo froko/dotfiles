@@ -1,0 +1,10 @@
+vim.pack.add({
+  'https://github.com/mistweaverco/kulala.nvim',
+})
+
+require('utils').enable_treesitter({ 'http' })
+require('kulala').setup({
+  global_keymaps = true,
+  global_keymaps_prefix = '<leader>k',
+})
+require('which-key').add({ '<leader>k', group = 'Kulala' })
