@@ -1,5 +1,6 @@
 node_modules/
 
+nvim/**/nvim-pack-lock.json
 nvim/**/spell/
 nvim/**/plugin/
 
