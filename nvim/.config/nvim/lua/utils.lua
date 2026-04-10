@@ -21,21 +21,11 @@ local function ensure_installed(packages)
   end)
 end
 
-local function enable_treesitter(filetypes)
-  vim.api.nvim_create_autocmd('FileType', {
-    pattern = filetypes,
-    callback = function(args)
-      vim.treesitter.start(args.buf)
-    end,
-  })
-end
-
 M.nnoremap = bind('n')
 M.vnoremap = bind('v')
 M.xnoremap = bind('x')
 M.inoremap = bind('i')
 M.tnoremap = bind('t')
 M.ensure_installed = ensure_installed
-M.enable_treesitter = enable_treesitter
 
 return M

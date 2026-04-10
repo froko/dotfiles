@@ -4,7 +4,7 @@ vim.pack.add({
 })
 
 require('utils').ensure_installed({ 'marksman', 'prettier', 'markdownlint-cli2' })
-require('utils').enable_treesitter({ 'markdown' })
+require('nvim-treesitter').install({ 'markdown' })
 require('conform').formatters_by_ft.markdown = { 'prettier' }
 require('lint').linters_by_ft.markdown = { 'markdownlint-cli2' }
 require('render-markdown').setup({

@@ -1,8 +1,5 @@
-local utils = require('utils')
-
-utils.ensure_installed({ 'svelte-language-server' })
-utils.enable_treesitter({ 'svelte' })
-
+require('utils').ensure_installed({ 'svelte-language-server' })
+require('nvim-treesitter').install({ 'svelte' })
 require('conform').formatters_by_ft.svelte = { 'prettier' }
 require('lint').linters_by_ft.svelte = { 'eslint' }
 
