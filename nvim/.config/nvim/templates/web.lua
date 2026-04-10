@@ -4,7 +4,7 @@ local base_web_filetypes = { 'html', 'css' }
 local lintable_web_filetypes = { 'javascript', 'typescript' }
 local all_web_filetypes = vim.list_extend(vim.deepcopy(base_web_filetypes), lintable_web_filetypes)
 
-require('utils').enable_treesitter(all_web_filetypes)
+require('nvim-treesitter').install(all_web_filetypes)
 
 local function set_for_filetypes(filetypes, tool, value)
   for _, ft in ipairs(filetypes) do

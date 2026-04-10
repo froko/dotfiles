@@ -1,5 +1,5 @@
 require('utils').ensure_installed({ 'angular-language-server' })
-require('utils').enable_treesitter({ 'angular' })
+require('nvim-treesitter').install({ 'angular' })
 
 vim.lsp.config('angularls', {
   on_attach = function(client)

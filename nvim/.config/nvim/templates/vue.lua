@@ -1,8 +1,5 @@
-local utils = require('utils')
-
-utils.ensure_installed({ 'vue-language-server' })
-utils.enable_treesitter({ 'vue' })
-
+require('utils').ensure_installed({ 'vue-language-server' })
+require('nvim-treesitter').install({ 'vue' })
 require('conform').formatters_by_ft.vue = { 'prettier' }
 require('lint').linters_by_ft.vue = { 'eslint' }
 
