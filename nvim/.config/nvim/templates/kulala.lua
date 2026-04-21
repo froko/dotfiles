@@ -8,3 +8,10 @@ require('kulala').setup({
   global_keymaps_prefix = '<leader>k',
 })
 require('which-key').add({ '<leader>k', group = 'Kulala' })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'http' },
+  callback = function(args)
+    vim.treesitter.start(args.buf)
+  end,
+})

@@ -56,6 +56,7 @@ nnoremap('-', '<CMD>Oil<CR>', { desc = 'Open file explorer' })
 local fzf_lua = require('fzf-lua')
 fzf_lua.config.defaults.keymap.fzf['ctrl-q'] = 'select-all+accept' -- send selection to quick-fix list
 fzf_lua.setup()
+fzf_lua.register_ui_select()
 
 nnoremap('<Leader>fd', '<CMD>FzfLua diagnostics_document<CR>', { desc = 'Find diagnostics in document' })
 nnoremap('<Leader>fD', '<CMD>FzfLua diagnostics_workspace<CR>', { desc = 'Find diagnostics in workspace' })

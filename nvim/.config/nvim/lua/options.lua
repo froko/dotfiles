@@ -10,6 +10,7 @@ vim.o.mouse = 'a'
 
 vim.o.clipboard = 'unnamedplus'
 
+vim.opt.swapfile = false
 vim.opt.undofile = true
 
 vim.o.expandtab = true
