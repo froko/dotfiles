@@ -11,8 +11,8 @@ applications:
 - [just](https://github.com/casey/just)
 - [lazygit](https://github.com/jesseduffield/lazygit)
 - [neovim](https://neovim.io/)
+- [`presenterm`](https://mfontanini.github.io/presenterm/)
 - [sesh](https://github.com/joshmedeski/sesh)
-- [slides](https://github.com/maaslalani/slides)
 - [stow](https://www.gnu.org/software/stow/)
 - [tmux](https://github.com/tmux/tmux/wiki)
 - [yazi](https://github.com/sxyazi/yazi)
@@ -48,9 +48,9 @@ brew install \
   just \
   lazygit \
   neovim \
+  presenterm \
   pure \
   ripgrep \
-  slides \
   stow \
   tmux \
   yazi \
