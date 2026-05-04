@@ -19,7 +19,6 @@ _run-and-report cmd description:
 upgrade:
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "brew update && brew upgrade && brew cleanup" "Homebrew dependencies updated"
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "nvim --headless -c 'lua vim.pack.update()' -c 'qa' && nvim --headless -c 'MasonUpdate' -c 'qa'" "Neovim plugins updated"
-  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "~/.tmux/plugins/tpm/bin/update_plugins all" "Tmux plugins updated"
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "npm update -g" "Global npm packages updated"
 
 
@@ -39,7 +38,6 @@ restore:
 # Synchronize notes and tasks
 sync:
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "zk sync" "Notes synchronized"
-  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "task sync" "Tasks synchronized"
 
 # Quick/safe cleanup (no sudo)
 clean:
