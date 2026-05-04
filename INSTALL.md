@@ -14,7 +14,6 @@ applications:
 - [sesh](https://github.com/joshmedeski/sesh)
 - [slides](https://github.com/maaslalani/slides)
 - [stow](https://www.gnu.org/software/stow/)
-- [taskwarrior](https://taskwarrior.org/)
 - [tmux](https://github.com/tmux/tmux/wiki)
 - [yazi](https://github.com/sxyazi/yazi)
 - [zk](https://github.com/zk-org/zk)
@@ -53,7 +52,6 @@ brew install \
   ripgrep \
   slides \
   stow \
-  task \
   tmux \
   yazi \
   zk \
