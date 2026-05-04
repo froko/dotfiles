@@ -9,7 +9,7 @@ Zettelkasten method.
 - Areas: Ongoing responsibilities and areas of focus in my life and work.
 - Projects: Short-term efforts with a specific goal or outcome.
 - Slides: Notes created for presentations using the
-  [`slides`](https://maaslalani.com/slides/) command line tool.
+  [`presenterm`](https://mfontanini.github.io/presenterm/) command line tool.
 - "Normal" notes: Depending on the tags used, these notes can belong to
   different categories: fleeting notes, literature notes, permanent notes,
   how-to notes, blog posts to be written, etc.
@@ -31,7 +31,7 @@ All notes have a tag list in their frontmatter.
 - `zk areas`: Lists all area notes.
 - `zk projects`: Lists all project notes.
 - `zk slides`: Lists all slide notes to be opened using the
-  [`slides`](https://maaslalani.com/slides/) command line tool.
+  [`presenterm`](https://mfontanini.github.io/presenterm/) command line tool.
 
 ### Manage notes
 
@@ -56,34 +56,35 @@ create a `zk.lua` file in your custom nvim plugin directory with the following
 content:
 
 ```lua
+vim.pack.add({
+  'https://github.com/zk-org/zk-nvim',
+})
+
+require('zk').setup({
+  picker = 'fzf_lua',
+  lsp = {
+    config = {
+      cmd = { 'zk', 'lsp' },
+      name = 'zk',
+      on_attach = function(client)
+        client.server_capabilities.definitionProvider = false
+      end,
+    },
+  },
+  auto_attach = { enabled = true, filetypes = { 'markdown' } },
+})
+
+require('which-key').add({ '<leader>z', group = 'Zk' })
+
 local nnoremap = require('utils').nnoremap
 local vnoremap = require('utils').vnoremap
 
-return {
-  'zk-org/zk-nvim',
-  config = function()
-    require('zk').setup({
-      picker = 'fzf_lua',
-      lsp = {
-        config = {
-          name = 'zk',
-          cmd = { 'zk', 'lsp' },
-          filetypes = { 'markdown' },
-        },
-        auto_attach = {
-          enabled = true,
-        },
-      },
-    })
+nnoremap('<leader>zb', '<Cmd>ZkBacklinks<CR>', { desc = 'Search Zk Backlinks' })
+nnoremap('<leader>zl', '<Cmd>ZkInsertLink<CR>', { desc = 'Add a Zk note as a link' })
+nnoremap('<leader>zn', "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", { desc = 'Create a new Zk note' })
+nnoremap('<leader>zo', "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", { desc = 'Open Zk notes' })
+nnoremap('<leader>zt', '<Cmd>ZkTags<CR>', { desc = 'Search Zk tags' })
 
-    nnoremap('<leader>zb', '<Cmd>ZkBacklinks<CR>', { desc = 'Search Zk Backlinks' })
-    nnoremap('<leader>zl', '<Cmd>ZkInsertLink<CR>', { desc = 'Add a Zk note as a link' })
-    nnoremap('<leader>zn', "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", { desc = 'Create a new Zk note' })
-    nnoremap('<leader>zo', "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", { desc = 'Open Zk notes' })
-    nnoremap('<leader>zt', '<Cmd>ZkTags<CR>', { desc = 'Search Zk tags' })
-
-    vnoremap('<leader>zf', ":'<,'>ZkMatch<CR>", { desc = 'Search Zk notes for visual selection' })
-    vnoremap('<leader>zl', ":'<,'>ZkNewFromTitleSelection<CR>", { desc = 'Create a new linked Zk note' })
-  end,
-}
+vnoremap('<leader>zf', ":'<,'>ZkMatch<CR>", { desc = 'Search Zk notes for visual selection' })
+vnoremap('<leader>zl', ":'<,'>ZkNewFromTitleSelection<CR>", { desc = 'Create a new linked Zk note' })
 ```
