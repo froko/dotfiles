@@ -1,5 +1,30 @@
 # Changelog
 
+## [3.1.0](https://github.com/froko/dotfiles/compare/v3.0.0...v3.1.0) (2026-05-06)
+
+### Features
+
+* **bin:** add note script ([7ed2f45](https://github.com/froko/dotfiles/commit/7ed2f45473596ddb2b6af7f0f9df8970a70d4026))
+* **just:** remove tpm update and task sync ([0d00813](https://github.com/froko/dotfiles/commit/0d00813bce314479fd359523dbdf3332c108abb4))
+* **nvim:** add cspell LSP for spell checking ([266ef5a](https://github.com/froko/dotfiles/commit/266ef5a02f9da5af0d98d54d33210b47b8d84c8a))
+* **nvim:** add hurl plugin template ([8349196](https://github.com/froko/dotfiles/commit/83491964dd2456a777ee00ad52fb9a3bd62c17a4))
+* **nvim:** add useful autocommands ([221d0ff](https://github.com/froko/dotfiles/commit/221d0ff029bc801fc4871b1021ef82b6388f26c7))
+* **nvim:** enhance LSP with filtered code actions and fzf ui_select ([3825995](https://github.com/froko/dotfiles/commit/382599573123b1da1e3e8ccd33dedfc53d7c24ad))
+* **nvim:** fall back to native autocompletion if blink.cmp is not active ([5f503be](https://github.com/froko/dotfiles/commit/5f503bedb17ad50f031191e8c988d6a79de4ca48))
+* **nvim:** get rid of 'Remove trailing whitespace on save' autocmd ([2a8bece](https://github.com/froko/dotfiles/commit/2a8becef9e60d3c7ce43f19eb0c16dcafa25e8a6))
+* **nvim:** ignore nvim-pack lock file ([59290aa](https://github.com/froko/dotfiles/commit/59290aa29982fc845516bba4596431b95f092bea))
+* **nvim:** improve buffer deletion to preserve terminal buffers ([c17782d](https://github.com/froko/dotfiles/commit/c17782d7cb4885513fe321995d27daacaeaa073d))
+* **nvim:** keep alphabetical order when adding a new word via cspell LSP code action ([a8937e2](https://github.com/froko/dotfiles/commit/a8937e2e7df3f3d251567b11657cc71c51972649))
+* **nvim:** misc config improvements ([abd0373](https://github.com/froko/dotfiles/commit/abd0373eab8f9459192c71721dae62761cb84e75))
+* **nvim:** remove version argument in LspEslintFixAll cmd ([9a846a1](https://github.com/froko/dotfiles/commit/9a846a1b479fc243b0c4607b3ce4c2b4d08a0fce))
+* **nvim:** support ignorePaths in cspell LSP ([b491b7c](https://github.com/froko/dotfiles/commit/b491b7c60c6dc279c5227cbe45a1e09acefa05a5))
+* **nvim:** switch to nvim-treesitter ([e72dc05](https://github.com/froko/dotfiles/commit/e72dc0523ceabeec15e8dd57fc3008862c695e21))
+* **presenterm:** add config ([818ca2b](https://github.com/froko/dotfiles/commit/818ca2b4f0282383ca54519bca404c8888005315))
+* **task:** remove taskwarrior configuration ([546be85](https://github.com/froko/dotfiles/commit/546be85850b7e3d77b22b1bf7a0f9f337e315f56))
+* **tmux:** set allow-passthrough on (required for image support by presenterm) ([27e4b4b](https://github.com/froko/dotfiles/commit/27e4b4b850f113e3b51dc918b2dc8bb3d676c8df))
+* **zed:** configure panel dock positions ([e1bb050](https://github.com/froko/dotfiles/commit/e1bb0504bc6ae3d4c1b6ea8fc2d9dfa51b4df698))
+* **zk:** replace slides by presenterm ([53b137e](https://github.com/froko/dotfiles/commit/53b137e2429957c7a0eeedb6dd8ffa5525da7d43))
+
 ## [3.0.0](https://github.com/froko/dotfiles/compare/v2.0.0...v3.0.0) (2026-04-10)
 
 ### Features
