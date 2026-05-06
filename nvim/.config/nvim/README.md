@@ -9,7 +9,6 @@ machine using optional plugin templates:
 
 - `lua/` — Core configuration (options, keymaps, autocmds, essentials, coding)
 - `lsp/` — Native LSP server configurations loaded by `vim.lsp.config()`
-- `queries/` — Treesitter query files (highlights, folds, indents, injections)
 - `templates/` — Optional plugin configurations (git-tracked)
 - `plugin/` — Active plugin configurations as symlinks into `templates/` (git-ignored)
 
@@ -24,16 +23,11 @@ templates can be activated via symlinks:
 ./templates/manage.sh disable react     # disable templates
 ```
 
-## Treesitter Queries
+## Treesitter
 
-Treesitter query files are maintained locally in the `queries/` directory.
-They can be synchronized with the upstream `nvim-treesitter` repository:
-
-```sh
-./queries/sync.sh              # sync all languages
-./queries/sync.sh --diff       # preview changes without writing
-./queries/sync.sh lua yaml     # sync specific languages
-```
+Treesitter grammars are managed by the
+[nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) plugin.
+Grammars are installed on demand via `require('nvim-treesitter').install()`.
 
 ## Plugins
 
@@ -55,6 +49,8 @@ They can be synchronized with the upstream `nvim-treesitter` repository:
 
 ### Coding
 
+- [nvim-treesitter/nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter):
+  Treesitter grammar management and highlighting.
 - [mason-org/mason.nvim](https://github.com/mason-org/mason.nvim): Package
   manager for LSP servers, formatters, and linters.
 - [stevearc/conform.nvim](https://github.com/stevearc/conform.nvim): Format on
@@ -70,7 +66,8 @@ They can be synchronized with the upstream `nvim-treesitter` repository:
 
 LSP, diagnostics, and treesitter highlighting are configured using Neovim's
 built-in APIs (`vim.lsp.config`, `vim.lsp.enable`, `vim.diagnostic.config`,
-`vim.treesitter.start`).
+`vim.treesitter.start`). Native autocompletion (`vim.lsp.completion`) is used as
+a fallback when blink.cmp is not active.
 
 ### Templates (optional)
 
@@ -78,10 +75,13 @@ built-in APIs (`vim.lsp.config`, `vim.lsp.enable`, `vim.diagnostic.config`,
 |----------|-------------|
 | `angular` | Angular language server |
 | `astro` | Astro language server, prettier, eslint |
+| `autosession` | [auto-session](https://github.com/rmagatti/auto-session) automatic session management |
 | `blink` | [blink.cmp](https://github.com/saghen/blink.cmp) autocompletion |
 | `copilot` | [GitHub Copilot](https://github.com/github/copilot.vim) |
+| `cspell` | [cspell](https://cspell.org/) LSP for spell checking with custom dictionaries |
 | `flash` | [flash.nvim](https://github.com/folke/flash.nvim) jump navigation |
 | `git` | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim), [neogit](https://github.com/neogitorg/neogit), [diffview.nvim](https://github.com/sindrets/diffview.nvim) |
+| `hurl` | [hurl.nvim](https://github.com/samueljoli/hurl.nvim) HTTP client |
 | `kulala` | [kulala.nvim](https://github.com/mistweaverco/kulala.nvim) HTTP client |
 | `react` | JSX/TSX treesitter, prettier, eslint |
 | `svelte` | Svelte language server, prettier, eslint |
