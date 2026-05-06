@@ -40,12 +40,7 @@ local function setup_eslint_fix_all_command(client, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'LspEslintFixAll', function()
     client:request_sync('workspace/executeCommand', {
       command = 'eslint.applyAllFixes',
-      arguments = {
-        {
-          uri = vim.uri_from_bufnr(bufnr),
-          version = vim.lsp.util.buf_versions[bufnr],
-        },
-      },
+      arguments = { { uri = vim.uri_from_bufnr(bufnr) } },
     }, nil, bufnr)
   end, {})
 end
