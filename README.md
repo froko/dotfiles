@@ -20,7 +20,7 @@ cd ~/dotfiles
 ln -s bat/.config/bat ~/.config/bat
 ln -s just/.config/just ~/.config/just
 ln -s nvim/.config/nvim ~/.config/nvim
-ln -s task/.config/task ~/.config/task
+ln -s presenterm/.config/presenterm ~/.config/presenterm
 ln -s tmux/.config/tmux ~/.config/tmux
 ln -s vim/.vimrc ~/.vimrc
 ln -s yazi/.config/yazi ~/.config/yazi
@@ -35,7 +35,7 @@ the symlinks:
 
 ```bash
 cd ~/dotfiles
-stow bat just nvim task tmux vim yazi zk zsh
+stow bat just nvim presenterm tmux vim yazi zk zsh
 stow wezterm zed
 ```
 
@@ -47,7 +47,7 @@ directories:
 - [bat](bat/.config/bat/README.md)
 - [just](just/.config/just/README.md)
 - [nvim](nvim/.config/nvim/README.md)
-- [task](task/.config/task/README.md)
+- [presenterm](presenterm/.config/presenterm/README.md)
 - [tmux](tmux/.config/tmux/README.md)
 - [vim](vim/README.md)
 - [yazi](yazi/.config/yazi/README.md)
