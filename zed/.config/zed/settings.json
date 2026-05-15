@@ -1,10 +1,6 @@
 {
-  "features": {
-    "edit_prediction_provider": "copilot",
-  },
   "agent": {
     "dock": "right",
-    "always_allow_tool_actions": true,
     "default_model": {
       "provider": "copilot_chat",
       "model": "claude-sonnet-4.5",
