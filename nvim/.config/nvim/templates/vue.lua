@@ -1,7 +1,7 @@
 require('utils').ensure_installed({ 'vue-language-server' })
 require('nvim-treesitter').install({ 'vue' })
-require('conform').formatters_by_ft.vue = { 'prettier' }
-require('lint').linters_by_ft.vue = { 'eslint' }
+require('conform').formatters_by_ft.vue = { 'oxfmt', 'prettier', stop_after_first = true }
+require('utils').setup_web_lint_autocmd('*.vue')
 
 -- In hybrid mode, vtsls handles TypeScript in .vue files via @vue/typescript-plugin.
 -- Resolve the plugin path from the Mason-installed vue-language-server.
