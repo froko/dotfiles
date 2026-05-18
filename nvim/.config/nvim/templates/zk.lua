@@ -1,6 +1,15 @@
+-- templates/zk.lua
+--
+-- Zettelkasten note-taking via zk-nvim.
+-- Uses fzf-lua as the note picker. All keymaps under <leader>z.
+
+-- ── Plugin declarations ──────────────────────────────────────────────
+
 vim.pack.add({
   'https://github.com/zk-org/zk-nvim',
 })
+
+-- ── Setup ────────────────────────────────────────────────────────────
 
 require('zk').setup({
   picker = 'fzf_lua',
@@ -9,12 +18,15 @@ require('zk').setup({
       cmd = { 'zk', 'lsp' },
       name = 'zk',
       on_attach = function(client)
+        -- Disable zk's definition provider (we use marksman for that)
         client.server_capabilities.definitionProvider = false
       end,
     },
   },
   auto_attach = { enabled = true, filetypes = { 'markdown' } },
 })
+
+-- ── Keymaps ──────────────────────────────────────────────────────────
 
 require('which-key').add({ '<leader>z', group = 'Zk' })
 

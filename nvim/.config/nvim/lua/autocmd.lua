@@ -1,3 +1,10 @@
+-- lua/autocmd.lua
+--
+-- Global autocommands (non-plugin-specific).
+
+-- ── Visual feedback ──────────────────────────────────────────────────
+
+-- Briefly highlight yanked text
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('highlight-yank', { clear = true }),
@@ -6,12 +13,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
+-- ── Window management ────────────────────────────────────────────────
+
+-- Rebalance splits when the terminal is resized
 vim.api.nvim_create_autocmd('VimResized', {
   desc = 'Automatically resize windows when the terminal size changes',
   pattern = '*',
   command = 'tabdo wincmd =',
 })
 
+-- Open help pages in a vertical split instead of horizontal
 vim.api.nvim_create_autocmd('FileType', {
   desc = 'Open help files in a vertical split',
   pattern = 'help',
@@ -20,6 +31,9 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- ── Quick-close filetypes ────────────────────────────────────────────
+
+-- Allow closing transient windows (qf, help, man, notify) with `q`
 vim.api.nvim_create_autocmd('FileType', {
   desc = 'Close certain filetypes with <q>',
   pattern = { 'qf', 'help', 'man', 'notify' },
@@ -29,6 +43,9 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- ── Cursor position restoration ──────────────────────────────────────
+
+-- Jump to the last known cursor position when reopening a file
 vim.api.nvim_create_autocmd('BufReadPost', {
   desc = 'Jump to the last known cursor position on opening a file',
   callback = function()
