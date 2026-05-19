@@ -1,4 +1,9 @@
 {
+  "agent_servers": {
+    "github-copilot-cli": {
+      "type": "registry",
+    }
+  },
   "agent": {
     "dock": "right",
     "default_model": {
