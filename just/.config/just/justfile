@@ -39,6 +39,27 @@ restore:
 sync:
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "zk sync" "Notes synchronized"
 
+# Add a timestamped entry to $NOTES/JOURNAL.md (creates today's date heading if missing)
+note *note:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    : "${NOTES:?NOTES env var not set}"
+    file="$NOTES/JOURNAL.md"
+    note="{{note}}"
+    if [ -z "$note" ]; then
+      printf "Note: "
+      read -r note
+    fi
+    [ -z "$note" ] && { echo "✗ Empty note, aborting"; exit 1; }
+    today="## $(date +%Y-%m-%d)"
+    entry="- $(date +%H:%M): $note"
+    if ! grep -qF "$today" "$file" 2>/dev/null; then
+      printf '\n%s\n\n%s\n' "$today" "$entry" >> "$file"
+    else
+      printf '%s\n' "$entry" >> "$file"
+    fi
+    echo "✅ Added to JOURNAL.md: $entry"
+
 # Quick/safe cleanup (no sudo)
 clean:
     #!/usr/bin/env bash
