@@ -9,6 +9,7 @@ export DOTFILES="$HOME/dotfiles"
 export NOTES="$HOME/notes"
 export PRESENTERM_CONFIG_FILE="$HOME/.config/presenterm/config.yaml"
 export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 setopt extended_glob null_glob
 typeset -U path
