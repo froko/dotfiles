@@ -7,13 +7,17 @@
 The configuration is structured as a minimal base that can be extended per
 machine using optional plugin templates:
 
-- `init.lua` — Entry point: enables the byte-code loader, then loads core modules
+- `init.lua` — Entry point: enables the byte-code loader, then loads core
+  modules
 - `lua/` — Core configuration (options, keymaps, autocmds, essentials, coding)
-  - `lua/utils.lua` — Shared helpers: keymap wrappers, Mason installer, web linter detection
-  - `lua/coding/` — Coding infrastructure: LSP, diagnostics, Treesitter, language modules
+  - `lua/utils.lua` — Shared helpers: keymap wrappers, Mason installer, web
+    linter detection
+  - `lua/coding/` — Coding infrastructure: LSP, diagnostics, Treesitter,
+    language modules
 - `lsp/` — Native LSP server configurations loaded by `vim.lsp.config()`
 - `templates/` — Optional plugin configurations (git-tracked)
-- `plugin/` — Active plugin configurations as symlinks into `templates/` (git-ignored)
+- `plugin/` — Active plugin configurations as symlinks into `templates/`
+  (git-ignored)
 
 ### Code Conventions
 
@@ -21,9 +25,11 @@ All Lua files follow a consistent documentation style:
 
 - **File headers** describe the file's purpose and what it provides
 - **Section dividers** (`-- ── Section ──`) visually separate logical blocks
-- **LuaDoc annotations** (`---@param`, `---@return`) document function signatures
-- **Inline comments** explain *why*, not *what*
-- **Formatting** is enforced by [StyLua](https://github.com/JohnnyMorganz/StyLua) via `stylua.toml`
+- **LuaDoc annotations** (`---@param`, `---@return`) document function
+  signatures
+- **Inline comments** explain _why_, not _what_
+- **Formatting** is enforced by
+  [StyLua](https://github.com/JohnnyMorganz/StyLua) via `stylua.toml`
 
 ## Plugin Management
 
@@ -84,24 +90,25 @@ a fallback when blink.cmp is not active.
 
 ### Templates (optional)
 
-| Template | Description |
-|----------|-------------|
-| `angular` | Angular language server |
-| `astro` | Astro language server, prettier, eslint |
-| `autosession` | [auto-session](https://github.com/rmagatti/auto-session) automatic session management |
-| `blink` | [blink.cmp](https://github.com/saghen/blink.cmp) autocompletion |
-| `copilot` | [GitHub Copilot](https://github.com/github/copilot.vim) |
-| `cspell` | [cspell](https://cspell.org/) LSP for spell checking with auto-sorted custom dictionaries |
-| `flash` | [flash.nvim](https://github.com/folke/flash.nvim) jump navigation |
-| `git` | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim), [neogit](https://github.com/neogitorg/neogit), [diffview.nvim](https://github.com/sindrets/diffview.nvim) |
-| `hurl` | [hurl.nvim](https://github.com/samueljoli/hurl.nvim) HTTP client |
-| `kulala` | [kulala.nvim](https://github.com/mistweaverco/kulala.nvim) HTTP client |
-| `react` | JSX/TSX treesitter, prettier, eslint |
-| `svelte` | Svelte language server, prettier, eslint |
-| `vimtest` | [vim-test](https://github.com/vim-test/vim-test) with jest/playwright auto-detection |
-| `vue` | Vue language server with hybrid mode (vtsls + @vue/typescript-plugin), prettier, eslint |
-| `web` | Base web development: vtsls, eslint, tailwindcss, prettier, oxfmt/oxlint (config-gated) |
-| `zk` | [zk-nvim](https://github.com/zk-org/zk-nvim) note-taking |
+| Template      | Description                                                                                                                                                            |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `angular`     | Angular language server                                                                                                                                                |
+| `astro`       | Astro language server, prettier, eslint                                                                                                                                |
+| `autosession` | [auto-session](https://github.com/rmagatti/auto-session) automatic session management                                                                                  |
+| `blink`       | [blink.cmp](https://github.com/saghen/blink.cmp) autocompletion                                                                                                        |
+| `copilot`     | [GitHub Copilot](https://github.com/github/copilot.vim)                                                                                                                |
+| `cspell`      | [cspell](https://cspell.org/) LSP for spell checking with auto-sorted custom dictionaries                                                                              |
+| `dotnet`      | C#: [roslyn.nvim](https://github.com/seblyng/roslyn.nvim) LSP, csharpier, c_sharp treesitter                                                                           |
+| `flash`       | [flash.nvim](https://github.com/folke/flash.nvim) jump navigation                                                                                                      |
+| `git`         | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim), [neogit](https://github.com/neogitorg/neogit), [diffview.nvim](https://github.com/sindrets/diffview.nvim) |
+| `hurl`        | [hurl.nvim](https://github.com/samueljoli/hurl.nvim) HTTP client                                                                                                       |
+| `kulala`      | [kulala.nvim](https://github.com/mistweaverco/kulala.nvim) HTTP client                                                                                                 |
+| `react`       | JSX/TSX treesitter, prettier, eslint                                                                                                                                   |
+| `svelte`      | Svelte language server, prettier, eslint                                                                                                                               |
+| `vimtest`     | [vim-test](https://github.com/vim-test/vim-test) with jest/playwright auto-detection                                                                                   |
+| `vue`         | Vue language server with hybrid mode (vtsls + @vue/typescript-plugin), prettier, eslint                                                                                |
+| `web`         | Base web development: vtsls, eslint, tailwindcss, prettier, oxfmt/oxlint (config-gated)                                                                                |
+| `zk`          | [zk-nvim](https://github.com/zk-org/zk-nvim) note-taking                                                                                                               |
 
 ## Keybindings
 
@@ -109,66 +116,66 @@ The `<Leader>` key is set to `Space`.
 
 ### General
 
-| Key | Description |
-|-----|-------------|
-| `jk` | Exit insert mode |
-| `<Esc>` | Clear search highlight |
-| `<Leader>r` | Reload current buffer |
-| `<Leader>s` | Search and replace in file |
-| `<Leader>as` | Toggle spell checking |
-| `<Leader>ad` | Toggle diagnostics |
-| `<C-d>` / `<C-u>` | Scroll down/up (centered) |
+| Key               | Description                |
+| ----------------- | -------------------------- |
+| `jk`              | Exit insert mode           |
+| `<Esc>`           | Clear search highlight     |
+| `<Leader>r`       | Reload current buffer      |
+| `<Leader>s`       | Search and replace in file |
+| `<Leader>as`      | Toggle spell checking      |
+| `<Leader>ad`      | Toggle diagnostics         |
+| `<C-d>` / `<C-u>` | Scroll down/up (centered)  |
 
 ### Buffers
 
-| Key | Description |
-|-----|-------------|
-| `<Space><Space>` | Find buffers (fzf-lua) |
-| `<Leader>bb` | Close current buffer |
-| `<Leader>ba` | Close all buffers |
-| `<Leader>bA` | Close all buffers except current |
+| Key              | Description                      |
+| ---------------- | -------------------------------- |
+| `<Space><Space>` | Find buffers (fzf-lua)           |
+| `<Leader>bb`     | Close current buffer             |
+| `<Leader>ba`     | Close all buffers                |
+| `<Leader>bA`     | Close all buffers except current |
 
 ### Fuzzy Finder (fzf-lua)
 
-| Key | Description |
-|-----|-------------|
-| `<Leader>ff` | Find files |
-| `<Leader>fg` | Find text in document |
-| `<Leader>fG` | Find text in workspace |
-| `<Leader>fd` | Find diagnostics in document |
-| `<Leader>fD` | Find diagnostics in workspace |
-| `<Leader>fs` | Find symbols in document |
-| `<Leader>fS` | Find symbols in workspace |
-| `<Leader>fh` | Find help |
-| `<C-q>` | Send selection to quickfix list |
+| Key          | Description                     |
+| ------------ | ------------------------------- |
+| `<Leader>ff` | Find files                      |
+| `<Leader>fg` | Find text in document           |
+| `<Leader>fG` | Find text in workspace          |
+| `<Leader>fd` | Find diagnostics in document    |
+| `<Leader>fD` | Find diagnostics in workspace   |
+| `<Leader>fs` | Find symbols in document        |
+| `<Leader>fS` | Find symbols in workspace       |
+| `<Leader>fh` | Find help                       |
+| `<C-q>`      | Send selection to quickfix list |
 
 ### File Explorer (oil.nvim)
 
-| Key | Description |
-|-----|-------------|
-| `-` | Open file explorer / navigate up |
-| `g.` | Toggle hidden files |
-| `g?` | Show help |
-| `<CR>` | Open file |
-| `<C-s>` | Open in horizontal split |
-| `<C-v>` | Open in vertical split |
-| `<C-c>` | Close explorer |
+| Key     | Description                      |
+| ------- | -------------------------------- |
+| `-`     | Open file explorer / navigate up |
+| `g.`    | Toggle hidden files              |
+| `g?`    | Show help                        |
+| `<CR>`  | Open file                        |
+| `<C-s>` | Open in horizontal split         |
+| `<C-v>` | Open in vertical split           |
+| `<C-c>` | Close explorer                   |
 
 ### LSP (built-in defaults + overrides)
 
-| Key | Description |
-|-----|-------------|
-| `gd` | Go to definition |
-| `grr` | Show references (fzf-lua) |
+| Key   | Description                      |
+| ----- | -------------------------------- |
+| `gd`  | Go to definition                 |
+| `grr` | Show references (fzf-lua)        |
 | `gra` | Code actions (fzf-lua, filtered) |
-| `gri` | Go to implementation (built-in) |
-| `grn` | Rename symbol (built-in) |
+| `gri` | Go to implementation (built-in)  |
+| `grn` | Rename symbol (built-in)         |
 | `grt` | Go to type definition (built-in) |
-| `K` | Hover documentation (built-in) |
+| `K`   | Hover documentation (built-in)   |
 
 ### Move Block (visual mode)
 
-| Key | Description |
-|-----|-------------|
+| Key      | Description         |
+| -------- | ------------------- |
 | `<Down>` | Move selection down |
-| `<Up>` | Move selection up |
+| `<Up>`   | Move selection up   |
