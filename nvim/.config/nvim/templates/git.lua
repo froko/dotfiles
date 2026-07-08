@@ -7,7 +7,7 @@
 
 vim.pack.add({
   'https://github.com/nvim-lua/plenary.nvim', -- required dependency
-  'ttps://github.com/sindrets/diffview.nvim', -- side-by-side diffs
+  'https://github.com/sindrets/diffview.nvim', -- side-by-side diffs
   'https://github.com/neogitorg/neogit', -- git porcelain UI
   'https://github.com/lewis6991/gitsigns.nvim', -- inline git signs
 })
