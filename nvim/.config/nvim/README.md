@@ -123,6 +123,7 @@ The `<Leader>` key is set to `Space`.
 | `<Leader>r`       | Reload current buffer      |
 | `<Leader>s`       | Search and replace in file |
 | `<Leader>as`      | Toggle spell checking      |
+| `<Leader>aw`      | Toggle line wrap           |
 | `<Leader>ad`      | Toggle diagnostics         |
 | `<C-d>` / `<C-u>` | Scroll down/up (centered)  |
 

@@ -12,6 +12,7 @@ local vnoremap = require('utils').vnoremap
 inoremap('jk', '<Esc>')
 nnoremap('<leader>r', ':e!<CR>', { desc = 'Reload file' })
 nnoremap('<leader>as', ':setlocal spell!<CR>', { desc = 'Toggle Spellcheck' })
+nnoremap('<leader>aw', ':setlocal wrap!<CR>', { desc = 'Toggle line wrap' })
 nnoremap('<Esc>', '<CMD>noh<CR>', { desc = 'Clear search highlight' })
 
 -- ── Navigation ───────────────────────────────────────────────────────
