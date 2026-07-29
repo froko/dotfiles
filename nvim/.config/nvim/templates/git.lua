@@ -86,6 +86,5 @@ require('gitsigns').setup({
 
     -- Toggles
     map('n', '<leader>ab', gitsigns.toggle_current_line_blame, { desc = 'Toggle current line blame' })
-    map('n', '<leader>ww', gitsigns.toggle_word_diff, { desc = 'Toggle word diff' })
   end,
 })
