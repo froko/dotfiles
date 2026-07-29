@@ -96,6 +96,7 @@ a fallback when blink.cmp is not active.
 | `astro`       | Astro language server, prettier, eslint                                                                                                                                |
 | `autosession` | [auto-session](https://github.com/rmagatti/auto-session) automatic session management                                                                                  |
 | `blink`       | [blink.cmp](https://github.com/saghen/blink.cmp) autocompletion                                                                                                        |
+| `coding-agent`| Coding agent helpers: external autoread, copy file path, send selection to tmux pane                                                                                    |
 | `copilot`     | [GitHub Copilot](https://github.com/github/copilot.vim)                                                                                                                |
 | `cspell`      | [cspell](https://cspell.org/) LSP for spell checking with auto-sorted custom dictionaries                                                                              |
 | `dotnet`      | C#: [roslyn.nvim](https://github.com/seblyng/roslyn.nvim) LSP, csharpier, c_sharp treesitter                                                                           |
