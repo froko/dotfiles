@@ -8,6 +8,7 @@
 --   prettier         - Formatter (fallback)
 --   eslint-lsp       - ESLint language server for diagnostics & code actions
 --   tailwindcss-ls   - Tailwind CSS IntelliSense
+--   html-lsp         - HTML language server
 --   oxfmt            - Fast formatter (preferred when config present)
 --   oxlint           - Fast linter (used when config present)
 
@@ -18,6 +19,7 @@ require('utils').ensure_installed({
   'prettier',
   'eslint-lsp',
   'tailwindcss-language-server',
+  'html-lsp',
   'oxfmt',
   'oxlint',
 })
@@ -119,4 +121,4 @@ vim.lsp.config('eslint', {
 
 -- ── Enable LSP servers ───────────────────────────────────────────────
 
-vim.lsp.enable({ 'vtsls', 'eslint', 'tailwindcss', 'oxlint' })
+vim.lsp.enable({ 'vtsls', 'eslint', 'tailwindcss', 'html', 'oxlint' })

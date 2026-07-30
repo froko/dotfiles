@@ -108,7 +108,7 @@ a fallback when blink.cmp is not active.
 | `svelte`      | Svelte language server, prettier, eslint                                                                                                                               |
 | `vimtest`     | [vim-test](https://github.com/vim-test/vim-test) with jest/playwright auto-detection                                                                                   |
 | `vue`         | Vue language server with hybrid mode (vtsls + @vue/typescript-plugin), prettier, eslint                                                                                |
-| `web`         | Base web development: vtsls, eslint, tailwindcss, prettier, oxfmt/oxlint (config-gated)                                                                                |
+| `web`         | Base web development: vtsls, eslint, tailwindcss, html-lsp, prettier, oxfmt/oxlint (config-gated)                                                                      |
 | `zk`          | [zk-nvim](https://github.com/zk-org/zk-nvim) note-taking                                                                                                               |
 
 ## Keybindings
