@@ -38,9 +38,11 @@ require('utils').setup_web_lint_autocmd({ '*.component.html' })
 -- template-specific intelligence (completion, diagnostics, hovers).
 
 vim.lsp.config('angularls', {
-  on_attach = function(client)
-    client.server_capabilities.referencesProvider = false
-    client.server_capabilities.definitionProvider = false
+  on_attach = function(client, bufnr)
+    local ft = vim.bo[bufnr].filetype
+    local is_ts = ft == 'typescript' or ft == 'typescriptreact'
+    client.server_capabilities.referencesProvider = not is_ts
+    client.server_capabilities.definitionProvider = not is_ts
   end,
 })
 

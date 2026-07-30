@@ -70,15 +70,15 @@ return {
     local node_paths = collect_node_modules(root_dir)
 
     local ts_probe = table.concat(node_paths, ',')
-    local ng_probe = table.concat(
-      vim
-        .iter(node_paths)
-        :map(function(p)
-          return fs.joinpath(p, '@angular/language-server/node_modules')
-        end)
-        :totable(),
-      ','
-    )
+    local ng_probe_paths = {}
+    for _, p in ipairs(node_paths) do
+      table.insert(ng_probe_paths, p)
+      local nested = fs.joinpath(p, '@angular/language-server/node_modules')
+      if uv.fs_stat(nested) then
+        table.insert(ng_probe_paths, nested)
+      end
+    end
+    local ng_probe = table.concat(ng_probe_paths, ',')
 
     local cmd = {
       'ngserver',
