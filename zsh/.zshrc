@@ -77,7 +77,23 @@ export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
+ff() {
+  fzf --query="$1" \
+      --preview 'bat --style=numbers --color=always --line-range :500 {}' \
+      --bind 'enter:become(nvim {1} +{2})'
+}
 
+fg() {
+  RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+  INITIAL_QUERY="${*:-}"
+  fzf --ansi --disabled --query "$INITIAL_QUERY" \
+      --bind "start:reload:$RG_PREFIX {q} || true" \
+      --bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
+      --delimiter : \
+      --preview 'bat --color=always {1} --highlight-line {2}' \
+      --preview-window '+{2}+3/3,~3' \
+      --bind 'enter:become(nvim {1} +{2})'
+}
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~ Aliases ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

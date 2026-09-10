@@ -24,6 +24,13 @@ following aliases:
 - `...`: Navigate to the grandparent directory.
 - `....`: Navigate to the great-grandparent directory.
 
+The following functions are available:
+
+- `ff`: Fuzzy find files using `fzf` with a `bat` preview. Press `enter` to open
+  the selected file in `nvim`.
+- `fg`: Live grep using `rg` and `fzf` with a `bat` preview. Press `enter` to
+  open the file at the matching line in `nvim`.
+
 Use `ctrl+r` to search through the command history using `fzf`.
 
 The configuration also includes the following plugins:
