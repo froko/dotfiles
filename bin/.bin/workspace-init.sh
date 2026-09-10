@@ -5,7 +5,6 @@ apps=(
   "Google Chrome"
   "Slack"
   "WezTerm"
-  "Zed"
   "GitKraken"
 )
 
