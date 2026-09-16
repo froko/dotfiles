@@ -54,12 +54,13 @@ local function resolve_agent_pane(callback)
 end
 
 local function tmux_send(target, text, literal)
-  local cmd = { 'tmux', 'send-keys', '-t', target }
   if literal then
-    table.insert(cmd, '-l')
+    vim.fn.system({ 'tmux', 'set-buffer', '-b', 'nvim-agent', text })
+    vim.fn.system({ 'tmux', 'paste-buffer', '-t', target, '-b', 'nvim-agent', '-d', '-p' })
+  else
+    vim.fn.system({ 'tmux', 'send-keys', '-t', target, text })
   end
-  table.insert(cmd, text)
-  vim.fn.system(cmd)
+  vim.fn.system({ 'tmux', 'select-pane', '-t', target })
 end
 
 local function send_file_path(target)
