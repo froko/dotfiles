@@ -55,14 +55,14 @@ prompt pure
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ fzf Configuration ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 _fzf_compgen_path() {
-  fd --hidden --exclude .git . "$1"
+  fd --hidden --exclude .git . "${1:-.}"
 }
 
 _fzf_compgen_dir() {
-  fd --type=d --hidden --exclude .git . "$1"
+  fd --type=d --hidden --exclude .git . "${1:-.}"
 }
 
-show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
+show_file_or_dir_preview="if [ -d '{}' ]; then eza --tree --level=3 --color=always -- '{}' | head -n 200; else bat -n --color=always --line-range :500 -- '{}'; fi"
 
 export FZF_DEFAULT_OPTS=" \
 --color=spinner:#f5e0dc,hl:#f38ba8 \
@@ -75,7 +75,7 @@ export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git
 
 
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
-export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --level=3 --color=always -- {} | head -n 200'"
 
 ff() {
   fzf --query="$1" \
