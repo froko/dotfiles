@@ -24,12 +24,22 @@ following aliases:
 - `...`: Navigate to the grandparent directory.
 - `....`: Navigate to the great-grandparent directory.
 
+- `gs`: Short `git status` with the branch header, ahead/behind counts and the
+  number of stash entries.
+- `gfa`: Fetch from all remotes including tags, pruning remote-tracking refs for
+  branches that no longer exist upstream.
+- `glog`: Git log as a decorated, colored commit graph with one line per commit.
+
 The following functions are available:
 
 - `ff`: Fuzzy find files using `fzf` with a `bat` preview. Press `enter` to open
   the selected file in `nvim`.
 - `fg`: Live grep using `rg` and `fzf` with a `bat` preview. Press `enter` to
   open the file at the matching line in `nvim`.
+- `gco`: Check out a branch selected with `fzf` from all local and remote
+  branches, sorted by most recent commit.
+- `gdiff`: Pick a commit from the log with `fzf`, previewing its stat, and review
+  it hunk by hunk using `hunk`.
 
 Use `ctrl+r` to search through the command history using `fzf`.
 

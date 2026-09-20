@@ -127,3 +127,45 @@ just() {
     command just --global-justfile "$@"
   fi
 }
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~ Git Aliases ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+# Short status with the branch header and ahead/behind counts, plus a reminder
+# of how many stash entries exist.
+alias gs="git status -sb --show-stash"
+
+# Fetch from every remote, including tags, and delete remote-tracking refs for
+# branches that no longer exist upstream.
+alias gfa="git fetch --all --tags --prune"
+
+# Git log with graph, one line per commit, decorated with branch and tag names,
+# showing all commits including boundaries, and always using color.
+alias glog="git log --graph --oneline --decorate --all --boundary --color=always"
+
+# Drop any stale aliases so re-sourcing this file can redefine the functions;
+# zsh expands an existing alias before it parses `name()`.
+unalias gco gdiff 2>/dev/null
+
+# Checkout a branch picked from all local and remote branches, newest first.
+gco() {
+  local branch
+  branch=$(git branch -a --sort=-committerdate |
+    grep -v '/HEAD' |
+    fzf |
+    sed -e 's/^[ *]*//' -e 's|^remotes/origin/||') || return
+  [ -n "$branch" ] || return
+  git checkout "$branch"
+}
+
+# Pick a commit from the log and review it hunk by hunk.
+gdiff() {
+  local line sha
+  line=$(glog "$@" |
+    fzf --ansi --no-sort --reverse --tiebreak=index \
+      --header 'select a commit to review in hunk' \
+      --preview 's=$(printf %s {} | grep -oE "[0-9a-f]{7,}" | head -1); [ -n "$s" ] && git show --color=always --stat "$s"' \
+      --preview-window 'right,50%,wrap') || return
+  sha=$(printf %s "$line" | grep -oE '[0-9a-f]{7,}' | head -1)
+  [ -n "$sha" ] || return
+  hunk show "$sha"
+}
