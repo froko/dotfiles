@@ -1,10 +1,12 @@
 tap "homebrew/bundle"
 
 brew "bat"
+brew "delta"
 brew "eza"
 brew "fd"
 brew "fzf"
 brew "git"
+brew "hunk"
 brew "just"
 brew "lazygit"
 brew "neovim"
