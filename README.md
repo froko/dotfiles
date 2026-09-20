@@ -18,6 +18,7 @@ Link the files using the `ln -s` command:
 ```bash
 cd ~/dotfiles
 ln -s bat/.config/bat ~/.config/bat
+ln -s hunk/.config/hunk ~/.config/hunk
 ln -s just/.config/just ~/.config/just
 ln -s nvim/.config/nvim ~/.config/nvim
 ln -s presenterm/.config/presenterm ~/.config/presenterm
@@ -35,7 +36,7 @@ the symlinks:
 
 ```bash
 cd ~/dotfiles
-stow bat just nvim presenterm tmux vim yazi zk zsh
+stow bat hunk just nvim presenterm tmux vim yazi zk zsh
 stow wezterm zed
 ```
 
@@ -45,6 +46,7 @@ For detailed documentation refer to the individual README files in their config
 directories:
 
 - [bat](bat/.config/bat/README.md)
+- [hunk](hunk/.config/hunk/README.md)
 - [just](just/.config/just/README.md)
 - [nvim](nvim/.config/nvim/README.md)
 - [presenterm](presenterm/.config/presenterm/README.md)

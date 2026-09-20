@@ -6,8 +6,10 @@ applications:
 
 - [zsh](https://www.zsh.org/)
 - [bat](https://github.com/sharkdp/bat)
+- [delta](https://dandavison.github.io/delta/)
 - [eza](https://github.com/eza-community/eza)
 - [fzf](https://github.com/junegunn/fzf)
+- [hunk](https://www.hunk.dev/)
 - [just](https://github.com/casey/just)
 - [lazygit](https://github.com/jesseduffield/lazygit)
 - [neovim](https://neovim.io/)
@@ -41,10 +43,12 @@ Install the basic applications using Homebrew:
 brew install \
   git \
   bat \
+  delta \
   eza \
   fd \
   fzf \
   git \
+  hunk \
   just \
   lazygit \
   neovim \
