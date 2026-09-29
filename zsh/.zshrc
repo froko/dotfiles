@@ -33,12 +33,16 @@ eval "$(zoxide init zsh)"
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ History ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
+HISTSIZE=1000000
+SAVEHIST=1000000
 
-setopt HIST_IGNORE_DUPS
-setopt SHARE_HISTORY
-
+setopt append_history
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_expire_dups_first
+setopt hist_find_no_dups
+setopt hist_reduce_blanks
+setopt inc_append_history
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Prompt ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -65,9 +69,11 @@ _fzf_compgen_dir() {
 show_file_or_dir_preview="if [ -d '{}' ]; then eza --tree --level=3 --color=always -- '{}' | head -n 200; else bat -n --color=always --line-range :500 -- '{}'; fi"
 
 export FZF_DEFAULT_OPTS=" \
---color=spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+--color=bg+:#363a4f,spinner:#f4dbd6,hl:#ed8796 \
+--color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
+--color=marker:#b7bdf8,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796 \
+--color=selected-bg:#494d64 \
+--color=border:#6e738d,label:#cad3f5"
 
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -111,9 +117,9 @@ alias daily="zk daily"
 
 alias l="eza --icons --git --long"
 alias ll="eza --icons --git --all --long"
+alias tree="eza --icons --git-ignore --tree --all --level=3"
 
 alias cd="z"
-alias cdi="zi"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
