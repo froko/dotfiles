@@ -102,8 +102,8 @@ a fallback when blink.cmp is not active.
 | `dotnet`      | C#: [roslyn.nvim](https://github.com/seblyng/roslyn.nvim) LSP, csharpier, c_sharp treesitter                                                                           |
 | `flash`       | [flash.nvim](https://github.com/folke/flash.nvim) jump navigation                                                                                                      |
 | `git`         | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim), [neogit](https://github.com/neogitorg/neogit), [diffview.nvim](https://github.com/sindrets/diffview.nvim) |
+| `http`        | [http-client.nvim](https://github.com/askfiy/http-client.nvim) HTTP client                                                                                             |
 | `hurl`        | [hurl.nvim](https://github.com/samueljoli/hurl.nvim) HTTP client                                                                                                       |
-| `kulala`      | [kulala.nvim](https://github.com/mistweaverco/kulala.nvim) HTTP client                                                                                                 |
 | `react`       | JSX/TSX treesitter, prettier, eslint                                                                                                                                   |
 | `svelte`      | Svelte language server, prettier, eslint                                                                                                                               |
 | `vimtest`     | [vim-test](https://github.com/vim-test/vim-test) with jest/playwright auto-detection                                                                                   |
