@@ -32,16 +32,6 @@ require('utils').ensure_installed({ 'roslyn', 'csharpier' })
 require('nvim-treesitter').install({ 'c_sharp' })
 require('conform').formatters_by_ft.cs = { 'csharpier' }
 
--- Start Treesitter on C# buffers. nvim-treesitter (main) does not auto-start
--- the parser per-filetype, so highlighting and Treesitter folding only work
--- once `vim.treesitter.start()` runs for the buffer.
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'cs' },
-  callback = function(args)
-    vim.treesitter.start(args.buf)
-  end,
-})
-
 -- ── LSP (Roslyn) ─────────────────────────────────────────────────────
 -- roslyn.nvim defines the `roslyn` lsp config and auto-detects the
 -- Mason-installed binary. Analyzer/code-style diagnostics are enabled so

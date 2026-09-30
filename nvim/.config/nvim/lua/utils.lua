@@ -50,6 +50,51 @@ function M.ensure_installed(packages)
   end)
 end
 
+-- ── Treesitter auto-start ────────────────────────────────────────────
+-- nvim-treesitter (main branch) does not start parsers automatically: its
+-- `setup()` only accepts `install_dir`, so the `highlight`/`indent` options
+-- from the old `master` branch are silently ignored. Highlighting, Treesitter
+-- folding and `indentexpr` only work once `vim.treesitter.start()` has run for
+-- the buffer.
+--
+-- Rather than an autocmd per filetype, a single FileType autocmd resolves each
+-- buffer's filetype to its parser and starts it when that parser is installed.
+-- `get_lang()` handles the cases where filetype and parser names diverge
+-- (cs -> c_sharp, htmlangular -> angular, typescriptreact -> tsx).
+
+--- Start Treesitter for every buffer whose parser is installed.
+--- Idempotent: safe to call once at startup.
+function M.setup_treesitter_autostart()
+  vim.api.nvim_create_autocmd('FileType', {
+    desc = 'Start Treesitter when a parser is installed for the filetype',
+    group = vim.api.nvim_create_augroup('treesitter-autostart', { clear = true }),
+    callback = function(args)
+      local ft = vim.bo[args.buf].filetype
+      if ft == '' then
+        return
+      end
+
+      local lang = vim.treesitter.language.get_lang(ft)
+      if not lang then
+        return
+      end
+
+      -- `vim.treesitter.start` throws when no parser is available, so guard the
+      -- call: buffers without an installed parser keep Vim's regex syntax.
+      if not pcall(vim.treesitter.start, args.buf, lang) then
+        return
+      end
+
+      -- Treesitter-based indentation (the old `indent = { enable = true }`).
+      -- Skipped for filetypes whose bundled indent plugin is better, matching
+      -- nvim-treesitter's own guidance.
+      if not vim.list_contains({ 'yaml', 'python' }, ft) then
+        vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end
+    end,
+  })
+end
+
 -- ── Web linter detection ─────────────────────────────────────────────
 -- Determines which linters (oxlint, eslint) apply to a buffer by
 -- checking whether their config files exist in the project root.

@@ -15,10 +15,14 @@ vim.pack.add({
 
 -- ── Plugin setup ─────────────────────────────────────────────────────
 
-require('nvim-treesitter').setup({
-  highlight = { enable = true },
-  indent = { enable = true },
-})
+-- nvim-treesitter (main) `setup()` only reads `install_dir` — the old master
+-- branch's `highlight`/`indent` options no longer exist. Parsers are started
+-- by the FileType autocmd below instead.
+require('nvim-treesitter').setup()
+
+-- Start Treesitter on any buffer whose parser is installed, and enable
+-- Treesitter-based indentation for those buffers.
+require('utils').setup_treesitter_autostart()
 
 require('mason').setup()
 
