@@ -104,12 +104,16 @@ fg() {
 # ~~~~~~~~~~~~~~~~~~~~~~~~ yazi Shell Wrapper ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Use `e` to launch Yazi and `cd` into the last visited directory after exiting.
 function e() {
+  emulate -L zsh
   local tmp cwd
   tmp="$(mktemp -t "yazi-cwd.XXXXXX")" || return
 
   command yazi "$@" --cwd-file="$tmp"
 
-  IFS= read -r -d '' cwd < "$tmp"
+  # Yazi writes the cwd terminated by NUL; be tolerant if it isn't.
+  cwd="$(command cat -- "$tmp" 2>/dev/null)"
+  cwd="${cwd%%$'\0'*}"
+
   if [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && [ -d "$cwd" ]; then
     builtin cd -- "$cwd"
   fi
