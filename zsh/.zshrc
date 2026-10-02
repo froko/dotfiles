@@ -101,6 +101,22 @@ fg() {
       --bind 'enter:become(nvim {1} +{2})'
 }
 
+# ~~~~~~~~~~~~~~~~~~~~~~~~ yazi Shell Wrapper ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Use `e` to launch Yazi and `cd` into the last visited directory after exiting.
+function e() {
+  local tmp cwd
+  tmp="$(mktemp -t "yazi-cwd.XXXXXX")" || return
+
+  command yazi "$@" --cwd-file="$tmp"
+
+  IFS= read -r -d '' cwd < "$tmp"
+  if [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && [ -d "$cwd" ]; then
+    builtin cd -- "$cwd"
+  fi
+
+  command rm -f -- "$tmp"
+}
+
 # ~~~~~~~~~~~~~~~~~~~~~~~~ Aliases ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 alias reload='RELOAD=1 source ~/.zshrc'
@@ -108,7 +124,6 @@ alias reload='RELOAD=1 source ~/.zshrc'
 alias c="clear"
 alias t='sesh connect $(sesh list | fzf)'
 alias v="nvim"
-alias e="yazi"
 alias lg="lazygit"
 alias dot="cd $DOTFILES && nvim"
 alias notes="cd $NOTES && zk edit -i"

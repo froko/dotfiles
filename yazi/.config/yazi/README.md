@@ -4,4 +4,4 @@
 and efficient way to navigate and manage files in the terminal.
 
 The provided configuration in this dotfiles repository sets the theme to
-`Catppuccin Mocha` and choses `nvim` as the default editor.
+`Catppuccin Macchiato` and chooses `nvim` as the default editor.

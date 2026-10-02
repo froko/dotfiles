@@ -6,7 +6,7 @@ following aliases:
 - `reload`: Reload the `.zshrc` file.
 - `c`: Clear the terminal screen.
 - `t`: Start a new tmux session using `sesh connect`.
-- `e`: Alias for `yazi`, my preferred file manager.
+- `e`: A `yazi` wrapper that `cd`s into the last visited directory on exit.
 - `v`: Alias for `nvim`, my preferred text editor.
 - `lg`: Alias for `lazygit`, my preferred git client for the terminal.
 - `dot`: Navigate to the dotfiles directory and open it in `nvim`.
