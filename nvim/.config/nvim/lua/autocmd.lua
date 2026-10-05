@@ -43,6 +43,15 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Automatically close terminal buffers when pressing 'q'
+vim.api.nvim_create_autocmd('TermOpen', {
+  group = vim.api.nvim_create_augroup('TerminalSettings', { clear = true }),
+  callback = function(event)
+    -- Map 'q' in terminal normal mode to close the terminal window
+    vim.keymap.set('n', 'q', '<cmd>close<CR>', { buffer = event.buf, silent = true })
+  end,
+})
+
 -- ── Cursor position restoration ──────────────────────────────────────
 
 -- Jump to the last known cursor position when reopening a file
