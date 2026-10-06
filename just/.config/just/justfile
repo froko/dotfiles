@@ -5,8 +5,12 @@ _index:
 # Run a command, show output only on failure
 _run-and-report cmd description:
     #!/usr/bin/env bash
+    # Output is captured, so any interactive prompt would hang invisibly.
+    # Close stdin and tell Corepack/CI-aware tools not to ask.
+    export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+    export CI=1
     tmp=$(mktemp)
-    if {{cmd}} >"$tmp" 2>&1; then
+    if {{cmd}} >"$tmp" 2>&1 </dev/null; then
       rm "$tmp"
       echo $'\n✅ {{description}}'
     else
@@ -19,10 +23,10 @@ _run-and-report cmd description:
 upgrade:
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "brew update && brew upgrade -y && brew cleanup" "Homebrew dependencies updated"
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "nvim --headless -c 'lua vim.pack.update(nil, { force = true })' -c 'qa'" "Neovim plugins updated"
-  @{{just_executable()}} --justfile {{justfile()}} _run-and-report """nvim --headless -c 'lua if not require("utils").treesitter_update_all() then vim.cmd.cquit() end' -c 'qa'""" "Treesitter parsers updated"
-  @{{just_executable()}} --justfile {{justfile()}} _run-and-report """nvim --headless -c 'lua if not require("utils").mason_update_all() then vim.cmd.cquit() end' -c 'qa'""" "Mason packages updated"
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "nvim --headless -c 'lua if require(\"utils\").treesitter_update_all() then vim.cmd(\"qall!\") end' -c 'cquit'" "Treesitter parsers updated"
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "nvim --headless -c 'lua if require(\"utils\").mason_update_all() then vim.cmd(\"qall!\") end' -c 'cquit'" "Mason packages updated"
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "~/.config/tmux/plugins/tpm/bin/update_plugins all 2>&1 | awk '{ print } /update fail/ { failed = 1 } END { exit failed }'" "Tmux plugins updated"
-  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "pnpm update -g --latest" "Global pnpm packages updated"
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "pnpm up -g" "Global pnpm packages updated"
 
 
 # Restore tmux sessions from last save (tmux-resurrect)
