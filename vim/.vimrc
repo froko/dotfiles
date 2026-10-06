@@ -99,8 +99,8 @@ call plug#begin()
 call plug#end()
 
 " Color scheme
-colorscheme catppuccin_mocha
-let g:airline_theme = 'catppuccin_mocha'
+colorscheme catppuccin_macchiato
+let g:airline_theme = 'catppuccin_macchiato'
 "
 " Easy Motion
 let g:EasyMotion_smartcase = 1

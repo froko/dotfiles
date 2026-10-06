@@ -4,7 +4,7 @@ set -o vi
 
 export VISUAL=nvim
 export EDITOR=nvim
-export BAT_THEME="Catppuccin Mocha"
+export BAT_THEME="Catppuccin Macchiato"
 export DOTFILES="$HOME/dotfiles"
 export NOTES="$HOME/notes"
 export PRESENTERM_CONFIG_FILE="$HOME/.config/presenterm/config.yaml"
