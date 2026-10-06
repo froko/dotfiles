@@ -23,8 +23,8 @@ The configuration includes the following keybindings, while `<C-a>` is the
 default prefix key:
 
 - `r`: Reload the tmux configuration file.
-- `|`: Split the current pane vertically.
-- `-`: Split the current pane horizontally.
+- `|`: Split the current pane horizontally (panes side by side).
+- `-`: Split the current pane vertically (panes stacked).
 - `j`: Resize the current pane down.
 - `k`: Resize the current pane up.
 - `h`: Resize the current pane left.
@@ -36,4 +36,35 @@ default prefix key:
 - `T`: Open another tmux session using fzf.
 - `I`: Install plugins.
 - `U`: Update plugins.
-- `,`: Rename the current pane.
+- `,`: Rename the current window.
+
+## Appearance
+
+The Catppuccin **Macchiato** flavour is set via `@catppuccin_flavor`. All colors
+in `tmux.conf` reference the theme's `@thm_*` variables rather than hard-coded
+hex values, so changing the flavour restyles everything consistently.
+
+> **Note:** Catppuccin defines its palette with `set -ogq`, which does not
+> overwrite values that are already set. Reloading the config with `<C-a> r` is
+> therefore *not* enough to switch flavours — run `tmux kill-server` (or unset
+> the `@thm_*` variables) so the new palette loads.
+
+### Pane focus indicator
+
+The active pane is marked in three complementary ways, because a shared border
+line alone is ambiguous — it cannot show which of the two adjacent panes it
+belongs to:
+
+- A per-pane title line (`pane-border-status bottom`) showing the pane index and
+  running command, highlighted in lavender for the active pane.
+- A heavy border (`pane-border-lines heavy`) in lavender, so focus is signalled
+  by weight as well as colour.
+- Arrow indicators (`pane-border-indicators arrows`) pointing into the active
+  pane.
+
+The title line sits at the *bottom* because `status-position` is `top`; placing
+it on top would leave it flush against the status bar with no visual separation.
+
+Inactive panes are deliberately *not* dimmed via `window-style`: setting a
+concrete background colour makes tmux emit an opaque background, which destroys
+terminal transparency.
