@@ -60,6 +60,15 @@ note *note:
     fi
     echo "✅ Added to JOURNAL.md: $entry"
 
+# Start the XpDroid UI debugging environment in tmux
+xpdroid-debug:
+    tmux send-keys 'cd /Users/ineichep/Work/XpDroid/Unit.UI/UI/Source/XpDroid && pnpm start' Enter
+    tmux split-window -v
+    tmux send-keys 'start_api' Enter
+    sleep 5
+    tmux split-window -v
+    tmux send-keys 'suppress_notifications; exit' Enter
+
 # Quick/safe cleanup (no sudo)
 clean:
     #!/usr/bin/env bash
