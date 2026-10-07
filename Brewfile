@@ -1,5 +1,3 @@
-tap "homebrew/bundle"
-
 brew "bat"
 brew "delta"
 brew "eza"
@@ -19,7 +17,6 @@ brew "presenterm"
 brew "pure"
 brew "ripgrep"
 brew "stow"
-brew "task"
 brew "tmux"
 brew "tree-sitter-cli"
 brew "wget"
