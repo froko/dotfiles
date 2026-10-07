@@ -17,7 +17,9 @@ Link the files using the `ln -s` command:
 
 ```bash
 cd ~/dotfiles
+ln -s aerospace/.config/aerospace ~/.config/aerospace
 ln -s bat/.config/bat ~/.config/bat
+ln -s bin/.bin ~/.bin
 ln -s hunk/.config/hunk ~/.config/hunk
 ln -s just/.config/just ~/.config/just
 ln -s nvim/.config/nvim ~/.config/nvim
@@ -36,17 +38,23 @@ the symlinks:
 
 ```bash
 cd ~/dotfiles
-stow bat hunk just nvim presenterm tmux vim yazi zk zsh
+stow aerospace bat bin hunk just nvim presenterm tmux vim yazi zk zsh
 stow wezterm zed
 ```
+
+The `jetbrains` and `windows` directories are not stowed — see their
+documentation below for placement instructions.
 
 ## Documentation
 
 For detailed documentation refer to the individual README files in their config
 directories:
 
+- [aerospace](aerospace/README.md)
 - [bat](bat/.config/bat/README.md)
+- [bin](bin/README.md)
 - [hunk](hunk/.config/hunk/README.md)
+- [jetbrains](jetbrains/README.md)
 - [just](just/.config/just/README.md)
 - [nvim](nvim/.config/nvim/README.md)
 - [presenterm](presenterm/.config/presenterm/README.md)
@@ -56,8 +64,8 @@ directories:
 - [zk](zk/.config/zk/README.md)
 - [zsh](zsh/README.md)
 - [wezterm](wezterm/.config/wezterm/README.md)
-- [zed](zed/README.md)
-- [Homebrew](/homebrew/README.md)
+- [zed](zed/.config/zed/README.md)
+- [Homebrew](homebrew/README.md)
 
 ## References
 

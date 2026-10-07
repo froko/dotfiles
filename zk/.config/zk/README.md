@@ -23,6 +23,8 @@ All notes have a tag list in their frontmatter.
 - `zk add My first Note`: Adds a new note with the title "My first Note".
 - `zk area My area`: Adds a new area note with the title "My area".
 - `zk project My project`: Adds a new project note with the title "My project".
+- `zk daily`: Creates or opens today's note in the `journal` directory. Also
+  available as the `daily` shell alias.
 
 ### List notes
 
@@ -35,9 +37,9 @@ All notes have a tag list in their frontmatter.
 
 ### Manage notes
 
-- `zk rm`: Removes an archived note selected from the `fzf` fuzzy finder.
-- `zk update`: Commits all changes to the notes and pushes them to the remote
-  Git repository.
+- `zk sync`: Synchronizes the notebook with its Git remote. Stashes local work,
+  rebases onto `origin/main`, restores the stash, then commits and pushes any
+  changes. Also available as `just sync`.
 
 ## Important tags
 

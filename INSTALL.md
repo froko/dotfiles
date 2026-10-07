@@ -28,8 +28,10 @@ In addition, there are a few other resources required by the applications above:
 - [pure prompt](https://github.com/sindresorhus/pure) required by zsh
 - [vim-plug](https://github.com/junegunn/vim-plug) required by vim
 - [tpm](https://github.com/tmux-plugins/tpm) required by tmux
-- [fd](https://github.com/sharkdp/fd) required by neovim
-- [ripgrep](https://github.com/BurntSushi/ripgrep) required by neovim
+- [fd](https://github.com/sharkdp/fd) required by neovim and the zsh `fzf`
+  integration
+- [ripgrep](https://github.com/BurntSushi/ripgrep) required by neovim and the
+  zsh `fzf` integration
 
 ## MacOS
 
@@ -37,32 +39,15 @@ In addition, there are a few other resources required by the applications above:
 
 ### Basic Applications
 
-Install the basic applications using Homebrew:
+All packages — formulae and casks alike — are declared in the
+[`Brewfile`](Brewfile) at the root of this repository. Install them in one go:
 
 ```bash
-brew install \
-  git \
-  bat \
-  delta \
-  eza \
-  fd \
-  fzf \
-  git \
-  hunk \
-  just \
-  lazygit \
-  neovim \
-  presenterm \
-  pure \
-  ripgrep \
-  stow \
-  tmux \
-  yazi \
-  zk \
-  zoxide \
-  zsh-autosuggestions \
-  joshmedeski/sesh/sesh
+brew bundle --file ~/dotfiles/Brewfile
 ```
+
+See the [Homebrew documentation](homebrew/README.md) for installing Homebrew
+itself, updating packages, and regenerating the `Brewfile`.
 
 ### vim Plugin Manager
 
@@ -80,6 +65,18 @@ Install the tmux plugin manager via git:
 ```bash
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
+
+### Post-Installation Actions
+
+Once you have cloned the dotfiles repository and linked the configurations, you
+can apply them to the following applications:
+
+- `bat`: run `bat cache --build` so the bundled Catppuccin themes are picked up.
+- `tmux`: After starting tmux, press `<c-a> I` to install the tmux plugins.
+- `nvim`: The plugins will be installed automatically when you open nvim for the
+  first time.
+- `vim`: After starting vim, run `:PlugInstall` to install the vim plugins. You
+  may need to confirm the first error message.
 
 ## Linux (Debian/Ubuntu) [OUTDATED]
 

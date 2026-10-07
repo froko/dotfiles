@@ -9,6 +9,12 @@ machine using optional plugin templates:
 
 - `init.lua` — Entry point: enables the byte-code loader, then loads core
   modules
+
+> **Note:** `init.lua` also calls `require('vim._core.ui2').enable()` to opt
+> into the new message/UI layer. This is a private (underscore-prefixed) Neovim
+> API and may be renamed or removed between releases — if nvim fails to start
+> after an upgrade, comment out that line first.
+
 - `lua/` — Core configuration (options, keymaps, autocmds, essentials, coding)
   - `lua/utils.lua` — Shared helpers: keymap wrappers, Mason installer, web
     linter detection
@@ -90,26 +96,26 @@ a fallback when blink.cmp is not active.
 
 ### Templates (optional)
 
-| Template      | Description                                                                                                                                                            |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `angular`     | Angular language server                                                                                                                                                |
-| `astro`       | Astro language server, prettier, eslint                                                                                                                                |
-| `autosession` | [auto-session](https://github.com/rmagatti/auto-session) automatic session management                                                                                  |
-| `blink`       | [blink.cmp](https://github.com/saghen/blink.cmp) autocompletion                                                                                                        |
-| `coding-agent`| Coding agent helpers: external autoread, copy file path, send selection to tmux pane                                                                                    |
-| `copilot`     | [GitHub Copilot](https://github.com/github/copilot.vim)                                                                                                                |
-| `cspell`      | [cspell](https://cspell.org/) LSP for spell checking with auto-sorted custom dictionaries                                                                              |
-| `dotnet`      | C#: [roslyn.nvim](https://github.com/seblyng/roslyn.nvim) LSP, csharpier, c_sharp treesitter                                                                           |
-| `flash`       | [flash.nvim](https://github.com/folke/flash.nvim) jump navigation                                                                                                      |
-| `git`         | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim), [neogit](https://github.com/neogitorg/neogit), [diffview.nvim](https://github.com/sindrets/diffview.nvim) |
-| `http`        | [http-client.nvim](https://github.com/askfiy/http-client.nvim) HTTP client                                                                                             |
-| `hurl`        | [hurl.nvim](https://github.com/samueljoli/hurl.nvim) HTTP client                                                                                                       |
-| `react`       | JSX/TSX treesitter, prettier, eslint                                                                                                                                   |
-| `svelte`      | Svelte language server, prettier, eslint                                                                                                                               |
-| `vimtest`     | [vim-test](https://github.com/vim-test/vim-test) with jest/playwright auto-detection                                                                                   |
-| `vue`         | Vue language server with hybrid mode (vtsls + @vue/typescript-plugin), prettier, eslint                                                                                |
-| `web`         | Base web development: vtsls, eslint, tailwindcss, html-lsp, prettier, oxfmt/oxlint (config-gated)                                                                      |
-| `zk`          | [zk-nvim](https://github.com/zk-org/zk-nvim) note-taking                                                                                                               |
+| Template       | Description                                                                                                                                                            |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `angular`      | Angular language server                                                                                                                                                |
+| `astro`        | Astro language server, prettier, eslint                                                                                                                                |
+| `autosession`  | [auto-session](https://github.com/rmagatti/auto-session) automatic session management                                                                                  |
+| `blink`        | [blink.cmp](https://github.com/saghen/blink.cmp) autocompletion                                                                                                        |
+| `coding-agent` | Coding agent helpers: external autoread, copy file path, send selection to tmux pane                                                                                   |
+| `copilot`      | [GitHub Copilot](https://github.com/github/copilot.vim)                                                                                                                |
+| `cspell`       | [cspell](https://cspell.org/) LSP for spell checking with auto-sorted custom dictionaries                                                                              |
+| `dotnet`       | C#: [roslyn.nvim](https://github.com/seblyng/roslyn.nvim) LSP, csharpier, c_sharp treesitter                                                                           |
+| `flash`        | [flash.nvim](https://github.com/folke/flash.nvim) jump navigation                                                                                                      |
+| `git`          | [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim), [neogit](https://github.com/neogitorg/neogit), [diffview.nvim](https://github.com/sindrets/diffview.nvim) |
+| `http`         | [http-client.nvim](https://github.com/askfiy/http-client.nvim) HTTP client                                                                                             |
+| `hurl`         | [hurl.nvim](https://github.com/samueljoli/hurl.nvim) HTTP client                                                                                                       |
+| `react`        | JSX/TSX treesitter, prettier, eslint                                                                                                                                   |
+| `svelte`       | Svelte language server, prettier, eslint                                                                                                                               |
+| `vimtest`      | [vim-test](https://github.com/vim-test/vim-test) with jest/playwright auto-detection                                                                                   |
+| `vue`          | Vue language server with hybrid mode (vtsls + @vue/typescript-plugin), prettier, eslint                                                                                |
+| `web`          | Base web development: vtsls, eslint, tailwindcss, html-lsp, prettier, oxfmt/oxlint (config-gated)                                                                      |
+| `zk`           | [zk-nvim](https://github.com/zk-org/zk-nvim) note-taking                                                                                                               |
 
 ## Keybindings
 

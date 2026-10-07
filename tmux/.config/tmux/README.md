@@ -31,12 +31,19 @@ default prefix key:
 - `l`: Resize the current pane right.
 - `c`: Create a new window.
 - `m`: Toggle the current pane's zoom state.
+- `x`: Kill the current pane (without a confirmation prompt).
 - `E`: Display a popup with yazi (file manager).
 - `G`: Display a popup with lazygit.
 - `T`: Open another tmux session using fzf.
 - `I`: Install plugins.
 - `U`: Update plugins.
 - `,`: Rename the current window.
+
+Navigation between panes is handled by `vim-tmux-navigator`, so `<C-h>`,
+`<C-j>`, `<C-k>` and `<C-l>` move between tmux panes and Neovim splits alike —
+no prefix needed.
+
+In copy mode, vi keys are used: `v` starts the selection and `y` copies it.
 
 ## Appearance
 
@@ -46,7 +53,7 @@ hex values, so changing the flavour restyles everything consistently.
 
 > **Note:** Catppuccin defines its palette with `set -ogq`, which does not
 > overwrite values that are already set. Reloading the config with `<C-a> r` is
-> therefore *not* enough to switch flavours — run `tmux kill-server` (or unset
+> therefore _not_ enough to switch flavours — run `tmux kill-server` (or unset
 > the `@thm_*` variables) so the new palette loads.
 
 ### Pane focus indicator
@@ -62,9 +69,9 @@ belongs to:
 - Arrow indicators (`pane-border-indicators arrows`) pointing into the active
   pane.
 
-The title line sits at the *bottom* because `status-position` is `top`; placing
+The title line sits at the _bottom_ because `status-position` is `top`; placing
 it on top would leave it flush against the status bar with no visual separation.
 
-Inactive panes are deliberately *not* dimmed via `window-style`: setting a
+Inactive panes are deliberately _not_ dimmed via `window-style`: setting a
 concrete background colour makes tmux emit an opaque background, which destroys
 terminal transparency.
