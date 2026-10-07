@@ -131,7 +131,6 @@ alias v="nvim"
 alias lg="lazygit"
 alias dot="cd $DOTFILES && nvim"
 alias notes="cd $NOTES && zk edit -i"
-alias note='~/.bin/note.sh'
 alias daily="zk daily"
 
 alias l="eza --icons --git --long"

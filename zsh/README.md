@@ -18,8 +18,6 @@ General:
 Notes:
 
 - `notes`: Navigate to the notes directory and pick a note to edit with `zk`.
-- `note`: Append a timestamped entry to the journal (see
-  [`bin`](../bin/README.md)).
 - `daily`: Create or open today's journal note using `zk daily`.
 
 Listing files:
