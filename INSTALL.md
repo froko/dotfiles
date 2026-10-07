@@ -12,7 +12,7 @@ applications:
 - [hunk](https://www.hunk.dev/)
 - [just](https://github.com/casey/just)
 - [lazygit](https://github.com/jesseduffield/lazygit)
-- [neovim](https://neovim.io/)
+- [neovim](https://neovim.io/) — **0.12 or newer required**
 - [`presenterm`](https://mfontanini.github.io/presenterm/)
 - [sesh](https://github.com/joshmedeski/sesh)
 - [stow](https://www.gnu.org/software/stow/)
@@ -83,27 +83,36 @@ can apply them to the following applications:
 - `vim`: After starting vim, run `:PlugInstall` to install the vim plugins. You
   may need to confirm the first error message.
 
-## Linux (Debian/Ubuntu) [OUTDATED]
+## Linux (Debian/Ubuntu)
+
+> [!WARNING]
+> **This section was generated with AI assistance and has not been tested on a
+> live system.** It was rewritten from an older, outdated version against
+> current upstream documentation and package indexes, but no part of it has been
+> run end to end. Expect errors, omissions and version drift — verify each
+> command before trusting it, and treat the package availability notes as a
+> starting point rather than fact. The macOS section above is the only one in
+> active use.
 
 The following instructions assume a WSL2 instance with a fresh Debian or Ubuntu
-installation. If you already have a working Debian or Ubuntu installation, you
-may skip some of the steps.
+installation. If you already have a working installation, you may skip some of
+the steps.
 
-It turned out that the `fzf` package for the current Ubuntu LTS version (24.04)
-is outdated, so you need to install the version 25.04. You find the base image
-here:
-[https://releases.ubuntu.com/plucky/ubuntu-25.04-wsl-amd64.wsl](https://releases.ubuntu.com/plucky/ubuntu-25.04-wsl-amd64.wsl).
-
-After downloading the base image, you can just double-click the downloaded wsl
-file to import it into WSL2.
+Ubuntu 26.04 LTS ("Resolute Raccoon") or newer is recommended: earlier releases
+shipped an `fzf` too old for the configuration in this repository. The WSL base
+images are available from [releases.ubuntu.com](https://releases.ubuntu.com/).
+After downloading, you can double-click the `.wsl` file to import it into WSL2.
 
 ### Basic Applications
 
-Install the basic applications using apt:
+Most of the tooling is in the Ubuntu archive as of 26.04. Enable the `universe`
+repository if it is not already, then install:
 
 ```bash
 sudo apt update
-sudo apt install -y bat eza fd-find fzf gcc libicu-dev ripgrep stow tmux unzip zoxide zsh
+sudo apt install -y \
+  bat eza fd-find fzf git-delta just lazygit ripgrep stow tmux zoxide zsh \
+  curl gcc git libicu-dev unzip
 ```
 
 Change the default shell to zsh for your user:
@@ -112,7 +121,9 @@ Change the default shell to zsh for your user:
 chsh -s $(which zsh)
 ```
 
-Create aliases for `batcat` and `fd-find`:
+Debian and Ubuntu ship `bat` as `batcat` and `fd` as `fdfind` to avoid name
+clashes. Create aliases so the configuration finds them under the expected
+names:
 
 ```bash
 mkdir -p ~/.bin \
@@ -120,10 +131,84 @@ mkdir -p ~/.bin \
   && ln -s $(which fdfind) ~/.bin/fd
 ```
 
-Install ['nvm'](https://github.com/nvm-sh/nvm)
+### Neovim (0.12 or newer required)
+
+The configuration in this repository uses `vim.pack`, which needs **Neovim
+0.12+**. Do not install Neovim from `apt` or from the `neovim-ppa/stable` PPA:
+both lag far behind (the PPA has not been updated since 2022) and will be too
+old.
+
+Use the snap, which tracks stable releases:
 
 ```bash
-PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash'
+sudo snap install nvim --classic
+```
+
+Alternatively, install the official pre-built tarball, which avoids snapd
+entirely:
+
+```bash
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+rm nvim-linux-x86_64.tar.gz
+echo 'export PATH="$PATH:/opt/nvim-linux-x86_64/bin"' >> ~/.zshenv
+```
+
+Verify you are on a supported version before going further:
+
+```bash
+nvim --version | head -1   # expect v0.12.0 or newer
+```
+
+### Remaining Applications
+
+`yazi`, `zk`, `sesh`, `hunk` and `presenterm` are not in the Ubuntu archive.
+Install the ones you need from snap:
+
+```bash
+sudo snap install yazi --classic
+sudo snap install zk --classic
+```
+
+Make sure the snap bin directory is on your PATH:
+
+```bash
+echo 'export PATH="$PATH:/snap/bin"' >> ~/.zshenv
+```
+
+Install `sesh` from its
+[latest GitHub release](https://github.com/joshmedeski/sesh/releases/latest).
+Check that page for the current version and asset name rather than copying a
+version number from here:
+
+```bash
+SESH_VERSION=2.32.0   # check the releases page for the current version
+mkdir -p ~/.bin ~/temp
+curl -L "https://github.com/joshmedeski/sesh/releases/download/v${SESH_VERSION}/sesh_Linux_x86_64.tar.gz" -o ~/temp/sesh.tar.gz
+tar -xzf ~/temp/sesh.tar.gz -C ~/temp
+mv ~/temp/sesh ~/.bin/sesh
+rm -rf ~/temp
+```
+
+`hunk` provides an official install script:
+
+```bash
+curl -fsSL https://hunk.dev/install.sh | sh
+```
+
+`presenterm` publishes Linux binaries on its
+[releases page](https://github.com/mfontanini/presenterm/releases) and can be
+installed the same way as `sesh` above, or via `cargo install presenterm` if you
+have a Rust toolchain.
+
+### Node.js
+
+Install [nvm](https://github.com/nvm-sh/nvm), checking its repository for the
+current installer version:
+
+```bash
+PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash'
 ```
 
 Add the following lines to your `~/.zprofile` file to load nvm automatically:
@@ -132,34 +217,6 @@ Add the following lines to your `~/.zprofile` file to load nvm automatically:
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-```
-
-Install lazygit, neovim, slides, yazi, and zk using snap:
-
-```bash
-sudo snap install lazygit --classic
-sudo snap install nvim --classic
-sudo snap install slides --classic
-sudo snap install yazi --classic
-sudo snap install zk --classic
-```
-
-Make sure to add the snap bin directory folder to your PATH:
-
-```bash
-echo 'export PATH="$PATH:/snap/bin"' >> ~/.zshenv
-```
-
-Install sesh from the
-[GitHub Release](https://github.com/joshmedeski/sesh/releases/latest) page.
-Please replace the version number with the latest version available:
-
-```bash
-mkdir -p ~/temp
-wget https://github.com/joshmedeski/sesh/releases/download/v2.17.1/sesh_Linux_x86_64.tar.gz -O ~/temp/sesh.tar.gz
-tar -xvzf ~/temp/sesh.tar.gz -C ~/temp
-mv ~/temp/sesh ~/.bin/sesh
-rm -rf ~/temp
 ```
 
 ### zsh Plugins
@@ -211,7 +268,15 @@ can apply them to the following applications:
 - `vim`: After starting vim, run `:PlugInstall` to install the vim plugins. You
   may need to confirm the first error message.
 
-## Linux (Arch) [OUTDATED]
+## Linux (Arch)
+
+> [!WARNING]
+> **This section was generated with AI assistance and has not been tested on a
+> live system.** It was rewritten from an older, outdated version against
+> current upstream documentation and package indexes, but no part of it has been
+> run end to end. Expect errors, omissions and version drift — verify each
+> command before trusting it. The macOS section above is the only one in active
+> use.
 
 This instruction assumes you have installed a brand new Arch Linux for WSL2.
 Before proceeding, let's provide a basic environment. If you already have a
@@ -236,10 +301,11 @@ desired locale, for example:
 en_US.UTF-8 UTF-8
 ```
 
-Then generate the locale:
+Then generate the locale and set it system-wide:
 
 ```bash
 locale-gen
+echo 'LANG=en_US.UTF-8' > /etc/locale.conf
 ```
 
 Set the timezone by creating a symlink to the desired timezone file in
@@ -255,7 +321,15 @@ Create a new sudo group:
 groupadd sudo
 ```
 
-Edit the `'etc/sudors'` file and uncomment the following lines:
+Grant that group sudo rights. Edit the sudoers file with `visudo`, which
+validates the syntax before saving — a malformed `/etc/sudoers` can lock you
+out of `sudo` entirely:
+
+```bash
+EDITOR=vim visudo
+```
+
+Uncomment the following lines:
 
 ```bash
 %wheel ALL=(ALL:ALL) NOPASSWD: ALL
@@ -283,16 +357,34 @@ wsl --manage archlinux --set-default-user yourusername
 
 ### Basic Applications
 
-Install the basic applications using pacman:
+Arch tracks upstream closely, so almost everything — including a current
+Neovim — comes straight from the official repositories:
 
 ```bash
-sudo pacman -Syu bat eza fd fzf gcc lazygit neovim ripgrep slides stow tmux yazi zoxide zk zsh
+sudo pacman -Syu \
+  bat eza fd fzf git-delta just lazygit neovim presenterm ripgrep \
+  stow tmux yazi zoxide zk zsh \
+  curl gcc git unzip
 ```
 
-Install ['nvm'](https://github.com/nvm-sh/nvm)
+Confirm Neovim is 0.12 or newer, which the configuration in this repository
+requires:
 
 ```bash
-PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash'
+nvim --version | head -1   # expect v0.12.0 or newer
+```
+
+`hunk` is not in the official repositories; use its install script:
+
+```bash
+curl -fsSL https://hunk.dev/install.sh | sh
+```
+
+Install [nvm](https://github.com/nvm-sh/nvm), checking its repository for the
+current installer version:
+
+```bash
+PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash'
 ```
 
 Add the following lines to your `~/.zprofile` file to load nvm automatically:
@@ -303,17 +395,21 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 ```
 
-Install sesh from the
-[GitHub Release](https://github.com/joshmedeski/sesh/releases/latest) page.
-Please replace the version number with the latest version available:
+Install `sesh` from its
+[latest GitHub release](https://github.com/joshmedeski/sesh/releases/latest).
+Check that page for the current version and asset name rather than copying a
+version number from here:
 
 ```bash
-mkdir -p ~/temp
-wget https://github.com/joshmedeski/sesh/releases/download/v2.17.1/sesh_Linux_x86_64.tar.gz -O ~/temp/sesh.tar.gz
-tar -xvzf ~/temp/sesh.tar.gz -C ~/temp
-mkdir -p ~/.bin && mv ~/temp/sesh ~/.bin/sesh
+SESH_VERSION=2.32.0   # check the releases page for the current version
+mkdir -p ~/.bin ~/temp
+curl -L "https://github.com/joshmedeski/sesh/releases/download/v${SESH_VERSION}/sesh_Linux_x86_64.tar.gz" -o ~/temp/sesh.tar.gz
+tar -xzf ~/temp/sesh.tar.gz -C ~/temp
+mv ~/temp/sesh ~/.bin/sesh
 rm -rf ~/temp
 ```
+
+`sesh` is also available from the AUR as `sesh-bin` if you use an AUR helper.
 
 ### zsh Plugins
 
