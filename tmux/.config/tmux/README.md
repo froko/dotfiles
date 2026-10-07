@@ -17,6 +17,12 @@
   A plugin that automatically saves and restores tmux sessions, ensuring that
   your work is never lost.
 
+Everything — tpm included — lives under `~/.config/tmux/plugins/`. tpm picks
+that directory because this `tmux.conf` sits at the XDG location, so `tmux.conf`
+loads tpm from there too rather than from `~/.tmux/plugins/`, keeping the
+bootstrap and the plugins it manages in one tree. The plugin directory is
+git-ignored.
+
 ## Keybindings
 
 The configuration includes the following keybindings, while `<C-a>` is the

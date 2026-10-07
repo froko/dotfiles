@@ -63,8 +63,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 Install the tmux plugin manager via git:
 
 ```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
+
+> **Note:** the path matters. Because `tmux.conf` lives at the XDG location, tpm
+> sets `TMUX_PLUGIN_MANAGER_PATH` to `~/.config/tmux/plugins/` and installs
+> every plugin there. Cloning tpm itself to `~/.tmux/plugins/tpm` would leave
+> the bootstrap in one tree and the plugins it manages in another.
 
 ### Post-Installation Actions
 
@@ -180,8 +185,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 Install the tmux plugin manager via git:
 
 ```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
+
+> **Note:** the path matters. Because `tmux.conf` lives at the XDG location, tpm
+> sets `TMUX_PLUGIN_MANAGER_PATH` to `~/.config/tmux/plugins/` and installs
+> every plugin there. Cloning tpm itself to `~/.tmux/plugins/tpm` would leave
+> the bootstrap in one tree and the plugins it manages in another.
 
 ### Post-Installation Actions
 
@@ -328,8 +338,13 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 Install the tmux plugin manager via git:
 
 ```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
+
+> **Note:** the path matters. Because `tmux.conf` lives at the XDG location, tpm
+> sets `TMUX_PLUGIN_MANAGER_PATH` to `~/.config/tmux/plugins/` and installs
+> every plugin there. Cloning tpm itself to `~/.tmux/plugins/tpm` would leave
+> the bootstrap in one tree and the plugins it manages in another.
 
 ### Post-Installation Actions
 
