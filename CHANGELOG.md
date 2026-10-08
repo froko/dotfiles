@@ -1,79 +1,138 @@
 # Changelog
 
-## [3.2.0](https://github.com/froko/dotfiles/compare/v3.1.0...v3.2.0) (2026-10-08)
+## [4.0.0](https://github.com/froko/dotfiles/compare/v3.1.0...v4.0.0) (2026-10-08)
 
 ### Features
 
-* **bin:** remove Zed frome autostart ([0fdf1e4](https://github.com/froko/dotfiles/commit/0fdf1e4f1b8bcaaaaa4a61e70d4d3d8d93f78d1a))
-* **hunk:** add hunk config ([3afb331](https://github.com/froko/dotfiles/commit/3afb331df9fd214135c3d2f2a109501833b27aaf))
-* **just:** add note recipe ([e7bff42](https://github.com/froko/dotfiles/commit/e7bff427f421a2e28c74ec2b59b7e9969d105c8b))
-* **nvim:** add angular ls & improve angular plugin ([43f86e8](https://github.com/froko/dotfiles/commit/43f86e89cf41c04fdebc542c498211759ab0e363))
-* **nvim:** add coding-agent plugin template ([9054809](https://github.com/froko/dotfiles/commit/905480907ab04a67806f4a441a7d4e8d56709b3d))
-* **nvim:** add dotnet plugin template ([af1ddf9](https://github.com/froko/dotfiles/commit/af1ddf9aeb603ea2e092aa129c1e7bd0802c781b))
-* **nvim:** add html-lsp ([8c1ef18](https://github.com/froko/dotfiles/commit/8c1ef18e14200c1bac53bfcbe76b2f08b0bf717b))
-* **nvim:** add line wrap toggle keymap ([302e58d](https://github.com/froko/dotfiles/commit/302e58d4110902d911800068e1edd1e02e210e14))
-* **nvim:** add support for oxfmt & oxlint ([2f46ba7](https://github.com/froko/dotfiles/commit/2f46ba7b4c89cd52561e5627fb255f071c925902))
-* **nvim:** close terminal when pressing 'q' ([f3da565](https://github.com/froko/dotfiles/commit/f3da5658dd59735babd173dd4e00cd652b60af23))
-* **nvim:** remove ww word diff toggle from git plugin ([a29d7d3](https://github.com/froko/dotfiles/commit/a29d7d30057c3312f6e73ade1ff9f8c0c893d43d))
-* **nvim:** replace kulala template by http template ([89a6b3a](https://github.com/froko/dotfiles/commit/89a6b3a187215ba7e7051f728b08995a3748def4))
-* **nvim:** use proper TreeSitter autostart over all file types ([ead10e5](https://github.com/froko/dotfiles/commit/ead10e581b43850954d190337bdcf007893c1499))
-* **obsidian:** remove Obsidian configuration ([86eb55a](https://github.com/froko/dotfiles/commit/86eb55a653800c89c94110a57925b729b2acc9c4))
-* **tmux:** add yazi display popup (prefix-E) ([87f96de](https://github.com/froko/dotfiles/commit/87f96de201231aafa4a3538044563a4b119bd029))
-* **tmux:** improve pane focus indicator and switch to macchiato ([fcd2539](https://github.com/froko/dotfiles/commit/fcd253983b542ae2a7df6af3473868fb1d70acec))
-* **tmux:** improve tmux status/command line overrides ([64d62f1](https://github.com/froko/dotfiles/commit/64d62f173ccf74095f336eca8b7388361714a4df))
-* **yazi:** update config and cd-on-exit wrapper ([eec9914](https://github.com/froko/dotfiles/commit/eec9914fca5c360a86847b01c2eb9f23f6d2131b))
-* **yazi:** update configuration ([e0daa58](https://github.com/froko/dotfiles/commit/e0daa58c38ffa844eeb13dcde15b6dfbc060a7dc))
-* **zed:** update agent configuration ([691b759](https://github.com/froko/dotfiles/commit/691b759e288d67638beb6d2b7f9067957fc24bb5))
-* **zed:** update configuration ([6467ea1](https://github.com/froko/dotfiles/commit/6467ea1a263d284bf74e2a27c7d3adc338770be0))
-* **zsh:** add ff and fg functions ([f0ab6ca](https://github.com/froko/dotfiles/commit/f0ab6cafdad7a07fa4fb880a360e3b653b672e02))
-* **zsh:** add git aliases ([42462c3](https://github.com/froko/dotfiles/commit/42462c3aec04c00db641eac02d8cc0776eb1b58b))
-* **zsh:** append ~/.local/bin to path ([8a788a7](https://github.com/froko/dotfiles/commit/8a788a7cf0f2f7283cd2998f73172f483dbac76e))
-* **zsh:** update fzf configuration ([35c30c9](https://github.com/froko/dotfiles/commit/35c30c9fd183188994ff37eb18f69fa06d5b1fbe))
-* **zsh:** update history options and fzf color scheme ([adefe9b](https://github.com/froko/dotfiles/commit/adefe9bfb09d91fc6fc1b81576cb06d3d314e64c))
+- **bin:** remove Zed frome autostart
+  ([0fdf1e4](https://github.com/froko/dotfiles/commit/0fdf1e4f1b8bcaaaaa4a61e70d4d3d8d93f78d1a))
+- **hunk:** add hunk config
+  ([3afb331](https://github.com/froko/dotfiles/commit/3afb331df9fd214135c3d2f2a109501833b27aaf))
+- **just:** add note recipe
+  ([e7bff42](https://github.com/froko/dotfiles/commit/e7bff427f421a2e28c74ec2b59b7e9969d105c8b))
+- **nvim:** add angular ls & improve angular plugin
+  ([43f86e8](https://github.com/froko/dotfiles/commit/43f86e89cf41c04fdebc542c498211759ab0e363))
+- **nvim:** add coding-agent plugin template
+  ([9054809](https://github.com/froko/dotfiles/commit/905480907ab04a67806f4a441a7d4e8d56709b3d))
+- **nvim:** add dotnet plugin template
+  ([af1ddf9](https://github.com/froko/dotfiles/commit/af1ddf9aeb603ea2e092aa129c1e7bd0802c781b))
+- **nvim:** add html-lsp
+  ([8c1ef18](https://github.com/froko/dotfiles/commit/8c1ef18e14200c1bac53bfcbe76b2f08b0bf717b))
+- **nvim:** add line wrap toggle keymap
+  ([302e58d](https://github.com/froko/dotfiles/commit/302e58d4110902d911800068e1edd1e02e210e14))
+- **nvim:** add support for oxfmt & oxlint
+  ([2f46ba7](https://github.com/froko/dotfiles/commit/2f46ba7b4c89cd52561e5627fb255f071c925902))
+- **nvim:** close terminal when pressing 'q'
+  ([f3da565](https://github.com/froko/dotfiles/commit/f3da5658dd59735babd173dd4e00cd652b60af23))
+- **nvim:** remove ww word diff toggle from git plugin
+  ([a29d7d3](https://github.com/froko/dotfiles/commit/a29d7d30057c3312f6e73ade1ff9f8c0c893d43d))
+- **nvim:** replace kulala template by http template
+  ([89a6b3a](https://github.com/froko/dotfiles/commit/89a6b3a187215ba7e7051f728b08995a3748def4))
+- **nvim:** use proper TreeSitter autostart over all file types
+  ([ead10e5](https://github.com/froko/dotfiles/commit/ead10e581b43850954d190337bdcf007893c1499))
+- **obsidian:** remove Obsidian configuration
+  ([86eb55a](https://github.com/froko/dotfiles/commit/86eb55a653800c89c94110a57925b729b2acc9c4))
+- **tmux:** add yazi display popup (prefix-E)
+  ([87f96de](https://github.com/froko/dotfiles/commit/87f96de201231aafa4a3538044563a4b119bd029))
+- **tmux:** improve pane focus indicator and switch to macchiato
+  ([fcd2539](https://github.com/froko/dotfiles/commit/fcd253983b542ae2a7df6af3473868fb1d70acec))
+- **tmux:** improve tmux status/command line overrides
+  ([64d62f1](https://github.com/froko/dotfiles/commit/64d62f173ccf74095f336eca8b7388361714a4df))
+- **yazi:** update config and cd-on-exit wrapper
+  ([eec9914](https://github.com/froko/dotfiles/commit/eec9914fca5c360a86847b01c2eb9f23f6d2131b))
+- **yazi:** update configuration
+  ([e0daa58](https://github.com/froko/dotfiles/commit/e0daa58c38ffa844eeb13dcde15b6dfbc060a7dc))
+- **zed:** update agent configuration
+  ([691b759](https://github.com/froko/dotfiles/commit/691b759e288d67638beb6d2b7f9067957fc24bb5))
+- **zed:** update configuration
+  ([6467ea1](https://github.com/froko/dotfiles/commit/6467ea1a263d284bf74e2a27c7d3adc338770be0))
+- **zsh:** add ff and fg functions
+  ([f0ab6ca](https://github.com/froko/dotfiles/commit/f0ab6cafdad7a07fa4fb880a360e3b653b672e02))
+- **zsh:** add git aliases
+  ([42462c3](https://github.com/froko/dotfiles/commit/42462c3aec04c00db641eac02d8cc0776eb1b58b))
+- **zsh:** append ~/.local/bin to path
+  ([8a788a7](https://github.com/froko/dotfiles/commit/8a788a7cf0f2f7283cd2998f73172f483dbac76e))
+- **zsh:** update fzf configuration
+  ([35c30c9](https://github.com/froko/dotfiles/commit/35c30c9fd183188994ff37eb18f69fa06d5b1fbe))
+- **zsh:** update history options and fzf color scheme
+  ([adefe9b](https://github.com/froko/dotfiles/commit/adefe9bfb09d91fc6fc1b81576cb06d3d314e64c))
 
 ### Bug Fixes
 
-* align package manifest and session apps with actual usage ([00d0a9f](https://github.com/froko/dotfiles/commit/00d0a9fb88cfae9b81ad998cb2da8a0e13737090))
-* **just:** execute vim.pack.update() ([aa8b59c](https://github.com/froko/dotfiles/commit/aa8b59ceac2d179aadccf41e52c4588a9c6ef042))
-* **nvim:** diffview url in git.lua ([3af9f40](https://github.com/froko/dotfiles/commit/3af9f4008e67e49f69f906046a90bdf275f13ce1))
-* **nvim:** enable go-to-definition from angular html templates ([099404b](https://github.com/froko/dotfiles/commit/099404bf58585af506b2996e20f6c096695631a7))
-* **nvim:** move focus to tmux pane with coding agent after a text has been pasted by nvim ([4e21640](https://github.com/froko/dotfiles/commit/4e216404f58fabdf6af799ff04fc05cea8b6b67b))
-* **nvim:** statusline seperators ([d2637dc](https://github.com/froko/dotfiles/commit/d2637dca7cf4af15c004b534cf5290b65cad9624))
-* **tmux:** load tpm from the same tree it installs plugins into ([031c5aa](https://github.com/froko/dotfiles/commit/031c5aa48b3d1ca804cc49f456c5731e310cbf6b))
-* **zk:** show all files with a slide tag when running the zk slides alias ([b258591](https://github.com/froko/dotfiles/commit/b258591b5d3b2287971fe870824d14793af780d3))
-* **zsh:** make yazi wrapper cd correctly ([34dbf5b](https://github.com/froko/dotfiles/commit/34dbf5bc60d56119442323a21012b1e2d5de4213))
+- align package manifest and session apps with actual usage
+  ([00d0a9f](https://github.com/froko/dotfiles/commit/00d0a9fb88cfae9b81ad998cb2da8a0e13737090))
+- **just:** execute vim.pack.update()
+  ([aa8b59c](https://github.com/froko/dotfiles/commit/aa8b59ceac2d179aadccf41e52c4588a9c6ef042))
+- **nvim:** diffview url in git.lua
+  ([3af9f40](https://github.com/froko/dotfiles/commit/3af9f4008e67e49f69f906046a90bdf275f13ce1))
+- **nvim:** enable go-to-definition from angular html templates
+  ([099404b](https://github.com/froko/dotfiles/commit/099404bf58585af506b2996e20f6c096695631a7))
+- **nvim:** move focus to tmux pane with coding agent after a text has been
+  pasted by nvim
+  ([4e21640](https://github.com/froko/dotfiles/commit/4e216404f58fabdf6af799ff04fc05cea8b6b67b))
+- **nvim:** statusline seperators
+  ([d2637dc](https://github.com/froko/dotfiles/commit/d2637dca7cf4af15c004b534cf5290b65cad9624))
+- **tmux:** load tpm from the same tree it installs plugins into
+  ([031c5aa](https://github.com/froko/dotfiles/commit/031c5aa48b3d1ca804cc49f456c5731e310cbf6b))
+- **zk:** show all files with a slide tag when running the zk slides alias
+  ([b258591](https://github.com/froko/dotfiles/commit/b258591b5d3b2287971fe870824d14793af780d3))
+- **zsh:** make yazi wrapper cd correctly
+  ([34dbf5b](https://github.com/froko/dotfiles/commit/34dbf5bc60d56119442323a21012b1e2d5de4213))
 
 ## [3.1.0](https://github.com/froko/dotfiles/compare/v3.0.0...v3.1.0) (2026-05-06)
 
 ### Features
 
-* **bin:** add note script ([7ed2f45](https://github.com/froko/dotfiles/commit/7ed2f45473596ddb2b6af7f0f9df8970a70d4026))
-* **just:** remove tpm update and task sync ([0d00813](https://github.com/froko/dotfiles/commit/0d00813bce314479fd359523dbdf3332c108abb4))
-* **nvim:** add cspell LSP for spell checking ([266ef5a](https://github.com/froko/dotfiles/commit/266ef5a02f9da5af0d98d54d33210b47b8d84c8a))
-* **nvim:** add hurl plugin template ([8349196](https://github.com/froko/dotfiles/commit/83491964dd2456a777ee00ad52fb9a3bd62c17a4))
-* **nvim:** add useful autocommands ([221d0ff](https://github.com/froko/dotfiles/commit/221d0ff029bc801fc4871b1021ef82b6388f26c7))
-* **nvim:** enhance LSP with filtered code actions and fzf ui_select ([3825995](https://github.com/froko/dotfiles/commit/382599573123b1da1e3e8ccd33dedfc53d7c24ad))
-* **nvim:** fall back to native autocompletion if blink.cmp is not active ([5f503be](https://github.com/froko/dotfiles/commit/5f503bedb17ad50f031191e8c988d6a79de4ca48))
-* **nvim:** get rid of 'Remove trailing whitespace on save' autocmd ([2a8bece](https://github.com/froko/dotfiles/commit/2a8becef9e60d3c7ce43f19eb0c16dcafa25e8a6))
-* **nvim:** ignore nvim-pack lock file ([59290aa](https://github.com/froko/dotfiles/commit/59290aa29982fc845516bba4596431b95f092bea))
-* **nvim:** improve buffer deletion to preserve terminal buffers ([c17782d](https://github.com/froko/dotfiles/commit/c17782d7cb4885513fe321995d27daacaeaa073d))
-* **nvim:** keep alphabetical order when adding a new word via cspell LSP code action ([a8937e2](https://github.com/froko/dotfiles/commit/a8937e2e7df3f3d251567b11657cc71c51972649))
-* **nvim:** misc config improvements ([abd0373](https://github.com/froko/dotfiles/commit/abd0373eab8f9459192c71721dae62761cb84e75))
-* **nvim:** remove version argument in LspEslintFixAll cmd ([9a846a1](https://github.com/froko/dotfiles/commit/9a846a1b479fc243b0c4607b3ce4c2b4d08a0fce))
-* **nvim:** support ignorePaths in cspell LSP ([b491b7c](https://github.com/froko/dotfiles/commit/b491b7c60c6dc279c5227cbe45a1e09acefa05a5))
-* **nvim:** switch to nvim-treesitter ([e72dc05](https://github.com/froko/dotfiles/commit/e72dc0523ceabeec15e8dd57fc3008862c695e21))
-* **presenterm:** add config ([818ca2b](https://github.com/froko/dotfiles/commit/818ca2b4f0282383ca54519bca404c8888005315))
-* **task:** remove taskwarrior configuration ([546be85](https://github.com/froko/dotfiles/commit/546be85850b7e3d77b22b1bf7a0f9f337e315f56))
-* **tmux:** set allow-passthrough on (required for image support by presenterm) ([27e4b4b](https://github.com/froko/dotfiles/commit/27e4b4b850f113e3b51dc918b2dc8bb3d676c8df))
-* **zed:** configure panel dock positions ([e1bb050](https://github.com/froko/dotfiles/commit/e1bb0504bc6ae3d4c1b6ea8fc2d9dfa51b4df698))
-* **zk:** replace slides by presenterm ([53b137e](https://github.com/froko/dotfiles/commit/53b137e2429957c7a0eeedb6dd8ffa5525da7d43))
+- **bin:** add note script
+  ([7ed2f45](https://github.com/froko/dotfiles/commit/7ed2f45473596ddb2b6af7f0f9df8970a70d4026))
+- **just:** remove tpm update and task sync
+  ([0d00813](https://github.com/froko/dotfiles/commit/0d00813bce314479fd359523dbdf3332c108abb4))
+- **nvim:** add cspell LSP for spell checking
+  ([266ef5a](https://github.com/froko/dotfiles/commit/266ef5a02f9da5af0d98d54d33210b47b8d84c8a))
+- **nvim:** add hurl plugin template
+  ([8349196](https://github.com/froko/dotfiles/commit/83491964dd2456a777ee00ad52fb9a3bd62c17a4))
+- **nvim:** add useful autocommands
+  ([221d0ff](https://github.com/froko/dotfiles/commit/221d0ff029bc801fc4871b1021ef82b6388f26c7))
+- **nvim:** enhance LSP with filtered code actions and fzf ui_select
+  ([3825995](https://github.com/froko/dotfiles/commit/382599573123b1da1e3e8ccd33dedfc53d7c24ad))
+- **nvim:** fall back to native autocompletion if blink.cmp is not active
+  ([5f503be](https://github.com/froko/dotfiles/commit/5f503bedb17ad50f031191e8c988d6a79de4ca48))
+- **nvim:** get rid of 'Remove trailing whitespace on save' autocmd
+  ([2a8bece](https://github.com/froko/dotfiles/commit/2a8becef9e60d3c7ce43f19eb0c16dcafa25e8a6))
+- **nvim:** ignore nvim-pack lock file
+  ([59290aa](https://github.com/froko/dotfiles/commit/59290aa29982fc845516bba4596431b95f092bea))
+- **nvim:** improve buffer deletion to preserve terminal buffers
+  ([c17782d](https://github.com/froko/dotfiles/commit/c17782d7cb4885513fe321995d27daacaeaa073d))
+- **nvim:** keep alphabetical order when adding a new word via cspell LSP code
+  action
+  ([a8937e2](https://github.com/froko/dotfiles/commit/a8937e2e7df3f3d251567b11657cc71c51972649))
+- **nvim:** misc config improvements
+  ([abd0373](https://github.com/froko/dotfiles/commit/abd0373eab8f9459192c71721dae62761cb84e75))
+- **nvim:** remove version argument in LspEslintFixAll cmd
+  ([9a846a1](https://github.com/froko/dotfiles/commit/9a846a1b479fc243b0c4607b3ce4c2b4d08a0fce))
+- **nvim:** support ignorePaths in cspell LSP
+  ([b491b7c](https://github.com/froko/dotfiles/commit/b491b7c60c6dc279c5227cbe45a1e09acefa05a5))
+- **nvim:** switch to nvim-treesitter
+  ([e72dc05](https://github.com/froko/dotfiles/commit/e72dc0523ceabeec15e8dd57fc3008862c695e21))
+- **presenterm:** add config
+  ([818ca2b](https://github.com/froko/dotfiles/commit/818ca2b4f0282383ca54519bca404c8888005315))
+- **task:** remove taskwarrior configuration
+  ([546be85](https://github.com/froko/dotfiles/commit/546be85850b7e3d77b22b1bf7a0f9f337e315f56))
+- **tmux:** set allow-passthrough on (required for image support by presenterm)
+  ([27e4b4b](https://github.com/froko/dotfiles/commit/27e4b4b850f113e3b51dc918b2dc8bb3d676c8df))
+- **zed:** configure panel dock positions
+  ([e1bb050](https://github.com/froko/dotfiles/commit/e1bb0504bc6ae3d4c1b6ea8fc2d9dfa51b4df698))
+- **zk:** replace slides by presenterm
+  ([53b137e](https://github.com/froko/dotfiles/commit/53b137e2429957c7a0eeedb6dd8ffa5525da7d43))
 
 ## [3.0.0](https://github.com/froko/dotfiles/compare/v2.0.0...v3.0.0) (2026-04-10)
 
 ### Features
 
-* **just:** upgrade vim.pack and Mason ([ff6c10b](https://github.com/froko/dotfiles/commit/ff6c10b5df09ee5e98c289fa84f4ee89140762de))
-* **nvim:** migrate configuration to v0.12 ([da5099c](https://github.com/froko/dotfiles/commit/da5099c548e6d87902836eaf7b07954c9b1a64bd))
+- **just:** upgrade vim.pack and Mason
+  ([ff6c10b](https://github.com/froko/dotfiles/commit/ff6c10b5df09ee5e98c289fa84f4ee89140762de))
+- **nvim:** migrate configuration to v0.12
+  ([da5099c](https://github.com/froko/dotfiles/commit/da5099c548e6d87902836eaf7b07954c9b1a64bd))
 
 ## [2.0.0](https://github.com/froko/dotfiles/compare/v1.8.0...v2.0.0) (2026-03-29)
 
