@@ -32,6 +32,8 @@ In addition, there are a few other resources required by the applications above:
   integration
 - [ripgrep](https://github.com/BurntSushi/ripgrep) required by neovim and the
   zsh `fzf` integration
+- [Victor Mono](https://rubjo.github.io/victor-mono/) (Nerd Font variant)
+  required by wezterm and zed
 
 ## MacOS
 
@@ -48,6 +50,21 @@ brew bundle --file ~/dotfiles/Brewfile
 
 See the [Homebrew documentation](homebrew/README.md) for installing Homebrew
 itself, updating packages, and regenerating the `Brewfile`.
+
+### Fonts
+
+[Victor Mono](https://rubjo.github.io/victor-mono/) is the default font for
+wezterm and zed. The Nerd Font patched variant is required, since the configs
+rely on its icon glyphs. It is part of the `Brewfile` and therefore already
+installed by `brew bundle` above. To install it on its own, run:
+
+```bash
+brew install --cask font-victor-mono-nerd-font
+```
+
+The cask registers the font families as `VictorMono Nerd Font` and
+`VictorMono Nerd Font Mono` — use those exact names when referencing the font in
+a configuration file.
 
 ### vim Plugin Manager
 
