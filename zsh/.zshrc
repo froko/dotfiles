@@ -24,9 +24,30 @@ export PATH
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Plugins ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source <(fzf --zsh)
-eval "$(zoxide init zsh)"
+# Package managers disagree about where zsh plugins live, so probe a list of
+# candidates instead of branching on the operating system. HOMEBREW_PREFIX is
+# exported by `brew shellenv` (see ~/.zprofile) and is simply empty elsewhere.
+_source_first() {
+  local candidate
+  for candidate in "$@"; do
+    if [[ -r "$candidate" ]]; then
+      source "$candidate"
+      return 0
+    fi
+  done
+  return 1
+}
+
+_source_first \
+  "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh-autosuggestions/zsh-autosuggestions.zsh" \
+  /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh \
+  /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh \
+  "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+# These resolve through PATH and need no per-OS handling; the guards only keep
+# a partial installation from printing errors on every new shell.
+(( $+commands[fzf] )) && source <(fzf --zsh)
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
 
 
 
@@ -49,10 +70,23 @@ setopt inc_append_history
 
 PURE_GIT_PULL=0
 
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
+# Same idea as the plugins above: add every candidate directory that exists and
+# let promptinit find prompt_pure_setup in one of them.
+for _candidate in \
+  "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh/site-functions" \
+  /usr/share/zsh/site-functions \
+  /usr/share/zsh/vendor-functions \
+  /usr/share/zsh-theme-pure \
+  "$HOME/.zsh/pure"
+do
+  [[ -d "$_candidate" ]] && fpath+=("$_candidate")
+done
+unset _candidate
 
 autoload -U promptinit; promptinit
-prompt pure
+
+# Fall back to a plain prompt rather than zsh's bare default when pure is absent.
+prompt pure 2>/dev/null || PS1='%~ %# '
 
 
 
