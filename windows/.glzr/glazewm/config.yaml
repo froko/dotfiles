@@ -110,33 +110,21 @@ window_behavior:
       shown_on_top: false
 
 workspaces:
-  - name: '1'
+  - name: 'A'
     display_name: 'Browser'
     keep_alive: true
-  - name: '2'
+  - name: 'S'
     display_name: 'Slack'
     keep_alive: true
-  - name: '3'
+  - name: 'T'
     display_name: 'Terminal'
     keep_alive: true
-  - name: '4'
-    display_name: 'Development'
+  - name: 'W'
+    display_name: 'Work'
     keep_alive: true
-  - name: '5'
-    display_name: 'Temp'
+  - name: 'G'
+    display_name: 'Git'
     keep_alive: true
-  - name: '6'
-    display_name: 'Misc (6)'
-    keep_alive: false
-  - name: '7'
-    display_name: 'Misc (7)'
-    keep_alive: false
-  - name: '8'
-    display_name: 'Misc (8)'
-    keep_alive: false
-  - name: '9'
-    display_name: 'Misc (9)'
-    keep_alive: false
 
 window_rules:
   - commands: ["ignore"]
@@ -157,22 +145,25 @@ window_rules:
       - window_title: { regex: "Rename" }
         window_process: { equals: "rider64" }
 
-  - commands: ['move --workspace 1']
+  - commands: ['move --workspace A']
     match:
-        - window_process: { regex: 'chrome|msedge' }
+        - window_process: { regex: 'chrome|msedge|brave' }
 
-  - commands: ['move --workspace 2']
+  - commands: ['move --workspace S']
     match:
         - window_process: { equals: 'slack' }
 
-  - commands: ['move --workspace 3']
+  - commands: ['move --workspace T']
     match:
         - window_process: { equals: 'WindowsTerminal' }
 
-  - commands: ['move --workspace 4']
+  - commands: ['move --workspace W']
     match:
         - window_process: { equals: 'rider64' }
         - window_process: { equals: 'Code' }
+
+  - commands: ['move --workspace G']
+    match:
         - window_process: { equals: 'gitkraken' }
 
 binding_modes:
@@ -291,24 +282,16 @@ keybindings:
     bindings: ["alt+d"]
 
   # Change focus to a workspace defined in `workspaces` config.
-  - commands: ["focus --workspace 1"]
+  - commands: ["focus --workspace A"]
     bindings: ["alt+1"]
-  - commands: ["focus --workspace 2"]
+  - commands: ["focus --workspace S"]
     bindings: ["alt+2"]
-  - commands: ["focus --workspace 3"]
+  - commands: ["focus --workspace T"]
     bindings: ["alt+3"]
-  - commands: ["focus --workspace 4"]
+  - commands: ["focus --workspace W"]
     bindings: ["alt+4"]
-  - commands: ["focus --workspace 5"]
+  - commands: ["focus --workspace G"]
     bindings: ["alt+5"]
-  - commands: ["focus --workspace 6"]
-    bindings: ["alt+6"]
-  - commands: ["focus --workspace 7"]
-    bindings: ["alt+7"]
-  - commands: ["focus --workspace 8"]
-    bindings: ["alt+8"]
-  - commands: ["focus --workspace 9"]
-    bindings: ["alt+9"]
 
   # Move the focused window's parent workspace to a monitor in a given
   # direction.
@@ -322,21 +305,13 @@ keybindings:
     bindings: ["alt+shift+s"]
 
   # Move focused window to a workspace defined in `workspaces` config.
-  - commands: ["move --workspace 1", "focus --workspace 1"]
+  - commands: ["move --workspace A", "focus --workspace A"]
     bindings: ["alt+shift+1"]
-  - commands: ["move --workspace 2", "focus --workspace 2"]
+  - commands: ["move --workspace S", "focus --workspace S"]
     bindings: ["alt+shift+2"]
-  - commands: ["move --workspace 3", "focus --workspace 3"]
+  - commands: ["move --workspace T", "focus --workspace T"]
     bindings: ["alt+shift+3"]
-  - commands: ["move --workspace 4", "focus --workspace 4"]
+  - commands: ["move --workspace W", "focus --workspace W"]
     bindings: ["alt+shift+4"]
-  - commands: ["move --workspace 5", "focus --workspace 5"]
+  - commands: ["move --workspace G", "focus --workspace G"]
     bindings: ["alt+shift+5"]
-  - commands: ["move --workspace 6", "focus --workspace 6"]
-    bindings: ["alt+shift+6"]
-  - commands: ["move --workspace 7", "focus --workspace 7"]
-    bindings: ["alt+shift+7"]
-  - commands: ["move --workspace 8", "focus --workspace 8"]
-    bindings: ["alt+shift+8"]
-  - commands: ["move --workspace 9", "focus --workspace 9"]
-    bindings: ["alt+shift+9"]
