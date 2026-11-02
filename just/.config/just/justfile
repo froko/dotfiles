@@ -15,11 +15,14 @@ _run-and-report cmd description:
       exit 1
     fi
 
-# Upgrade homebrew dependencies, nvim Lazy plugins, nvim Mason plugins and tmux plugins
+# Upgrade homebrew dependencies, nvim plugins, Treesitter parsers, Mason packages, tmux plugins and global pnpm packages
 upgrade:
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "brew update && brew upgrade && brew cleanup" "Homebrew dependencies updated"
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "nvim --headless -c 'lua vim.pack.update(nil, { force = true })' -c 'qa'" "Neovim plugins updated"
-  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "npm update -g" "Global npm packages updated"
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report """nvim --headless -c 'lua if not require("utils").treesitter_update_all() then vim.cmd.cquit() end' -c 'qa'""" "Treesitter parsers updated"
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report """nvim --headless -c 'lua if not require("utils").mason_update_all() then vim.cmd.cquit() end' -c 'qa'""" "Mason packages updated"
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "~/.config/tmux/plugins/tpm/bin/update_plugins all 2>&1 | awk '{ print } /update fail/ { failed = 1 } END { exit failed }'" "Tmux plugins updated"
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "pnpm update -g --latest" "Global pnpm packages updated"
 
 
 # Restore tmux sessions from last save (tmux-resurrect)

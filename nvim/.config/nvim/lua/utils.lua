@@ -3,7 +3,8 @@
 -- Shared utility functions used across the Neovim config.
 -- Provides:
 --   - Keymap helpers  (nnoremap, vnoremap, etc.)
---   - Mason package installer
+--   - Mason package installer / updater
+--   - Treesitter parser updater
 --   - Web linter detection (eslint / oxlint based on project config)
 
 local M = {}
@@ -48,6 +49,70 @@ function M.ensure_installed(packages)
       end
     end
   end)
+end
+
+--- Update the Mason registry and upgrade every outdated installed package.
+--- Blocks until finished, so it can be used from `nvim --headless`.
+---@param timeout? integer  max. milliseconds to wait (default: 10 minutes)
+---@return boolean ok  false if the registry update or any package upgrade failed
+function M.mason_update_all(timeout)
+  timeout = timeout or 600000
+  local registry = require('mason-registry')
+
+  local registry_done, registry_ok = false, false
+  registry.update(function(success)
+    registry_done, registry_ok = true, success
+  end)
+  vim.wait(timeout, function()
+    return registry_done
+  end)
+  if not registry_ok then
+    io.stderr:write('Mason: failed to update the registry\n')
+    return false
+  end
+
+  local pending, failed = 0, {}
+  for _, pkg in ipairs(registry.get_installed_packages()) do
+    local installed, latest = pkg:get_installed_version(), pkg:get_latest_version()
+    if installed ~= latest and not pkg:is_installing() then
+      pending = pending + 1
+      io.stdout:write(('Mason: updating %s %s -> %s\n'):format(pkg.name, installed, latest))
+      pkg:install({}, function(success)
+        pending = pending - 1
+        if not success then
+          table.insert(failed, pkg.name)
+        end
+      end)
+    end
+  end
+
+  if not vim.wait(timeout, function()
+    return pending == 0
+  end) then
+    io.stderr:write('Mason: timed out waiting for package updates\n')
+    return false
+  end
+  if #failed > 0 then
+    io.stderr:write('Mason: failed to update ' .. table.concat(failed, ', ') .. '\n')
+    return false
+  end
+  return true
+end
+
+-- ── Treesitter: update parsers ───────────────────────────────────────
+
+--- Update all installed Treesitter parsers.
+--- Blocks until finished, so it can be used from `nvim --headless`.
+---@param timeout? integer  max. milliseconds to wait (default: 10 minutes)
+---@return boolean ok  false if any parser failed to update or the wait timed out
+function M.treesitter_update_all(timeout)
+  local ok, result = pcall(function()
+    return require('nvim-treesitter').update(nil, { summary = true }):wait(timeout or 600000)
+  end)
+  if not ok then
+    io.stderr:write('Treesitter: ' .. tostring(result) .. '\n')
+  end
+  return ok and result == true
 end
 
 -- ── Treesitter auto-start ────────────────────────────────────────────
