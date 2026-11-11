@@ -17,7 +17,7 @@ _run-and-report cmd description:
 
 # Upgrade homebrew dependencies, nvim plugins, Treesitter parsers, Mason packages, tmux plugins and global pnpm packages
 upgrade:
-  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "brew update && brew upgrade && brew cleanup" "Homebrew dependencies updated"
+  @{{just_executable()}} --justfile {{justfile()}} _run-and-report "brew update && brew upgrade -y && brew cleanup" "Homebrew dependencies updated"
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report "nvim --headless -c 'lua vim.pack.update(nil, { force = true })' -c 'qa'" "Neovim plugins updated"
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report """nvim --headless -c 'lua if not require("utils").treesitter_update_all() then vim.cmd.cquit() end' -c 'qa'""" "Treesitter parsers updated"
   @{{just_executable()}} --justfile {{justfile()}} _run-and-report """nvim --headless -c 'lua if not require("utils").mason_update_all() then vim.cmd.cquit() end' -c 'qa'""" "Mason packages updated"
